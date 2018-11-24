@@ -1,0 +1,733 @@
+- id: Phone Stat notifications
+  alias: Notify about phone state
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: sensor.phone
+  action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Phone
+      message: "{% if is_state(\"sensor.phone\", \"idle\") %}\n  Phone is idle\n{%\
+        \ elif is_state(\"sensor.phone\", \"dialing\") %}\n  Calling {{ states.sensor.phone.attributes.to_name\
+        \ }} ({{ states.sensor.phone.attributes.to }})\n{% elif is_state(\"sensor.phone\"\
+        , \"ringing\") %}\n  Incoming call from {{ states.sensor.phone.attributes.from_name\
+        \ }} ({{ states.sensor.phone.attributes.from }})\n{% else %}\n  Talking to\
+        \ {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with\
+        \ }})\n{% endif %}"
+  - service: notify.rinas_iphone
+    data:
+      title: Phone
+      message: "{% if is_state(\"sensor.phone\", \"idle\") %}\n  Phone is idle\n{%\
+        \ elif is_state(\"sensor.phone\", \"dialing\") %}\n  Calling {{ states.sensor.phone.attributes.to_name\
+        \ }} ({{ states.sensor.phone.attributes.to }})\n{% elif is_state(\"sensor.phone\"\
+        , \"ringing\") %}\n  Incoming call from {{ states.sensor.phone.attributes.from_name\
+        \ }} ({{ states.sensor.phone.attributes.from }})\n{% else %}\n  Talking to\
+        \ {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with\
+        \ }})\n{% endif %}"
+  - service: tts.google_say
+    entity_id: media_player.chromecast_messages
+    data_template:
+      message: "{% if is_state(\"sensor.phone\", \"ringing\")  %}\n   Appel entrant\
+        \ de {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from\
+        \ }})\n{% endif %}"
+      language: fr
+  # - service: media_player.volume_set
+  #   data_template:
+  #     entity_id: media_player.chromecastkeller
+  #     volume_level: 0.5
+  # - service: media_player.volume_set
+  #   data_template:
+  #     entity_id: media_player.chromecastchparents
+  #     volume_level: 0.5
+
+#########################################################################################################    
+
+
+- id: Nuki battery low
+  alias: Nuki battery low
+  initial_state: true 
+  hide_entity: true
+  trigger:
+    platform: template
+    value_template: "{{ states.lock.home.attributes.battery_critical == 'true' }}"
+  action:
+  - service: notify.ios_iphoneadonno
+    data_template:
+      title: Nuki Battery Warning 
+      message: Nuki battery level critical. Please replace batteries 
+      
+      
+#########################################################################################################   
+      
+- id: New Version notification
+  alias: Update notifications
+  initial_state: true
+  hide_entity : true
+  trigger:
+  - platform: state
+    entity_id: updater.updater
+  action:
+  - service: notify.ios_iphoneadonno
+    data_template:
+      title: New Home Assistant Release
+      message: Home Assistant  {{ states.updater.updater.state }}  is now available.
+      
+
+#########################################################################################################      
+
+
+- id: Hass Startup Notification
+  alias: Hass Startup Notification
+  initial_state: true
+  hide_entity : true
+  trigger:
+  - event: start
+    platform: homeassistant
+  action:
+  - data:
+      message: Hass restarted
+      title: Warning hassio
+    service: notify.ios_iphoneadonno
+
+  
+#########################################################################################################      
+  
+  
+- id: Hass Shutdown Notification
+  alias: Hass Shutdown Notification
+  initial_state: true
+  hide_entity : true
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  action:
+    service: notify.ios_iphoneadonno
+    data: 
+      title: Warning
+      message: Hassio shutdown
+      
+
+#########################################################################################################      
+
+
+#- id: Notify when rina leaves and arrives home
+#  alias: Notify when rina leaves and arrives home
+#  initial_state: true
+#  trigger:
+#  - platform: state
+#    entity_id: device_tracker.iphonederina
+#  action:
+#  - service: notify.ios_iphoneadonno
+#    data:
+#      title: Presence Rina
+#      message: "{% if is_state(\"device_tracker.iphonederina\", \"home\") %}\n  Rina\
+#        \ Arrived Home\n{% elif is_state(\"sensor.phone\", \"not_home\") %}\n  Rina\
+#        \ Left Home\n{% else is_state(\"sensor.phone\", \"not home\") %}\n  Rina Left\
+#        \ Home            \n{% endif %}"
+
+
+#########################################################################################################      
+
+
+- id: Fire Alarm
+  alias: Trigger fire alarm when smoke detected
+  initial_state: true
+  hide_entity : true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.smoke_sensor_1er_13
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.smoke_sensor_2eme_15
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.smoke_sensor_rdc_17
+    to: 'on'
+  action:
+  - service: notify.ios_iphoneadonno
+    data_template:
+      title: '*BRAND alarm!*'
+      message: "Firealarm um: {% for state in states.binary_sensor -%}\n  {% if state.state\
+        \ == 'on' and state.name != 'Wasmachine' and state.name != 'Ping to Vera'\
+        \ %}\n    {{ state.name }}\n  {%- endif -%}\n{% endfor %}\n"
+  - service: light.turn_on
+    entity_id: group.all_lights
+  - service: tts.google_say
+    entity_id: media_player.chromecast_messages
+    data:
+      message: Feuer! Verlasst das Haus!
+      language: de
+  - service: tts.google_say
+    entity_id: media_player.chromecast_messages
+    data:
+      message: Incendie Detecté! Quittez la maison!
+      language: fr
+
+#########################################################################################################      
+
+- id: Welcome Home Andrea
+  alias: welcome home Andrea
+  trigger:
+  - entity_id: device_tracker.iphoneandrea
+    platform: state
+    to: home
+  condition:
+  - after: 08:00:00
+    before: '20:00:00'
+    condition: time
+  - condition: state
+    entity_id: device_tracker.rinas_iphone
+    state: not home
+  action:
+  - data:
+      language: en
+      message: Welcome home. Andrea!
+    entity_id: media_player.chromecast_messages
+    service: tts.google_say
+    
+#########################################################################################################      
+
+- id: Welcome Home Rina
+  alias: welcome home Rina
+  trigger:
+  - platform: state
+    entity_id: device_tracker.rinas_iphone
+    to: home
+  condition:
+  - condition: time
+    after: 08:00:00
+    before: '20:00:00'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.chromecast_messages
+    data:
+      message: Bienvenue. Rina
+      language: fr
+
+
+
+#########################################################################################################      
+
+- id: light sam on morning
+  alias: light sam on morning
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: light.mirroir_sdb_p
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: 06:00:00
+      before: 08:00:00
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: sun
+      before: sunrise
+  action:
+  - service: light.turn_on
+    entity_id: light.lumiere_sam
+    
+#########################################################################################################      
+
+- id: light sam off morning
+  alias: light sam off morning
+  initial_state: true
+  trigger:
+  - platform: time
+    at: 08:00:00
+  - platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 9
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+  - service: light.turn_off
+    entity_id: light.lumiere_sam
+  - service: light.turn_off
+    entity_id: light.spots_cuisine_ilot
+    
+#########################################################################################################      
+- id: inform when door is unlocked or locked phones
+  alias: doorstaate
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: lock.home
+  action: 
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Front Door
+      message: > 
+          {% if is_state('lock.home', 'locked' ) %} Door Locked {% else %} !!Door Unlocked!! {% endif %}
+      data:
+        push:
+          badge: 0
+          category: 'lockdoor'    
+  - service: notify.ios_rinas_iphone
+    data:
+      title: Entrée
+      message: > 
+          {% if is_state('lock.home', 'locked' ) %} Porte Verouillée {% else %} Déverouillée!!! {% endif %}      
+
+- id: inform when door is unlocked or locked speakers
+  alias: doorstaate2
+  initial_state: true
+  trigger:
+  - platform: state 
+    entity_id: lock.home
+  action: 
+  - service: tts.google_say
+    entity_id: media_player.chromecast_messages
+    data_template:
+      message: > 
+          {% if is_state('lock.home', 'locked' )  %} Porte Verouillée {% else %}Attention! Porte déverouillée! {% endif %}
+      language: fr    
+########################################################################################################
+- id: ios_lock_door
+  alias: 'lock door io app'
+  initial_state: True
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK_DOOR
+  action:
+  - service: lock.lock
+    entity_id: lock.nuki
+#########################################################################################################      
+
+- id: light couch on
+  alias: Couch an schierf owes Un 
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -1
+  condition:
+    condition: and
+    conditions:
+#    - condition: state
+#      entity_id: group.network_devices_mobile
+#      state: not_home
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.lampe_canape
+  - service: switch.turn_on
+    entity_id: switch.armoire_sam
+  - service: switch.turn_on
+    entity_id: switch.armoire_cuisine
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Light
+      message: Switching on light living
+  - service: frontend.set_theme
+    data:
+      name: darkcyan
+ 
+ 
+#########################################################################################################      
+
+- id: light couch off
+  alias: Couch an schierf owes aus
+  initial_state: true
+  trigger:
+    platform: time
+    at: '23:30:00'
+    
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.network_devices_mobile
+      state: not_home
+  action:
+  - service: homeassistant.turn_off
+    entity_id: switch.lampe_canape
+  - service: switch.turn_off
+    entity_id: switch.armoire_sam
+  - service: switch.turn_off
+    entity_id: switch.armoire_cuisine
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Light
+      message: Switching off lights
+ 
+#########################################################################################################        
+    
+- id: Frontend day mode
+  alias: frontend day mode
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: 07:00:00
+  action:
+    - service: frontend.set_theme
+      data:
+        name: default      
+        
+
+#########################################################################################################      
+
+- alias: Switch on lights when coming home
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: device_tracker.rinas_iphone
+    to: home
+  - platform: state
+    entity_id: device_tracker.iphoneandrea
+    to: home
+  condition:
+    condition: sun
+    after: sunset
+    before_offset: '-1:00:00'
+  action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Welcome home
+      message: Welcome
+  - service: light.turn_on
+    entity_id: light.hall_entree
+    
+#########################################################################################################      
+
+- alias: Radio off when leaving home
+  initial_state: true
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: device_tracker.rinas_iphone
+    to: not_home
+  - platform: state
+    entity_id: device_tracker.iphoneandrea
+    to: not_home
+  condition:
+    condition: state
+    entity_id: group.network_devices_mobile
+    state: not_home
+  action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Goodbye
+      message: Goodbye
+  - service: light.turn_off
+    entity_id: light.hall_entree
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.chromecastkeller
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.chromecastchparents
+    
+#########################################################################################################      
+
+- alias: 'Fernseh un radio aus '
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: remote.living
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "Watch TV"
+      }}'
+  action:
+  - service: media_player.turn_off
+    entity_id: media_player.chromecastkeller
+    
+#########################################################################################################      
+
+
+- id: Led_sdb_parents_on
+  alias: allumer led sdb Parents
+  initial_state: true
+  hide_entity: true 
+  trigger:
+  - platform: state
+    entity_id: light.spots_douche_p
+    to: 'on'
+  action:
+  - service: light.turn_on
+    entity_id: light.LED_SDB_P
+  - delay: 
+        seconds: 1
+  - service: light.turn_on
+    entity_id: light.brightness_62
+  - service: light.turn_on
+    entity_id: light.rgbw_sdb_61
+    
+#########################################################################################################      
+    
+    
+- id: Led_sdb_parentsOff
+  alias: allumer led sdb Parents
+  initial_state: true
+  hide_entity: true 
+  trigger:
+  - platform: state
+    entity_id: light.spots_douche_p
+    to: 'off'
+  action:
+  - service: light.turn_off
+    entity_id: light.LED_SDB_P
+
+
+    
+
+
+#########################################################################################################       
+- alias: Light center 1er on
+  initial_state: True  
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id : light.spots_sam
+      to: 'on'
+    - platform: state
+      entity_id : light.spots_living
+      to: 'on'    
+  action:
+    service: light.turn_on
+    entity_id: light.spots_millieux
+      
+#########################################################################################################        
+ 
+- alias: Light center 1er off
+  initial_state: True  
+  trigger:
+  - platform: state
+    entity_id : light.spots_sam
+    to: 'off'
+  - platform: state
+    entity_id : light.spots_living
+    to: 'off'     
+  condition: 
+    condition: and
+    conditions:
+      - condition: state
+        entity_id : light.spots_sam 
+        state : 'off'
+      - condition: state
+        entity_id : light.spots_living
+        state : 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.spots_millieux    
+      
+#########################################################################################################       
+
+- alias: light off couloir avec reserve cave
+  initial_state: True
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id : light.cave_couloir
+      to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.reserve
+    - service: light.turn_off
+      entity_id: light.spots_escalier_01_bis        
+        
+#########################################################################################################    
+
+- alias: light on couloir avec reserve cave
+  initial_state: True  
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id : light.cave_couloir
+      to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: 10   
+      
+  action:
+    - service: light.turn_on
+      entity_id: light.reserve
+    - service: light.turn_on
+      entity_id: light.spots_escalier_01_bis   
+      
+#########################################################################################################   
+
+- alias: light off LED Dressing
+  initial_state: True
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id : light.dressing
+      to: 'off'
+  condition:
+    condition: state
+    entity_id: light.dressing
+    state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.led_dressing   
+    
+#########################################################################################################    
+
+- alias: light on LED Dressing
+  initial_state: True  
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id : light.Dressing
+      to: 'on'
+  condition:
+    condition: time
+    after: '07:00:00'
+    before: '23:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.led_dressing      
+      
+########################################################################################################    
+- alias: light on SDB P avec Dressing
+  initial_state: True  
+  trigger:
+    - platform: state
+      entity_id : light.Dressing
+      to: 'on'
+
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        after: '06:00:00'
+        before: '08:00:00'
+      - condition: time
+        after:  '21:00:00'
+        before: '00:00:00'    
+
+  action:
+    service: light.turn_on
+    entity_id: light.mirroir_sdb_p  
+
+#####################################################################
+- alias: switch off Stairs with bed_light
+  initial_state: True  
+  id: switch_off_lights_with_bedlights
+  trigger: 
+    - platform: state
+      entity_id: light.lit_d
+      to: 'off'
+    - platform: state
+      entity_id: light.lit_g
+      to: 'off'  
+  condition: 
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: light.lit_d
+      state: 'off'
+    - condition: state
+      entity_id: light.lit_g
+      state: 'off'
+  action: 
+    service: light.turn_off
+    entity_id: light.spots_escalier_12
+    
+####################################################################
+
+- alias: weeklysnapshot
+  initial_state: True  
+  id: weeklysnapshot
+  trigger:
+    - platform: time
+      at: 03:00:00
+  condition:
+  - condition: time
+    weekday: 
+    - sun
+  action:
+  - service: hassio.snapshot_full
+    data_template:
+      name: Automated Backup {{ now().strftime('%Y-%m-%d') }}
+  # - service: notify.slack_notify
+  #   data_template:
+  #     message: Creating backup named "Automated Backup {{ now().strftime('%Y-%m-%d') }}"  
+      
+#########################################################################################################      
+
+
+# - id: Led_Living_rgbw
+#   alias: rgbw_living
+#   initial_state: true
+#   hide_entity: true 
+#   trigger:
+#   - platform: state
+#     entity_id: light.led_living
+#     to: 'on'
+#   action:
+#   - service: light.turn_on
+#     entity_id: light.brightness_rgbw_liv_32
+#   - service: light.turn_on
+#     entity_id: light.rgbw_liv_31
+    
+    
+    
+# - id: Led_Living_rgbw
+#   alias: rgbw_living
+#   initial_state: true
+#   hide_entity: true 
+#   trigger:
+#     - platform: state
+#       entity_id: light.led_living
+#   action:
+#     - service_template: "light.turn{{ trigger.to_state.state | lower}}"
+#       entity_id: light.rgbw_liv_31 
+      
+      
+      
+- id: Led_Living_rgbw_2
+  alias: rgbw_living_2
+  trigger:
+    - platform: state
+      entity_id: light.led_living
+  action:
+    - service_template: "light.turn_{{ states('light.led_living') | lower }}"
+      entity_id: light.brightness_rgbw_liv_32
+    # - service_template: "light.turn_{{ states('light.led_living') | lower }}"
+    #   entity_id: light.rgbw_liv_31
+    # - service_template: "homeassistant.turn_{{ trigger.to_state.state | lower}}"
+    #   data_template:
+    #     entity_id: "{{ 'light.rgbw_liv_31 light.brightness_rgbw_liv_32' }}"
+
+# - id: Led_Living_rgbw
+#   alias: rgbw_living
+#   initial_state: true
+#   hide_entity: true 
+#   trigger:
+#     - platform: state
+#       entity_id:  light.rgbw_liv_31
+#   action:
+
+
+    # - service_template: "homeassistant.turn_{{ trigger.to_state.state | lower}}"
+    #   data_template:
+    #     entity_id: "{{ 'light.my_ligths switch.my_switch' | replace(trigger.entity_id, '') }}"

@@ -1,0 +1,1457 @@
+title: My Awesome Home
+
+# Exclude entities from "Unused entities" view
+excluded_entities:
+  - weblink.router
+resources:
+  - url: /local/plan-coordinates.js?v=2.1
+    type: module  
+  - url: /local/monster-card.js?v=2.1
+    type: module
+# background: center / contain no-repeat url("/local/background.png")
+background: center / cover no-repeat url("/local/background.png") fixed
+views:
+
+
+
+####################################################################################################    
+
+
+  - icon: mdi:floor-plan
+    title: Floorplan
+    # panel: true
+    cards:
+        - type: vertical-stack
+          cards:   
+          - type: entities
+            title: Date & Time
+            # background: rgba( 0, 0, 0, 0.4)
+            background: rgba(0,0,0,0.4)
+            entities:
+              - entity: sensor.time
+              - entity: sensor.date
+          - type: weather-forecast
+            entity: weather.dark_sky
+          - type: glance
+            title: Presence
+            entities: 
+            - entity: device_tracker.iphoneandrea
+              name: Andrea
+            - entity: device_tracker.rinas_iphone
+              name: Rina
+
+          - type: entities
+            title: Temperatures
+            entities:
+            - sensor.eingang
+            - sensor.buero
+            - sensor.living
+            - sensor.kueche
+            - sensor.kind2
+            - sensor.flur_og
+            - sensor.kind1
+            - sensor.eltern
+            - sensor.sdb_eltern
+            - sensor.sdb_kinder
+            - sensor.speicher
+            
+            
+              
+          - type: entities
+            title: Radio
+            entities: 
+              - switch.rdoliving
+              - input_number.volume_radio_living
+              - switch.rdochparents
+              - input_number.volume_radio_parents                     
+                
+                
+        - type: vertical-stack
+          cards: 
+ 
+          - type: picture-elements
+            image: /local/Floor0V.PNG
+            elements:
+              - type: state-icon
+                tap_action: toggle
+                entity: light.cave_couloir
+                style:
+                  top: 52%
+                  left: 38%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.hall_entree
+                style:
+                  top: 70%
+                  left: 38%   
+  
+              - type: state-icon
+                tap_action: toggle
+                entity: light.reserve
+                style:
+                  top: 70%
+                  left: 12% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.technique
+                style:
+                  top: 34%
+                  left: 30% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.spots_escalier_01
+                style:
+                  top: 50%
+                  left: 15%    
+              - type: state-icon
+                tap_action: toggle
+                entity: light.spots_escalier_01_bis
+                style:
+                  top: 55%
+                  left: 15%                 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.wc_cave
+                style:
+                  top: 44%
+                  left: 28% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lum_ext_avant
+                style:
+                  top: 85%
+                  left: 30% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lamp_ext_arr
+                style:
+                  top: 15%
+                  left: 50% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.garage
+                style:
+                  top: 52%
+                  left: 75%
+              - type: state-icon
+                tap_action: toggle
+                entity: lock.home
+                style:
+                  top: 74%
+                  left: 38%         
+#Missing prise Avant & arrière                   
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.rdoliving
+                style: { top: 57% , left: 38% }
+  ##########################################################################
+  #DOORS#########
+   
+              - type: image
+                entity: binary_sensor.local_technique_fenetre
+                image: /local/exclamation.png
+                style: { top: 20%, left: 23%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.local_technique_porte
+                image: /local/exclamation.png
+                style: { top: 20%, left: 39%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.garage_porte
+                image: /local/exclamation.png
+                style: { top: 20%, left: 63%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.garage_fenetre
+                image: /local/exclamation.png
+                style: { top: 20%, left: 78%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)               
+              - type: image
+                entity: binary_sensor.garage
+                image: /local/exclamation.png
+                style: { top: 75%, left: 72%, width: 10% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)     
+              - type: image
+                entity: binary_sensor.entree
+                image: /local/exclamation.png
+                style: { top: 79%, left: 38%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)                      
+              - type: image
+                entity: binary_sensor.reserve
+                image: /local/exclamation.png
+                style: { top: 79%, left: 22%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)  
+                  
+              - type: state-label
+                entity: sensor.ss_temp_rdc_18
+                style: { top: 51%, left: 45%,transform: rotate(90deg)}
+                
+    
+  ##########################################################################
+  #Rolladen#########  
+          - type: horizontal-stack
+            cards:
+            - type: entities
+              entities:
+                - entity: cover.local_technique_fenetre
+                  name: LTF
+                - entity: cover.local_technique_porte
+                  name: LTP
+                  icon: mdi:door
+            - type: entities
+              entities:                
+                - entity: cover.garage_porte
+                  name: GP
+                  icon: mdi:door
+                - entity: cover.garage_fenetre
+                  name: GF
+
+
+        - type: vertical-stack
+          cards:
+
+          - type: picture-elements
+            image: /local/Floor1V.PNG
+            elements:
+        
+              - type: state-icon
+                tap_action: toggle
+                entity: light.spots_cuisine_ilot
+                style: { top: 30%, left: 50% }
+          
+              
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.spots_cuisine
+                style: { top: 30%, left: 23% }
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.armoire_cuisine
+                style: { top: 30%, left: 87% }
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.armoire_sam
+                style: { top: 50%, left: 87% }
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.lampe_canape
+                style: { top: 68%, left: 87% }
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.armoire_tv
+                style: { top: 71%, left: 51% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.spots_living
+                style: { top: 65%, left: 58% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.spots_sam
+                style: { top: 50%, left: 58% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.spots_millieux
+                style: { top: 57%, left: 72% }
+              - type: state-icon
+                tap_action: toggle
+                entity: light.buro
+                style: { top: 70%, left: 28% }
+              - type: state-icon
+                tap_action: toggle
+                entity:  switch.prise_buero_arriere
+                style: { top: 70%, left: 48% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.couloir_1er
+                style: { top: 50%, left: 40% }
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lampe_wc
+                style: { top: 60%, left: 19% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.lumiere_sam
+                style: { top: 50%, left: 70% }
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lampe_terrasse
+                style: { top: 15%, left: 43% }
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.terrasse
+                style: { top: 15%, left: 65% }
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.prise_sol_escalier
+                style: { top: 50%, left: 33% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.centre_living
+                style: { top: 60%, left: 74% }  
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.rdoliving
+                style: { top: 25%, left: 82% }
+              - type: state-label
+                entity: sensor.ss_temp_1er_14
+                style: { top: 54%, left: 37%}
+                
+                
+  ##############################################################################
+  
+  ####DOORS#####
+  
+  
+              - type: image
+                entity: binary_sensor.cuisine_la
+                image: /local/exclamation.png
+                style: { top: 20%, left: 23%, width: 5% }
+                state_filter:              
+                  "off": opacity(100%)
+                  "on": opacity(1%)
+              - type: image
+                entity: binary_sensor.cuisinie_lm
+                image: /local/exclamation.png
+                style: { top: 20%, left: 42%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.cuisinie_rm
+                image: /local/exclamation.png
+                style: { top: 20%, left: 59%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.cuisinie_ra
+                image: /local/exclamation.png
+                style: { top: 20%, left: 78%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)              
+              - type: image
+                entity: binary_sensor.living_l
+                image: /local/exclamation.png
+                style: { top: 75%, left: 69%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)    
+              - type: image
+                entity: binary_sensor.living_r
+                image: /local/exclamation.png
+                style: { top: 75%, left: 79%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)              
+              - type: image
+                entity: binary_sensor.buro
+                image: /local/exclamation.png
+                style: { top: 79%, left: 29%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)                     
+  
+          - type: horizontal-stack
+            cards:
+            - type: entities
+              entities:
+                - entity: cover.kueche_links_a
+                  name: CLA
+                  icon: mdi:door
+                - entity: cover.kueche_links_m
+                  name: CLM
+                  icon: mdi:door
+            - type: entities
+              entities:                
+                - entity: cover.kueche_rechts_m
+                  name: CRM
+                  icon: mdi:door
+                - entity: cover.kueche_rechts_a
+                  name: CRA
+          - type: horizontal-stack
+            cards:                
+            - type: entities
+              entities:                
+                - entity: cover.buero
+                  name: Living
+                  icon: mdi:door
+            - type: entities
+              entities:                 
+                - entity: cover.living
+                  name: Buro
+
+        - type: vertical-stack
+          cards:
+
+          - type: picture-elements
+            image: /local/Floor2V.PNG
+            elements:
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.chambre_ar
+                style: {top: 32%, left: 30% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.chambre_av
+                style: {top: 70%, left: 30% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.couloir_2e
+                style: {top: 49%, left: 38% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.dressing
+                style: {top: 40%, left: 80% }
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.escalier_lumieres_centrale
+                style: {top: 49%, left: 25% }
+              - type: state-icon
+                tap_action: toggle
+                entity: light.led_dressing
+                style: {top: 40%, left: 91%}
+              - type: state-icon
+                tap_action: toggle
+                entity: light.led_dressing
+                style: {top: 40%, left: 73%}
+              - type: state-icon
+                tap_action: toggle
+                entity: light.led_sdb_p
+                style: {top: 31%,left: 51%}
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lit_g
+                style:
+                  top: 68%
+                  left: 88%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lit_d
+                style:
+                  top: 57%
+                  left: 88%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.lumiere_sdb_e
+                style:
+                  top: 43%
+                  left: 56%
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.spots_douche_p
+                style:
+                  top: 31%
+                  left: 59%  
+              - type: state-icon
+                tap_action: toggle
+                hold-action: more-info
+                entity: light.spots_sdb_p
+                style:
+                  top: 25%
+                  left: 67%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.mirroir_parents
+                style:
+                  top: 72%
+                  left: 56%
+              - type: state-icon
+                tap_action: toggle
+                entity: light.mirroir_sdb_p
+                style:
+                  top: 25%
+                  left: 51% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.spots_escalier_12
+                style:
+                  top: 55%
+                  left: 15% 
+              - type: state-icon
+                tap_action: toggle
+                entity: light.spots_escalier_23
+                style:
+                  top: 43%
+                  left: 15%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.rdochparents
+                style:
+                  top: 55%
+                  left: 65%
+              # - type: state-icon
+  
+  #####################
+  #     DOOOORS
+  #####################
+  
+  
+              - type: image
+                entity: binary_sensor.chac_ar
+                image: /local/exclamation.png
+                style: { top: 20%, left: 30%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.sdb_p
+                image: /local/exclamation.png
+                style: { top: 20%, left: 72%, width: 5% }
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+              - type: image
+                entity: binary_sensor.chac_parents
+                image: /local/exclamation.png
+                style: { top: 75%, left: 71%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)              
+              - type: image
+                entity: binary_sensor.chac_av
+                image: /local/exclamation.png
+                style: { top: 79%, left: 29%, width: 5% }
+                color: red
+                state_filter:              
+                  "off": opacity(1%)
+                  "on": opacity(100%)
+                  
+##################
+##  Rolladen 
+##################
+
+              - type: state-icon
+                entity: cover.chac_enfant_arriere
+                style: { top: 10%, left: 20%, width: 5% }
+                
+              - type: icon
+                icon: mdi:arrow-up
+                entity: cover.chac_enfant_arriere
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 10%, left: 27%, width: 5% }
+                state_filter: 
+                  "open": opacity(5%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.chac_enfant_arriere
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 10%, left: 32%, width: 5% }
+
+              - type: icon
+                icon: mdi:arrow-down
+                entity: cover.chac_enfant_arriere
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 10%, left: 37%, width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(5%)              
+                  
+                  
+                  
+                
+              - type: state-icon
+                entity: cover.chac_enfant_route
+                style: { top: 90%, left: 20%, width: 5% }
+                
+              - type: icon
+                icon: mdi:arrow-up
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 90%, left: 27%, width: 5% }
+                state_filter: 
+                  "open": opacity(5%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 90%, left: 32%, width: 5% }
+
+              - type: icon
+                icon: mdi:arrow-down
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 90%, left: 37%, width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(5%)       
+ 
+ 
+ 
+              - type: state-icon
+                entity: cover.chac_enfant_route
+                style: { top: 10%, left: 20%, width: 5% }
+                
+              - type: icon
+                icon: mdi:arrow-up
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 10%, left: 27%, width: 5% }
+                state_filter: 
+                  "open": opacity(5%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 10%, left: 32%, width: 5% }
+
+              - type: icon
+                icon: mdi:arrow-down
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 10%, left: 37%, width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(5%)      
+ 
+ 
+ 
+              - type: state-icon
+                entity: cover.chac_enfant_route
+                style: { top: 10%, left: 20%, width: 5% }
+                
+              - type: icon
+                icon: mdi:arrow-up
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 10%, left: 27%, width: 5% }
+                state_filter: 
+                  "open": opacity(5%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 10%, left: 32%, width: 5% }
+
+              - type: icon
+                icon: mdi:arrow-down
+                entity: cover.chac_enfant_route
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 10%, left: 37%, width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(5%)      
+ 
+              
+                # - entity: cover.chac_enfant_route
+                #   name: CCR
+                #   icon: mdi:door
+                # - entity: cover.chac_enfant_arriere
+            #       name: CCA
+            #       icon: mdi:door
+            # - type: entities
+            #   entities:                
+            #     - entity: cover.sdb_parents
+            #       name: SDBP
+            #       icon: mdi:door
+            #     - entity: cover.chac_parents
+                  # name: CCP        
+          
+
+
+####################################################################################################
+  - title: Cave
+    icon: mdi:numeric-0-box-multiple-outline  
+    cards:
+    - type: entities
+      title: Rolladen
+      entities:
+      - entity: cover.cave
+        name: Cave Global 
+      - type: divider
+        style:
+          height: 1px
+          width: 80%
+          margin-left: auto
+          margin-right: auto
+          background: '#62717b'
+      - entity: cover.local_technique_fenetre
+        name: Local Technique Fenêtre
+      - entity: cover.local_technique_porte
+        name: Local Technique Porte
+      - entity: cover.garage_fenetre
+        name: Garage Fenêtre
+      - entity: cover.garage_porte
+        name: Garage Porte
+    - type: horizontal-stack
+      cards: 
+      - type: entities
+        entities: 
+        - entity: light.hall_entree
+          name: Eingang
+        - entity: light.cave_couloir
+          name: Flur
+        - entity: light.technique
+          name: Technik
+        - entity: light.wc_cave
+          name: WC
+      - type: entities
+        entities:
+        - entity: light.reserve
+          name: Reserve
+        - entity: light.garage
+          name: Garage
+        - entity: light.lum_ext_avant
+          name: Front
+        - entity: light.lamp_ext_arr
+          name: Garten
+        - entity: light.spots_escalier_01
+          name: Treppen 0 - 1
+          icon: mdi:stairs
+        - entity: light.spots_escalier_01_bis
+          name: Treppen 0 - 1 Lamper
+          icon: /local/treppe_bis.png
+###########################################################################
+  - title: 1er
+    icon: mdi:numeric-1-box-multiple-outline  
+    cards:
+    # - type: vertical-stack
+    #   cards:   
+    #   - type: entities
+    #     title: Date & Time
+    #     # background: rgba( 0, 0, 0, 0.4)
+    #     background: rgba(0,0,0,0.4)
+    #     entities:
+    #       - entity: sensor.time
+    #       - entity: sensor.date
+    #   - type: weather-forecast
+    #     entity: weather.dark_sky
+    #   - type: glance
+    #     title: Presence
+    #     entities: 
+    #     - entity: device_tracker.iphoneandrea
+    #       name: Andrea
+    #     - entity: device_tracker.rinas_iphone
+    #       name: Rina
+
+    - type: entities
+      title: Radio
+      entities: 
+        - switch.rdoliving
+        - input_number.volume_radio_living
+        - switch.rdochparents
+        - input_number.volume_radio_parents 
+    - type: entities
+      id: rol1stfloor
+      title: Rolladen
+      entities:
+      - entity: cover.1er_etage
+        name: Global 
+        icon: mdi:numeric-1-box-multiple-outline  
+      - type: section
+        label: Front
+        style: 
+          height: 3px      
+      - entity: cover.buero
+        name: Buro
+        icon: mdi:format-align-justify
+      - entity: cover.living
+        name: Living
+        icon: mdi:format-align-justify
+      - type: section
+        label: Küche
+        style: 
+          height: 3px           
+      - entity: cover.kueche_links_a
+        name: Links Aussen
+        icon: mdi:format-align-justify      
+      - entity: cover.kueche_links_m
+        name: Links Mitte
+        icon: mdi:format-align-justify        
+      - entity: cover.kueche_rechts_m
+        name: Rechts Mitte
+        icon: mdi:format-align-justify        
+      - entity: cover.kueche_rechts_a
+        name: Links Aussen
+        icon: mdi:format-align-justify
+
+            
+            
+  #######   LIVING    ######        
+        
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Living
+        entities:
+        - type: divider
+          style:
+            height: 1px
+            width: 80%
+            margin-left: auto
+            margin-right: auto
+            background: '#62717b'
+        - entity: light.centre_living
+          icon: mdi:ceiling-light
+          name: Center
+        - entity: light.spots_living
+          icon: mdi:spotlight-beam
+          name: Spots
+        - entity: switch.lampe_canape
+          icon: mdi:sofa
+          name: Couch
+        - entity: switch.armoire_tv
+          icon: mdi:television
+          Name: TV
+        - entity: light.led_living
+          name: LED 
+          icon: mdi:led-strip 
+
+#######   SAM    ######  
+
+      - type: entities
+        title: Salle à manger
+        entities:
+        - type: divider
+          style:
+            height: 1px
+            width: 80%
+            margin-left: auto
+            margin-right: auto
+            background: '#62717b'
+
+        - entity: light.lumiere_sam
+          name: Center
+          icon: mdi:ceiling-light
+        - entity: light.spots_sam
+          name: Spots
+          icon: mdi:spotlight-beam
+        - entity: switch.armoire_sam
+          name: Armoire
+          icon: mdi:file-cabinet
+        - entity: light.led_sam
+          name: LED
+          icon: mdi:led-strip
+
+#######   CUISINE    ######  
+
+      - type: entities
+        title: Cuisine
+        entities:
+        - type: divider
+          style:
+            height: 1px
+            width: 80%
+            margin-left: auto
+            margin-right: auto
+            background: '#62717b'
+        - entity: light.spots_cuisine_ilot
+          name: Ilot
+          icon: mdi:spotlight
+        - entity: light.spots_cuisine
+          name: Cuisine
+          icon: mdi:spotlight-beam
+        - entity: switch.armoire_cuisine
+          name: Armoire
+          icon: mdi:file-cabinet
+        - entity: light.led_cuisine
+          name: LED
+          icon: mdi:led-strip
+          
+#######   GLOBAL    ######            
+
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Lights
+        entities:
+        - type: divider
+          style:
+            height: 1px
+            width: 80%
+            margin-left: auto
+            margin-right: auto
+            background: '#62717b' 
+        - entity: light.buro
+          name: Buro
+          icon: mdi:office
+        - entity: light.centre_living
+          name: Center
+          icon: mdi:border-vertical
+
+        - entity: light.lampe_wc
+          name: WC 
+          icon: mdi:toilet
+        - entity: light.spots_escalier_01
+          name:  0 - 1 
+          icon: mdi:stairs
+        - entity: light.spots_escalier_12
+          name: 1 - 2
+          icon: mdi:stairs
+        - entity: light.couloir_1er
+          name: Flur
+          icon: mdi:select
+          
+          
+    - type: vertical-stack
+      cards:
+      - type: markdown
+        title: Temperatures
+        content: " "
+      - type: entities
+        entities:
+        - entity: sensor.buero
+          name: Buro
+        - entity: sensor.living
+          name: Living
+       
+      # - type: horizontal-stack
+      #   cards:
+      - type: sensor
+        entity: sensor.living
+        hours_to_show: 48
+        accuracy: 5
+        line_color: "#039be5"
+      - type: sensor
+        entity: sensor.buero
+        hours_to_show: 48
+        accuracy: 5
+        line_color: "#039be5"
+      - type: sensor
+        entity: sensor.kueche
+        hours to show: 48
+        accuracy: 5
+        line_color: "#039be5"      
+###########################################################################
+###########################################################################
+###########################################################################
+#2nd
+
+  - title: 2nd
+    icon: mdi:numeric-2-box-multiple-outline  
+    cards:
+    # - type: vertical-stack
+    #   cards:   
+    #   - type: entities
+    #     title: Date & Time
+    #     # background: rgba( 0, 0, 0, 0.4)
+    #     background: rgba(0,0,0,0.4)
+    #     entities:
+    #       - entity: sensor.time
+    #       - entity: sensor.date
+    #   - type: weather-forecast
+    #     entity: weather.dark_sky
+    #   - type: glance
+    #     title: Presence
+    #     entities: 
+    #     - entity: device_tracker.iphoneandrea
+    #       name: Andrea
+    #     - entity: device_tracker.rinas_iphone
+    #       name: Rina
+
+    - type: entities
+      title: Radio
+      entities: 
+        - switch.rdoliving
+        - input_number.volume_radio_living
+        - switch.rdochparents
+        - input_number.volume_radio_parents 
+        
+    - type: entities
+      id: rol2ndfloor
+      title: Rolladen
+      entities:
+      - entity: cover.2ieme_etage
+        name: Global 
+        icon: mdi:numeric-2-box-multiple-outline  
+      - type: section
+        label: Kinder
+        style: 
+          height: 3px
+
+      - entity: cover.chac_enfant_route
+        name: Rolladen Strasse
+        icon: mdi:format-align-justify
+      - entity: binary_sensor.chac_av
+        name: Fenter Strasse
+        
+      - entity: cover.chac_enfant_arriere
+        name: Hinten
+        icon: mdi:format-align-justify
+      - type: section
+        label: Eltern
+        style: 
+          height: 3px
+  
+      - entity: cover.chac_parents
+        name: Schlafzimmer
+        icon: mdi:format-align-justify      
+      - entity: cover.sdb_parents
+        name: Badezimmer
+        icon: mdi:format-align-justify        
+
+######################################
+#Lights
+
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Kinder
+        icon: ceiling-light
+        entities:
+        - type: section
+          label: Front
+          style: 
+            height: 3px
+        - entity: light.chambre_av
+          icon: mdi:ceiling-light
+          name: Licht
+        - entity: switch.prise_ch_enfant_av
+          icon: mdi:power-socket-eu
+          name: Steckdose
+        - type: section
+          label: Hinten
+          style: 
+            height: 3px
+        - entity: light.chambre_ar
+          icon: mdi:ceiling-light
+          name: Licht
+        - entity: switch.prise_ch_enfant_arr
+          icon: mdi:sofa
+          name: Steckdose
+
+
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Eltern
+        icon: ceiling-light
+        entities:
+        - type: section
+          label: Schlafzimmer
+          style: 
+            height: 3px
+        - entity: light.spots_parents
+          icon: mdi:spotlight-beam
+          name: Spots
+        - entity: light.led_parents
+          icon: mdi:led-strip
+          name: LED
+        - entity: light.mirroir_parents
+          icon: mdi:tablet
+          name: Coiffeuse          
+        - entity: light.lit_d
+          icon: mdi:wall-sconce
+          name: Andrea          
+        - entity: light.lit_g
+          icon: mdi:wall-sconce
+          name: Rina
+
+        - type: section
+          label: Dressing
+          style: 
+            height: 3px
+        - entity: light.dressing
+          icon: mdi:ceiling-light
+          name: Licht
+        - entity: light.led_dressing
+          icon: mdi:led-strip
+          name: LED
+          
+        - type: section
+          label: Badezimmer
+          style: 
+            height: 3px
+        - entity: light.spots_sdb_p
+          icon: mdi:ceiling-light
+          name: Licht
+        - entity: light.spots_douche_p
+          icon: mdi:shower-head
+          name: Dusche
+        - entity: light.led_sdb_p
+          icon: mdi:led-strip
+          name: LED
+        - entity: light.mirroir_sdb_p
+          icon: mdi:tablet
+          name: Spiegel  
+          
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Badezimmer Kinder
+        entities:
+        - entity: light.lumiere_sdb_e
+          icon: mdi:ceiling-light 
+          name: Licht
+        - entity: light.mirroir_sdb_enfants
+          icon: mdi:tablet
+          name: Spiegel
+        
+    - type: entities
+      title: Licht 
+      entities: 
+      - entity: light.couloir_2e
+        name: Flur
+        
+      - entity: light.spots_escalier_12
+        name: 1-2
+        icon: mdi:stairs      
+      - entity: light.spots_escalier_23 
+        name: 2-3
+        icon: mdi:stairs
+
+
+###########################################################################
+###########################################################################
+###########################################################################
+#3rd
+
+
+  - title: 3rd
+    icon: mdi:numeric-3-box-multiple-outline  
+    cards:
+    # - type: vertical-stack
+    #   cards:   
+    # - type: entities
+    #   title: Date & Time
+    #   # background: rgba( 0, 0, 0, 0.4)
+    #   background: rgba(0,0,0,0.4)
+    #   entities:
+    #     - entity: sensor.time
+    #     - entity: sensor.date
+    # - type: weather-forecast
+    #   entity: weather.dark_sky
+    # - type: glance
+    #   title: Presence
+    #   entities: 
+    #   - entity: device_tracker.iphoneandrea
+    #     name: Andrea
+    #   - entity: device_tracker.rinas_iphone
+    #     name: Rina
+
+    - type: entities
+      title: Radio
+      entities: 
+        - switch.rdoliving
+        - input_number.volume_radio_living
+        - switch.rdochparents
+        - input_number.volume_radio_parents 
+   
+######################################
+#Lights
+
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Licht
+        icon: ceiling-light
+        entities:
+        - entity: light.escalier_lumieres_centrale
+          icon: mdi:ceiling-light
+          name: Escalier
+        - entity: light.combles
+          icon: mdi:spotlight-beam
+          name: Speicher
+        - entity: light.local_technique
+          icon: mdi:water-pump
+          name: Technik
+
+ 
+  - title: Synology Status
+    icon: mdi:server
+    cards:
+
+ 
+    - type: vertical-stack
+      cards:
+      - type: markdown
+        title:  Syno global
+        content: " "
+      # - type: horizontal-stack
+      #   cards:
+      - type: sensor
+        entity: sensor.memory_usage_real
+        hours_to_show: 48
+        accuracy: 5
+        line_color: "#039be5"
+        name: Memory Usage
+      - type: horizontal-stack
+        cards:
+        # icon: mdi:
+        - type: sensor
+          entity: sensor.network_down
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: Download
+        - type: sensor
+          entity: sensor.network_up
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: Upload
+          
+          
+          
+    - type: vertical-stack
+      cards:
+      - type: markdown
+        title: CPU Usage
+        content: " "
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.cpu_load_total
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+        - entity: sensor.cpu_load_system
+          type: sensor
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"  
+      - type: horizontal-stack
+        cards:
+        - entity: sensor.cpu_load_user
+          type: sensor
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5" 
+        - entity: sensor.cpu_load_other
+          type: sensor 
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5" 
+          
+    - type: vertical-stack
+      cards:
+      - type: markdown
+        title: Disk Temperatures
+        content: " "
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.temperature_sda
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: SDC
+          icon: mdi:harddisk
+        - type: sensor
+          entity: sensor.temperature_sdb
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: SDC
+          icon: mdi:harddisk
+      - type: horizontal-stack
+        cards:
+
+        - type: sensor
+          entity: sensor.temperature_sdc
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: SDC
+          icon: mdi:harddisk
+        - type: sensor
+          entity: sensor.temperature_sdd
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: SDC
+          icon: mdi:harddisk
+    - type: vertical-stack
+      cards:
+      - type: entities
+        title: Disk Space
+        entities: 
+        - entity: sensor.total_size_volume_1
+          name: Available Space
+        - entity: sensor.used_space_volume_1
+          name: Used Space
+      - type: gauge
+        entity: sensor.volume_used_volume_1
+        title: Volume Use
+
+    - type: horizontal-stack
+      cards:
+      - type: entities
+        title: Disk Status
+        entities:
+          - sensor.status_sda
+          - sensor.status_sdb
+          - sensor.status_sdc 
+          - sensor.status_sdd     
+          
+          
+    - type: entities
+      title: S.M.A.R.T Status
+      entities:
+        - sensor.status_smart_sda
+        - sensor.status_smart_sdb
+        - sensor.status_smart_sdc
+        - sensor.status_smart_sdd
+   
+      
+        
+        
+  - title: Network Devices
+    icon: mdi:network  
+    cards:
+      - type: glance
+        title: Access Points
+        entities: 
+        - entity: device_tracker.aplocaltechnique
+          name: Cave
+        - entity: device_tracker.apbureau
+          name: Living
+        - entity: device_tracker.apchambrearr
+          name: Deuxième
+      - type: vertical-stack
+        cards:
+        - type: markdown
+          title: Speedtest
+          content: " "
+        - type: sensor
+          entity: sensor.speedtest_ping
+          hours_to_show: 48
+          accuracy: 5
+          line_color: "#039be5"
+          name: Ping
+        - type: horizontal-stack
+          cards:
+          - type: sensor
+            entity: sensor.speedtest_download
+            hours_to_show: 48
+            accuracy: 5
+            line_color: "#039be5"
+            name: Down
+          - type: sensor
+            entity: sensor.speedtest_upload
+            hours_to_show: 48
+            accuracy: 5
+            line_color: "#039be5"
+            name: UP
+          
+          
+          
+          
+      - type: glance
+        title: Tablettes
+        entities: 
+        - entity: device_tracker.ipaddeadonno
+          name: iPad
+
+
+
+  ##################################################3
+ 
+  - title: Automations and scripts 
+    id: at_sc
+    icon: mdi:robot
+    cards:  
+      - type: entity-filter
+        id: etfilterradio
+        entities:
+          - group.residence_radio
+          - device_tracker.iphoneandrea
+          -  device_tracker.iphonederina
+        state_filter:
+          - 'home'
+        card_config:
+          type: glance
+          title: People that are home
+      - type: entities
+        title: test
+        entities: 
+          - entity: device_tracker.iphoneandrea
+            name: Andrea
+          - entity: device_tracker.rinas_iphone
+            name: Rina
+          - entity: script.calm_off
+            name: Calm Off
+          - entity: script.calm_on
+            name: Calm On
+
+          - entity: switch.quiet_mode
+            name: Quiet Mode
+          - entity: automation.notify_about_phone_state
+          - entity: automation.open_blinds_at_dawn
+          - entity: automation.welcome_home_andrea
+          - entity: automation.welcome_home_rina       
+          - entity: automation.doorstaate2
+      - type: custom:monster-card
+        card:
+          type: entities
+        filter:
+          include:
+          - entity_id: automation.*
+      - type: custom:monster-card
+        card:
+          type: entities
+        filter:
+          include:
+          - entity_id: script.*    
+      - type: iframe
+        url: hassio.local:3333
+        
+
+
+
+  - title: ARGBW
+    id: RGBW
+    icon: mdi:led-strip
+    cards:  
+
+      - type: entities
+        title: RGBW
+        entities:
+        - light.blue_65
+        - light.blue_liv_35
+        - light.rgbw_liv_31
+        - light.rgbw_controller_sam_25
+        - light.rgbw_sdb_61
