@@ -1,0 +1,136 @@
+
+switch:
+  - platform: template
+    switches: 
+      quiet_mode:
+        friendly_name: Quiet Mode
+        value_template: "{{ is_state('automation.doorstaate2', 'off') }}"
+        turn_on:
+          service: script.calm_on
+        turn_off:
+          service: script.calm_off        
+        icon_template: >-
+          {% if is_state('input_boolean.quiet_mode', 'on') %}
+            mdi:bell-off
+          {% else %}
+            mdi:bell-ring-outline
+          {% endif %}
+
+
+
+
+
+script:
+
+  calm_on:
+    alias: Calm on 
+    sequence:
+      - service: automation.turn_off
+        entity_id: automation.notify_about_phone_state
+      - service: automation.turn_off
+        entity_id: automation.open_blinds_at_dawn
+      - service: automation.turn_off
+        entity_id: automation.welcome_home_andrea
+      - service: automation.turn_off
+        entity_id: automation.welcome_home_rina       
+      - service: automation.turn_off
+        entity_id: automation.doorstaate2
+      - service: notify.ios_rinas_iphone
+        data_template:
+          title: Mode Repos 
+          message: Le mode repos à été activé pensez a le desactiver
+      - service: notify.ios_iphoneadonno
+        data_template:
+          title: Quiet Mode 
+          message: Enabled
+          data:
+            push:
+              badge: 2
+              category: 'quiet'             
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.chromecast_messages
+          volume_level: 0.5
+      - service: tts.google_say
+        entity_id: media_player.chromecast_messages
+        data_template:
+          message: "Mode sieste activé."
+          language: fr    
+
+        
+  calm_off:
+    alias: Calm off
+    sequence:
+      - service: automation.turn_on
+        entity_id: automation.notify_about_phone_state
+      - service: automation.turn_on
+        entity_id: automation.open_blinds_at_dawn
+      - service: automation.turn_on
+        entity_id: automation.welcome_home_andrea
+      - service: automation.turn_on
+        entity_id: automation.welcome_home_rina       
+      - service: automation.turn_on
+        entity_id: automation.doorstaate2          
+      - service: notify.ios_rinas_iphone
+        data_template:
+          title: Mode Repos 
+          message: Le mode repos desactivé
+      - service: notify.ios_iphoneadonno
+        data_template:
+          title: Quiet Mode 
+          message: Disabled    
+          data:
+            push:
+              badge: 2          
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.chromecast_messages
+          volume_level: 0.5
+      - service: tts.google_say
+        entity_id: media_player.chromecast_messages
+        data_template:
+          message: "Mode sieste désactivé."
+          language: fr   
+      - delay: 
+          seconds: 2
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.chromecast_messages
+          volume_level: 0.7
+        
+automation:    
+  - id: calm off 
+    alias: 'diable calm push'
+    initial_state: True
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: QUIET_DISABLE
+    action:
+     service: script.turn_on
+     entity_id: script.calm_off
+     
+     
+  - id: calm still enabled
+    alias: 'clam notification'
+    initial_state: true
+    hide_entity: true
+    trigger:
+      - platform: time
+        at: '10:00:00'
+      - platform: time
+        at: '11:00:00'
+    condition:
+      - condition: template
+        value_template: "{{ is_state('automation.doorstaate2', 'off') }}"
+    action:
+      - service: notify.ios_iphoneadonno
+        data_template:
+          title: Quiet Mode 
+          message: Enabled
+          data:
+            push:
+              badge: 2
+              category: 'quiet'    

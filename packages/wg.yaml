@@ -1,0 +1,53 @@
+#########################################################################################################      
+automation:
+  - id: Welcome Sergio
+    alias: welcome Sergio
+    initial_state: True
+    hide_entity: true    
+    trigger:
+    - platform: state
+      entity_id: device_tracker.iphonedesergio_3
+      to: home
+    condition:
+    - condition: time
+      after: 08:00:00
+      before: '20:00:00'
+    - condition: state
+      entity_id: switch.quiet_mode
+      state: 'off'
+    action:
+    - service: tts.google_say
+      entity_id: media_player.chromecast_messages
+      data:
+        message: Benvenuto. Sergio
+        language: it
+    - service: notify.ios_iphoneadonno
+      data:
+        title: "Intruder"
+        message: Sergio is connected to the WIFI
+        
+  # - id: Welcome Caroline
+  #   alias: welcome Caroline
+  #   initial_state: True
+  #   hide_entity: true
+  #   trigger:
+  #   - platform: state
+  #     entity_id: device_tracker.iphonedesergio_3
+  #     to: home
+  #   condition:
+  #   - condition: time
+  #     after: 08:00:00
+  #     before: '20:00:00'
+  #   - condition: state
+  #     entity_id: switch.quiet_mode
+  #     state: 'off'
+  #   action:
+  #   - service: tts.google_say
+  #     entity_id: media_player.chromecast_messages
+  #     data:
+  #       message: Benvenuto. Sergio
+  #       language: it
+  #   - service: notify.ios_iphoneadonno
+  #     data:
+  #       title: "Intruder"
+  #       message: Sergio is connected to the WIFI

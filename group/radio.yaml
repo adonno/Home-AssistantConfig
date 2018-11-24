@@ -1,0 +1,10 @@
+Residence Radio:
+  name: Haus Radio
+  entities:
+
+  - switch.RDOLiving
+  - input_number.volume_radio_living
+  - switch.rdochparents
+  - input_number.volume_radio_parents
+#  - input_slider.volume_radio_haus
+
