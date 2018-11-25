@@ -22,7 +22,7 @@ The community is amazing and quickly growing. There are several youtubers regura
 * Host system: RPi 3
 * Backbone: KNX
     * ABB - SV/S 30.640.3.1     1X
-        <img src="https://github.com/adonno/homeassistant-config/blob/master/docs/PowersupplyKNX.jpg" alt="Powersupply" />
+        <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PowersupplyKNX.jpg" alt="Powersupply" />
     * ABB - SA/S12.16.5.1       1X
     * ABB - SA/S4.46.2.1        1X
     * ABB - JRA/S4.230.5.1      2X
