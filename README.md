@@ -7,11 +7,11 @@ So here we are, I finally managed to put my conifg on github and will try to kee
 I fully moved to lovelacelce-Ui. It took me several evenings in order to get it right and I am still tweaking. The main view is mostly used on big 21" built-in tablets. But is also usable on mobile devices. It shows the current state of an entity and it is possible to control the state of that entity by tapping the icon. 
 Please note that the scrennshots are only to give you an idea and maybe these aren't the most recent version 
 
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="200px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG" alt="Nightmode" height="200px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/page1.PNG" alt="Page1" height="200px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page2.PNG" alt="Page2" height="200px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/nas.PNG" alt="Nas" height="200px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG" alt="Nightmode" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/page1.PNG" alt="Page1" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page2.png" alt="Page2" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/nas.PNG" alt="Nas" height="500px" />
 
 
 ## History
@@ -106,8 +106,6 @@ Fibaro RGBW controllers
 Fibaro 3-1 Motion Sensor
 ### Chomrecast Audio 
 ### Chomrecast Audio 
-
-
 ### Synology DS451+
 ### XoroMgeapd 
 ### Lenovo Tablet
@@ -115,3 +113,7 @@ Fibaro 3-1 Motion Sensor
 ### Harmony Hub
 
 
+## BACKUP
+
+Every Sunday at 3:00 AM an automation creates a snapshot of my Setup. Knowing that SD cards can fail and maybe running the risk i could loose my snapshot is preocupating so i mounted the Backup folder with my sonolgy and have a Job on my synology that copies the snapshots to a folder on my nas. 
+I think i will create a Tutorial or a video Later on that matter 
