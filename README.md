@@ -7,7 +7,11 @@ So here we are, I finally managed to put my conifg on github and will try to kee
 I fully moved to lovelacelce-Ui. It took me several evenings in order to get it right and I am still tweaking. The main view is mostly used on big 21" built-in tablets. But is also usable on mobile devices. It shows the current state of an entity and it is possible to control the state of that entity by tapping the icon. 
 Please note that the scrennshots are only to give you an idea and maybe these aren't the most recent version 
 
-
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="200px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG" alt="Nightmode" height="200px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/page1.PNG" alt="Page1" height="200px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page2.PNG" alt="Page2" height="200px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/nas.PNG" alt="Nas" height="200px" />
 
 
 ## History
@@ -19,29 +23,94 @@ The community is amazing and quickly growing. There are several youtubers regura
 
 ## Hardware
 
-* Host system: RPi 3
-* Backbone: KNX
-    * ABB - SV/S 30.640.3.1     1X
-        <img src="https://github.com/adonno/homeassistant-config/blob/master/PowersupplyKNX.jpg" alt="Powersupply" />
-    * ABB - SA/S12.16.5.1       1X
-    * ABB - SA/S4.46.2.1        1X
-    * ABB - JRA/S4.230.5.1      2X
-    * Hager - TXM620D           1X
-    * Hager - TYA628C           1X
-    * Hager - TXA207C           1x
-    * Theben - DM 4 T           4X
-    * Theben - DMB 1 T          1X
-    * MDT - AKH-0400.02         1X
-    * MDT - AKH-0800.02         1X
-    * MDT - SCN-IP100.02        1X
-    * BEG - PD11-KNX-FLAT       3X
-    * MDT - BE-TA55P2.01        1X
-    * MDT - BE-TA55P6.01        1X
-    * MDT - BE-TA55P8.01        1X
-    * MDT - BE-GT2Tx.01 (Temp)  11X
-    * MDT - BE-GT20X.01         4X
-    * Zennio - ZAS              1X
+### Host system: RPi 3
+### Backbone: KNX
+
+This is the Controlled electrical installation
+
+ABB - SV/S 30.640.3.1     1X   [PowerSupply,640mA](https://new.abb.com/products/ABB2CDG110167R0011)
+    
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PowersupplyKNX.jpg" alt="Powersupply" height="200px" />
+        
+ABB - SA/S12.16.5.1       1X    [Switch Act, 12F 16-C-Load](https://new.abb.com/products/ABB2TAZ710121R5161)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/SA-S12.16.5.1.jpg" alt="12 channel switch actuator" height="200px" />
+
+ABB - SA/S4.16.2.1        1X    [Switch Act, 4F, 16A](https://new.abb.com/products/ABB2TAZ710041R2161)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ABB-SA-S4.16.2.1.jpg" alt="4 channel switch actuator" height="200px" />
+
+ABB - JRA/S4.230.5.1      2X    [Blind/RolShtAct.TravD,M,4f](https://new.abb.com/products/ABB2CDG110125R0011)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/JRA-S4.230.5.1.jpg" alt="4 channel blind actuator" height="200px" />
+
+Hager - TXM620D           1X    [Output module 20x 16A (C)/230V~, KNX](https://www.hager.co.uk/product-catalogue/building-automation/easy-e./easy-e./easy-outputs/txm620d/75824.htm)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/txm620d_1.jpg" alt="4 channel blind actuator" height="200px" />
+
+Hager - TYA628C           1X    [Output device for 8 shutters or blinds 230V~](https://www.hager.co.uk/product-catalogue/building-automation/system-s./system-s./system-blinds/tya628c/77809.htm?Suchbegriffe=TYA628C)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TYA628C.jpg" alt="4 channel blind actuator" height="200px"  /> 
+    
+Hager - TXA207C           1X    [Output 10 -fold 16A](http://www.hager.co.in/product-catalogue/building-automation-wiring-accessories/building-automation/output-module/switching-actuators/txa207c/9195.htm)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TXA207C.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+Theben - DM 4 T           4X    [4-way universal dimmer actuator FIX2](https://www.theben.de/en/dm-4-t-knx-4940275)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/theben%20DM4T.jpg" alt="4 channel blind actuator" height="200px" />     
+    
+Theben - DMB 1 T          1X    [1 channel dimming output extension module 'Dimmbooster'](https://www.theben.de/en/dmb-1-t-knx-4930279)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/DMB1T.png" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - AKH-0400.02         1X    [Heating Actuators 4-fold](https://www.mdt.de/EN_Heating_Actuators.html)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/MDT_AKH-040002.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - AKH-0800.02         1X    [Heating Actuators 8-fold](https://www.mdt.de/EN_Heating_Actuators.html)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/mdtakh080002.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - SCN-IP100.02        1X    [IP Router](https://www.mdt.de/EN_Interfaces.html)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ip%20router.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+BEG - PD11-KNX-FLAT       3X    [Low profile KNX occupancy detector](https://www.beg-luxomat.com/en/products/luxomatnet/knx/knx-standard-presence-detectors/pd11-knx-flat-st/)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PD11-KNX.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - BE-TA55P2.01        1X    [Push Button 2-fold](https://www.mdt.de/EN_Push_Buttons.html)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/BE-TA55P2.01.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - BE-TA55P6.01        1X   [Push Button 6-fold](https://www.mdt.de/EN_Push_Buttons.html) 
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/BE-TA55P6.01.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - BE-TA55P8.01        1X  [Push Button 8-fold](https://www.mdt.de/EN_Push_Buttons.html)  
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TA55P8.01.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+MDT - BE-GT2Tx.01 (Temp) - 11X   &    MDT - BE-GT20X.01 - 4X   [Glass Push Buttons II Smartl](https://www.mdt.de/EN_Glas_Push_Buttons_Smart.html)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/be-gt2tw.01_1.jpg" alt="4 channel blind actuator" height="200px" /> 
+
+Zennio - ZAS              1X   [ZAS Zennio Analog Screen] (https://www.zennio.com/products/touch-panels-room-controllers/zas)
+
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ZAS_White.png" alt="4 channel blind actuator" height="200px" /> 
+
+### Fibaro
+Fibaro Smoke Sensors
+Fibaro RGBW controllers
+Fibaro 3-1 Motion Sensor
+### Chomrecast Audio 
 
 
+### Synology DS451+
+### XoroMgeapd 
+### Lenovo Tablet
+### Amazon Alexa
+### Harmony Hub
 
 
