@@ -8,6 +8,9 @@ resources:
     type: module  
   - url: /local/monster-card.js?v=2.1
     type: module
+  - url: /local/layout-card.js?v=2.1
+    type: module    
+
 # background: center / contain no-repeat url("/local/background.png")
 background: center / cover no-repeat url("/local/background.png") fixed
 views:
@@ -19,12 +22,17 @@ views:
 
   - icon: mdi:floor-plan
     title: Floorplan
-    # panel: true
+    panel: true
     cards:
+    - type: custom:layout-card
+      layout: horizontal
+      cards:
         - type: vertical-stack
+
           cards:   
           - type: entities
             title: Date & Time
+            
             # background: rgba( 0, 0, 0, 0.4)
             background: rgba(0,0,0,0.4)
             entities:
@@ -64,8 +72,7 @@ views:
               - input_number.volume_radio_living
               - switch.rdochparents
               - input_number.volume_radio_parents                     
-                
-                
+        
         - type: vertical-stack
           cards: 
  
@@ -98,7 +105,6 @@ views:
                 style:
                   top: 70%
                   left: 38%   
-  
               - type: state-icon
                 tap_action: toggle
                 entity: light.reserve
@@ -153,14 +159,17 @@ views:
                 style:
                   top: 74%
                   left: 38%         
-#Missing prise Avant & arrière                   
+              #Missing prise Avant & arrière                   
               - type: state-icon
                 tap_action: toggle
                 entity: switch.rdoliving
                 style: { top: 57% , left: 38% }
-  ##########################################################################
-  #DOORS#########
-   
+                
+                
+               ############################################
+               #########         DOORS  Sensors    ########
+               ############################################
+               
               - type: image
                 entity: binary_sensor.local_technique_fenetre
                 image: /local/exclamation.png
@@ -220,26 +229,116 @@ views:
                 style: { top: 51%, left: 45%,transform: rotate(90deg)}
                 
     
-  ##########################################################################
-  #Rolladen#########  
-          - type: horizontal-stack
-            cards:
-            - type: entities
-              entities:
-                - entity: cover.local_technique_fenetre
-                  name: LTF
-                - entity: cover.local_technique_porte
-                  name: LTP
-                  icon: mdi:door
-            - type: entities
-              entities:                
-                - entity: cover.garage_porte
-                  name: GP
-                  icon: mdi:door
-                - entity: cover.garage_fenetre
-                  name: GF
+               ############################################
+               #########         Rolladen          ########
+               ############################################
+              
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.local_technique_fenetre
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 10%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.local_technique_fenetre
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 15%,width: 5% }
 
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.local_technique_fenetre
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 20%,width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)    
 
+              
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.local_technique_fenetre
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 37%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.local_technique_fenetre
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 42%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.local_technique_fenetre
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 47%, width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)   
+              
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.garage_porte
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 60%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.garage_porte
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 65%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.garage_porte
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 70%,width: 5%  }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)                                  
+           
+
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.garage_fenetre
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 87%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.garage_fenetre
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 92%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.garage_fenetre
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 97%,width: 5%  }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)  
+        
         - type: vertical-stack
           cards:
 
@@ -348,9 +447,9 @@ views:
                 style: { top: 54%, left: 37%}
                 
                 
-  ##############################################################################
-  
-  ####DOORS#####
+               ############################################
+               #########         DOORS  Sensors    ########
+               ############################################
   
   
               - type: image
@@ -406,39 +505,178 @@ views:
                 state_filter:              
                   "off": opacity(1%)
                   "on": opacity(100%)                     
-  
-          - type: horizontal-stack
-            cards:
-            - type: entities
-              entities:
-                - entity: cover.kueche_links_a
-                  name: CLA
-                  icon: mdi:door
-                - entity: cover.kueche_links_m
-                  name: CLM
-                  icon: mdi:door
-            - type: entities
-              entities:                
-                - entity: cover.kueche_rechts_m
-                  name: CRM
-                  icon: mdi:door
-                - entity: cover.kueche_rechts_a
-                  name: CRA
-          - type: horizontal-stack
-            cards:                
-            - type: entities
-              entities:                
-                - entity: cover.buero
-                  name: Living
-                  icon: mdi:door
-            - type: entities
-              entities:                 
-                - entity: cover.living
-                  name: Buro
+ 
+ 
 
+               ############################################
+               #########         Rolladen          ########
+               ############################################
+
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.kueche_links_a
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 10%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.kueche_links_a
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 15%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.kueche_links_a
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 20%,width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)    
+                  
+
+              
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.kueche_links_m
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 37%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.kueche_links_m
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 42%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.kueche_links_m
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 47%, width: 5% }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)   
+
+
+
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.kueche_rechts_m
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 60%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.kueche_rechts_m
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 65%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.kueche_rechts_m
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 70%,width: 5%  }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)                                  
+            
+              
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.kueche_rechts_a
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%, left: 87%,width: 5% }
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.kueche_rechts_a
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 92%,width: 5% }
+
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.kueche_rechts_a
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 97%,width: 5%  }
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)                     
+            
+            
+
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.buero
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 90%, left: 27%}
+                state_filter:
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+                  
+              - type: icon
+                icon: mdi:stop
+                entity: cover.buero
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 90%, left: 32%}
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.buero
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 90%, left: 37%}
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)     
+ 
+ 
+
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.living
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 90%, left: 70%}
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.living
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 90%, left: 75%}
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.living
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 90%, left: 80%}
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)     
         - type: vertical-stack
           cards:
-
           - type: picture-elements
             image: /local/Floor2V.PNG
             elements:
@@ -555,9 +793,9 @@ views:
                   left: 65%
               # - type: state-icon
   
-  #####################
-  #     DOOOORS
-  #####################
+               ############################################
+               #########         DOORS  Sensors    ########
+               ############################################
   
   
               - type: image
@@ -591,153 +829,123 @@ views:
                   "off": opacity(1%)
                   "on": opacity(100%)
                   
-##################
-##  Rolladen 
-##################
+               ############################################
+               #########         Rolladen          ########
+               ############################################
 
-              - type: state-icon
-                entity: cover.chac_enfant_arriere
-                style: { top: 10%, left: 20%, width: 5% }
-                
-              - type: icon
-                icon: mdi:arrow-up
+          
+
+              
+              - type: image
+                image: /local/arrow-up.png
                 entity: cover.chac_enfant_arriere
                 tap_action: call-service
                 service: cover.open_cover
-                style: { top: 10%, left: 27%, width: 5% }
+                style: { top: 5%, left: 27%}
                 state_filter: 
-                  "open": opacity(5%)
+                  "open": opacity(25%)
                   "closed": opacity(100%)
               - type: icon
                 icon: mdi:stop
                 entity: cover.chac_enfant_arriere
                 tap_action: call-service
                 service: cover.stop_cover
-                style: { top: 10%, left: 32%, width: 5% }
+                style: { top: 5%, left: 32%}
 
-              - type: icon
-                icon: mdi:arrow-down
+              - type: image
+                image: /local/arrow-down.png
                 entity: cover.chac_enfant_arriere
                 tap_action: call-service
                 service: cover.close_cover
-                style: { top: 10%, left: 37%, width: 5% }
+                style: { top: 5%, left: 37%}
                 state_filter: 
                   "open": opacity(100%)
-                  "closed": opacity(5%)              
+                  "closed": opacity(25%)    
                   
                   
                   
-                
-              - type: state-icon
-                entity: cover.chac_enfant_route
-                style: { top: 90%, left: 20%, width: 5% }
-                
+
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.sdb_parents
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 5%,  left: 70%}
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
               - type: icon
-                icon: mdi:arrow-up
+                icon: mdi:stop
+                entity: cover.sdb_parents
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 5%, left: 75%}
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.sdb_parents
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 5%, left: 80%}
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(125%)            
+
+                
+
+              - type: image
+                image: /local/arrow-up.png
                 entity: cover.chac_enfant_route
                 tap_action: call-service
                 service: cover.open_cover
-                style: { top: 90%, left: 27%, width: 5% }
-                state_filter: 
-                  open: opacity(5)
-                  closed: opacity(100)
+                style: { top: 90%, left: 27%}
+                state_filter:
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+                  
               - type: icon
                 icon: mdi:stop
                 entity: cover.chac_enfant_route
                 tap_action: call-service
                 service: cover.stop_cover
-                style: { top: 90%, left: 32%, width: 5% }
-
-              - type: icon
-                icon: mdi:arrow-down
+                style: { top: 90%, left: 32%}
+              - type: image
+                image: /local/arrow-down.png
                 entity: cover.chac_enfant_route
                 tap_action: call-service
                 service: cover.close_cover
-                style: { top: 90%, left: 37%, width: 5% }
+                style: { top: 90%, left: 37%}
                 state_filter: 
-                  open: opacity(100)
-                  closed: opacity(5)       
+                  "open": opacity(100%)
+                  "closed": opacity(25%)     
  
  
- 
-              # - type: state-icon
-              #   entity: cover.chac_enfant_route
-              #   style: { top: 10%, left: 20%, width: 5% }
-                
-              # - type: icon
-              #   icon: mdi:arrow-up
-              #   entity: cover.chac_enfant_route
-              #   tap_action: call-service
-              #   service: cover.open_cover
-              #   style: { top: 10%, left: 27%, width: 5% }
-              #   state_filter: 
-              #     "open": opacity(5%)
-              #     "closed": opacity(100%)
-              # - type: icon
-              #   icon: mdi:stop
-              #   entity: cover.chac_enfant_route
-              #   tap_action: call-service
-              #   service: cover.stop_cover
-              #   style: { top: 10%, left: 32%, width: 5% }
 
-              # - type: icon
-              #   icon: mdi:arrow-down
-              #   entity: cover.chac_enfant_route
-              #   tap_action: call-service
-              #   service: cover.close_cover
-              #   style: { top: 10%, left: 37%, width: 5% }
-              #   state_filter: 
-              #     "open": opacity(100%)
-              #     "closed": opacity(5%)      
+              - type: image
+                image: /local/arrow-up.png
+                entity: cover.chac_parents
+                tap_action: call-service
+                service: cover.open_cover
+                style: { top: 90%, left: 70%}
+                state_filter: 
+                  "open": opacity(25%)
+                  "closed": opacity(100%)
+              - type: icon
+                icon: mdi:stop
+                entity: cover.chac_parents
+                tap_action: call-service
+                service: cover.stop_cover
+                style: { top: 90%, left: 75%}
+              - type: image
+                image: /local/arrow-down.png
+                entity: cover.chac_parents
+                tap_action: call-service
+                service: cover.close_cover
+                style: { top: 90%, left: 80%}
+                state_filter: 
+                  "open": opacity(100%)
+                  "closed": opacity(25%)     
+  
  
- 
- 
-              # - type: state-icon
-              #   entity: cover.chac_enfant_route
-              #   style: { top: 10%, left: 20%, width: 5% }
-                
-              # - type: icon
-              #   icon: mdi:arrow-up
-              #   entity: cover.chac_enfant_route
-              #   tap_action: call-service
-              #   service: cover.open_cover
-              #   style: { top: 10%, left: 27%, width: 5% }
-              #   state_filter: 
-              #     "open": opacity(5%)
-              #     "closed": opacity(100%)
-              # - type: icon
-              #   icon: mdi:stop
-              #   entity: cover.chac_enfant_route
-              #   tap_action: call-service
-              #   service: cover.stop_cover
-              #   style: { top: 10%, left: 32%, width: 5% }
-
-              # - type: icon
-              #   icon: mdi:arrow-down
-              #   entity: cover.chac_enfant_route
-              #   tap_action: call-service
-              #   service: cover.close_cover
-              #   style: { top: 10%, left: 37% }
-              #   state_filter: 
-              #     open: opacity(100)
-              #     closed: opacity(5)   
-                  
-                  
-                  
-
-                # - entity: cover.chac_enfant_route
-                #   name: CCR
-                #   icon: mdi:door
-                # - entity: cover.chac_enfant_arriere
-            #       name: CCA
-            #       icon: mdi:door
-            # - type: entities
-            #   entities:                
-            #     - entity: cover.sdb_parents
-            #       name: SDBP
-            #       icon: mdi:door
-            #     - entity: cover.chac_parents
-                  # name: CCP        
           
 
 
@@ -797,25 +1005,7 @@ views:
   - title: 1er
     icon: mdi:numeric-1-box-multiple-outline  
     cards:
-    # - type: vertical-stack
-    #   cards:   
-    #   - type: entities
-    #     title: Date & Time
-    #     # background: rgba( 0, 0, 0, 0.4)
-    #     background: rgba(0,0,0,0.4)
-    #     entities:
-    #       - entity: sensor.time
-    #       - entity: sensor.date
-    #   - type: weather-forecast
-    #     entity: weather.dark_sky
-    #   - type: glance
-    #     title: Presence
-    #     entities: 
-    #     - entity: device_tracker.iphoneandrea
-    #       name: Andrea
-    #     - entity: device_tracker.rinas_iphone
-    #       name: Rina
-
+ 
     - type: entities
       title: Radio
       entities: 
@@ -992,17 +1182,17 @@ views:
       - type: sensor
         entity: sensor.living
         hours_to_show: 48
-        accuracy: 5
+
         line_color: "#039be5"
       - type: sensor
         entity: sensor.buero
         hours_to_show: 48
-        accuracy: 5
+
         line_color: "#039be5"
       - type: sensor
         entity: sensor.kueche
         hours to show: 48
-        accuracy: 5
+
         line_color: "#039be5"      
 ###########################################################################
 ###########################################################################
@@ -1259,7 +1449,7 @@ views:
       - type: sensor
         entity: sensor.memory_usage_real
         hours_to_show: 48
-        accuracy: 5
+        # accuracy: 5
         line_color: "#039be5"
         name: Memory Usage
       - type: horizontal-stack
@@ -1268,13 +1458,13 @@ views:
         - type: sensor
           entity: sensor.network_down
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: Download
         - type: sensor
           entity: sensor.network_up
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: Upload
           
@@ -1290,24 +1480,24 @@ views:
         - type: sensor
           entity: sensor.cpu_load_total
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
         - entity: sensor.cpu_load_system
           type: sensor
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"  
       - type: horizontal-stack
         cards:
         - entity: sensor.cpu_load_user
           type: sensor
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5" 
         - entity: sensor.cpu_load_other
           type: sensor 
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5" 
           
     - type: vertical-stack
@@ -1320,14 +1510,14 @@ views:
         - type: sensor
           entity: sensor.temperature_sda
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: SDC
           icon: mdi:harddisk
         - type: sensor
           entity: sensor.temperature_sdb
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: SDC
           icon: mdi:harddisk
@@ -1337,14 +1527,14 @@ views:
         - type: sensor
           entity: sensor.temperature_sdc
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: SDC
           icon: mdi:harddisk
         - type: sensor
           entity: sensor.temperature_sdd
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: SDC
           icon: mdi:harddisk
@@ -1403,7 +1593,7 @@ views:
         - type: sensor
           entity: sensor.speedtest_ping
           hours_to_show: 48
-          accuracy: 5
+          # accuracy: 5
           line_color: "#039be5"
           name: Ping
         - type: horizontal-stack
@@ -1411,13 +1601,13 @@ views:
           - type: sensor
             entity: sensor.speedtest_download
             hours_to_show: 48
-            accuracy: 5
+            # accuracy: 5
             line_color: "#039be5"
             name: Down
           - type: sensor
             entity: sensor.speedtest_upload
             hours_to_show: 48
-            accuracy: 5
+            # accuracy: 5
             line_color: "#039be5"
             name: UP
           
