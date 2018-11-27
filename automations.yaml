@@ -411,6 +411,13 @@
       message: Welcome
   - service: light.turn_on
     entity_id: light.hall_entree
+  - service: light.turn_on
+    entity_id: light.lum_ext_avant
+  - delay: '00:05:00'
+  - service: light.turn_on
+    entity_id: light.hall_entree
+  - service: light.turn_on
+    entity_id: light.lum_ext_avant
     
 #########################################################################################################      
 
@@ -731,3 +738,39 @@
     # - service_template: "homeassistant.turn_{{ trigger.to_state.state | lower}}"
     #   data_template:
     #     entity_id: "{{ 'light.my_ligths switch.my_switch' | replace(trigger.entity_id, '') }}"
+    
+    
+    
+    
+# - alias: Speicher An
+#   trigger:
+#   - at: '22:00'
+#     platform: time
+#   condition: []
+#   action:
+#   - data:
+#       address: '4/2/16'
+#       payload: 1
+#     service: knx.send
+    
+# - alias: Speicher aus
+#   trigger:
+#   - at: '22:10'
+#     platform: time
+#   condition: []
+#   action:
+#   - data:
+#       address: '4/2/16'
+#       payload: 0
+#     service: knx.send
+    
+# - alias: test temperatur
+#   trigger:
+#   - at: '22:10'
+#     platform: time
+#   condition: []
+#   action:
+#   - data:
+#       address: '2/4/10'
+#       payload: 0C
+#     service: knx.send
