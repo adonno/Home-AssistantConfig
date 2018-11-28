@@ -26,105 +26,78 @@ The community is amazing and quickly growing. There are several youtubers regura
 ### Host system: RPi 3
 ### Backbone: KNX
 
+
 This is the Controlled electrical installation
 
-ABB - SV/S 30.640.3.1     **1X**    [PowerSupply,640mA](https://new.abb.com/products/ABB2CDG110167R0011)
-    
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PowersupplyKNX.jpg"  height="200px" />
-        
-ABB - SA/S12.16.5.1       **1X**    [Switch Act, 12F 16-C-Load](https://new.abb.com/products/ABB2TAZ710121R5161)
+| Device        |Quantities           |More Info          |Image    |   
+| ------------- |:-------------:|:-----:|-----------:|
+| ABB - SV/S 30.640.3.1 | **1X** | [PowerSupply,640mA](https://new.abb.com/products/ABB2CDG110167R0011) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PowersupplyKNX.jpg"  height="100px" />|
+| ABB - SA/S12.16.5.1   | **1X** | [Switch Act, 12F 16-C-Load](https://new.abb.com/products/ABB2TAZ710121R5161) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/SA-S12.16.5.1.jpg"  height="100px" />| 
+| ABB - SA/S4.16.2.1    | **1X** | [Switch Act, 4F, 16A](https://new.abb.com/products/ABB2TAZ710041R2161) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ABB-SA-S4.16.2.1.jpg"  height="100px" />| 
+| ABB - JRA/S4.230.5.1  | **2X** | [Blind/RolShtAct.TravD,M,4f](https://new.abb.com/products/ABB2CDG110125R0011) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/JRA-S4.230.5.1.jpg"  height="100px" />| 
+| Hager - TXM620D       | **1X** | [Output module 20x 16A (C)/230V~, KNX](https://www.hager.co.uk/product-catalogue/building-automation/easy-e./easy-e./easy-outputs/txm620d/75824.htm) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/txm620d_1.jpg" height="100px" />| 
+| Hager - TYA628C       | **1X** |  [Output device for 8 shutters or blinds 230V~](https://www.hager.co.uk/product-catalogue/building-automation/system-s./system-s./system-blinds/tya628c/77809.htm?Suchbegriffe=TYA628C) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TYA628C.jpg"   height="100px" />|
+| Hager - TXA207C       | **1X** |  [Output 10 -fold 16A](http://www.hager.co.in/product-catalogue/building-automation-wiring-accessories/building-automation/output-module/switching-actuators/txa207c/9195.htm) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TXA207C.jpg" height="100px" />| 
+| Theben - DM 4 T       | **4X** |  [4-way universal dimmer actuator FIX2](https://www.theben.de/en/dm-4-t-knx-4940275) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/theben%20DM4T.jpg"   height="100px" />| 
+| Theben - DMB 1 T      | **1X** | [Switch Act, 12F 16-C-Load](https://new.abb.com/products/ABB2TAZ710121R5161) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/DMB1T.png"  height="100px" />| 
+| MDT - AKH-0400.02     | **1X** |  [Heating Actuators 4-fold](https://www.mdt.de/EN_Heating_Actuators.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/MDT_AKH-040002.jpg"  height="100px" />| 
+| MDT - AKH-0800.02     | **1X** |  [Heating Actuators 4-fold](https://www.mdt.de/EN_Heating_Actuators.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/mdtakh080002.jpg"  height="100px" />| 
+| MDT - SCN-IP100.02    | **1X** | [IP Router](https://www.mdt.de/EN_Interfaces.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ip%20router.jpg"  height="100px" />| 
+| BEG - PD11-KNX-FLAT   | **3X** | [Low profile KNX occupancy detector](https://www.beg-luxomat.com/en/products/luxomatnet/knx/knx-standard-presence-detectors/pd11-knx-flat-st/) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PD11-KNX.jpg"  height="100px" />| 
+| MDT - BE-TA55P2.01    | **1X** | [Push Button 2-fold](https://www.mdt.de/EN_Push_Buttons.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/BE-TA55P2.01.jpg"  height="100px" />| 
+| MDT - BE-TA55P6.01    | **1X** | [Push Button 6-fold](https://www.mdt.de/EN_Push_Buttons.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/BE-TA55P6.01.jpg"  height="100px" />| 
+| MDT - BE-TA55P8.01    | **1X** | [Push Button 8-fold](https://www.mdt.de/EN_Push_Buttons.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TA55P8.01.jpg"  height="100px" />| 
+| MDT - BE-GT2Tx.01     | **11X** | [Glass Push Buttons II Smart With Temperature Sensor](https://www.mdt.de/EN_Glas_Push_Buttons_Smart.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/be-gt2tw.01_1.jpg"  height="100px" />| 
+| MDT - BE-GT20x.01     | **4X** | [Glass Push Buttons II Smart](https://www.mdt.de/EN_Glas_Push_Buttons_Smart.html) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/be-gt2tw.01_1.jpg"  height="100px" />| 
+| Zennio - ZAS          | **1X** |[ZAS Zennio Analog Screen](https://www.zennio.com/products/touch-panels-room-controllers/zas) |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ZAS_White.png"  height="100px" />| 
 
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/SA-S12.16.5.1.jpg"  height="200px" />
-
-ABB - SA/S4.16.2.1        **1X**    [Switch Act, 4F, 16A](https://new.abb.com/products/ABB2TAZ710041R2161)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ABB-SA-S4.16.2.1.jpg" height="200px" />
-
-ABB - JRA/S4.230.5.1      **2X**    [Blind/RolShtAct.TravD,M,4f](https://new.abb.com/products/ABB2CDG110125R0011)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/JRA-S4.230.5.1.jpg" height="200px" />
-
-Hager - TXM620D           **1X**    [Output module 20x 16A (C)/230V~, KNX](https://www.hager.co.uk/product-catalogue/building-automation/easy-e./easy-e./easy-outputs/txm620d/75824.htm)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/txm620d_1.jpg"  height="200px" />
-
-Hager - TYA628C           **1X**    [Output device for 8 shutters or blinds 230V~](https://www.hager.co.uk/product-catalogue/building-automation/system-s./system-s./system-blinds/tya628c/77809.htm?Suchbegriffe=TYA628C)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TYA628C.jpg"  height="200px"  /> 
-    
-Hager - TXA207C           **1X**    [Output 10 -fold 16A](http://www.hager.co.in/product-catalogue/building-automation-wiring-accessories/building-automation/output-module/switching-actuators/txa207c/9195.htm)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TXA207C.jpg"  height="200px" /> 
-
-Theben - DM 4 T           **4X**    [4-way universal dimmer actuator FIX2](https://www.theben.de/en/dm-4-t-knx-4940275)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/theben%20DM4T.jpg"  height="200px" />     
-    
-Theben - DMB 1 T          **1X**    [1 channel dimming output extension module 'Dimmbooster'](https://www.theben.de/en/dmb-1-t-knx-4930279)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/DMB1T.png"  height="200px" /> 
-
-MDT - AKH-0400.02         **1X**    [Heating Actuators 4-fold](https://www.mdt.de/EN_Heating_Actuators.html)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/MDT_AKH-040002.jpg"  height="200px" /> 
-
-MDT - AKH-0800.02         **1X**    [Heating Actuators 8-fold](https://www.mdt.de/EN_Heating_Actuators.html)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/mdtakh080002.jpg"  height="200px" /> 
-
-MDT - SCN-IP100.02        **1X**    [IP Router](https://www.mdt.de/EN_Interfaces.html)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ip%20router.jpg" height="200px" /> 
-
-BEG - PD11-KNX-FLAT       **3X**    [Low profile KNX occupancy detector](https://www.beg-luxomat.com/en/products/luxomatnet/knx/knx-standard-presence-detectors/pd11-knx-flat-st/)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/PD11-KNX.jpg"  height="200px" /> 
-
-MDT - BE-TA55P2.01        **1X**    [Push Button 2-fold](https://www.mdt.de/EN_Push_Buttons.html)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/BE-TA55P2.01.jpg"  height="200px" /> 
-
-MDT - BE-TA55P6.01        **1X**    [Push Button 6-fold](https://www.mdt.de/EN_Push_Buttons.html) 
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/BE-TA55P6.01.jpg"  height="200px" /> 
-
-MDT - BE-TA55P8.01        **1X**    [Push Button 8-fold](https://www.mdt.de/EN_Push_Buttons.html)  
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/TA55P8.01.jpg"  height="200px" /> 
-
-MDT - BE-GT2Tx.01 (Temp) - **11X**   &    MDT - BE-GT20X.01 - **4X**   [Glass Push Buttons II Smartl](https://www.mdt.de/EN_Glas_Push_Buttons_Smart.html)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/be-gt2tw.01_1.jpg" height="200px" /> 
-
-Zennio - ZAS              **1X**   [ZAS Zennio Analog Screen] (https://www.zennio.com/products/touch-panels-room-controllers/zas)
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/ZAS_White.png"  height="200px" /> 
 
 ### Fibaro
-Fibaro Smoke Sensors      **3X**  
+| Device        |Quantities            |Image    |   
+| ------------- |:-------------:|:-----:|-----------:|
+| Fibaro Smoke Sensors          | **3X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaromultisensor.png"   height="100px" />| 
+| Fibaro RGBW controllers         | **4x**    | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibarorgbw.png"     height="100px" />| 
+| Fibaro 3-1 Motion Sensor         | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Fibsmokesensor.jpg"  height="100px" />| 
+| Fibaro Intercom          | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaro_intercom.jpg"  height="100px" />| 
 
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaromultisensor.png"  height="200px" /> 
-
-
-Fibaro RGBW controllers   **4x**    https://www.fibaro.com/en/products/rgbw-controller/
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibarorgbw.png"  height="200px" /> 
-
-
-Fibaro 3-1 Motion Sensor  **1X**    https://www.fibaro.com/en/products/motion-sensor/
-
-
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Fibsmokesensor.jpg"  height="200px" /> 
-
-Fibaro Intercom   **1X**   (I would not recommend this intercom)
+(I would not recommend this intercom)
 Though it looks nice, it is not usable with home assitant except for the camera feed. If someone rings the bell, the phones where the app is installed on rings but there is no API as of now for HA to access.
-Contacted their support about it and still waiting on a reply from their side. 
+Contacted their support about the issue and still waiting on a reply from their side. 
 
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaro_intercom.jpg"  height="200px" /> 
+ 
+
+## Audio 
+
+I have several Choromecasts for my home audio entertainment system. I am actually using 1 for the Partental suite and 1 for the living/kitchen/entrance area 1 is used for TTS mesages
+I am using several Speakers:
+* 4 above the TV/couch  - 224mm 60W 
+* 2 in the kitchen - 224mm 60W
+* 1 in the WC - 80mm 10W
+* 1 in the main antrance  - 80mm 10W
+* 1 in the hallway  - 80mm 10W
+* 1 in the parental Bedroom - 224mm  60W
+* 1 in the Wardrobe  - 80mm 10W
+* 1 in the Parental Bathroom -224mm 60W
+
+Thee will be more speakers addedd in the Garage and in the Wellness Aera at a later time
+
+I am currently working with mixers as chromecast don't continue with playback after a message as been broadcast over tts. 
+Maybe this issue could be solved by using alexa devices instead of Chormecasts.
+I will also need a big per channel amplifyer as i will have at least 6-7 Zones 
+
+Device List 
+
+|-----------|----------------|--------------|
+|Chomrecast Audio|   
+|Loxone Speaker|  https://shop.loxone.com/enus/speaker.html
+|Visaton Deckenlautsprecher Dl-8|
 
 
-### Chomrecast Audio 
-### Synology DS451+
+
+
+
+
+### Synology DS451+ 
 ### XoroMgeapd 
 ### Lenovo Tablet
 ### Amazon Alexa
@@ -167,7 +140,10 @@ I think i will create a Tutorial or a video Later on that matter
 
 This is an extenisve list of all the stuff i would like to work on soon. 
 
-### Install Fibaro/DIY Flood sensors 
+### Automations 
+
+
+### Install Sensors 
 I have several stuff I would monitor for "flood/Waterleaks" 
 
 * Heating Central 
@@ -186,3 +162,4 @@ Tidy up and Document my config better inspired by @freck
 That will be a hell lot of work 
 
 
+### Alarm 
