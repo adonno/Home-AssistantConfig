@@ -53,12 +53,13 @@ This is the Controlled electrical installation
 
 
 ### Fibaro
-| Device        |Quantities            |Image    |   
-| ------------- |:-------------:|:-----:|-----------:|
-| Fibaro Smoke Sensors          | **3X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaromultisensor.png"   height="100px" />| 
-| Fibaro RGBW controllers         | **4x**    | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibarorgbw.png"     height="100px" />| 
-| Fibaro 3-1 Motion Sensor         | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Fibsmokesensor.jpg"  height="100px" />| 
-| Fibaro Intercom          | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaro_intercom.jpg"  height="100px" />| 
+
+|Device        |Quantities            |Image    |   
+|------------- |:-------------:|:-----:|-----------:|
+|Fibaro Smoke Sensors          | **3X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaromultisensor.png"   height="100px" />| 
+|Fibaro RGBW controllers         | **4x**    | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibarorgbw.png"     height="100px" />| 
+|Fibaro 3-1 Motion Sensor         | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Fibsmokesensor.jpg"  height="100px" />| 
+|Fibaro Intercom          | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaro_intercom.jpg"  height="100px" />| 
 
 (I would not recommend this intercom)
 Though it looks nice, it is not usable with home assitant except for the camera feed. If someone rings the bell, the phones where the app is installed on rings but there is no API as of now for HA to access.
@@ -85,12 +86,12 @@ I am currently working with mixers as chromecast don't continue with playback af
 Maybe this issue could be solved by using alexa devices instead of Chormecasts.
 I will also need a big per channel amplifyer as i will have at least 6-7 Zones 
 
-Device List 
-
+Device List
 |-----------|----------------|--------------|
 |Chomrecast Audio|   
 |Loxone Speaker|  https://shop.loxone.com/enus/speaker.html
-|Visaton Deckenlautsprecher Dl-8|
+|Visaton Deckenlautsprecher Dl-8|  https://www.amazon.de/gp/product/B0000WP8XM/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
+     https://www.amazon.de/gp/product/B01M8NLFV8/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1
 
 
 
