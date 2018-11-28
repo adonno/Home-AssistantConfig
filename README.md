@@ -55,7 +55,7 @@ This is the Controlled electrical installation
 ### Fibaro
 
 |Device        |Quantities            |Image    |   
-|------------- |:-------------:|:-----:|-----------:|
+|------------- |:-------------:|-----------:|
 |Fibaro Smoke Sensors          | **3X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaromultisensor.png"   height="100px" />| 
 |Fibaro RGBW controllers         | **4x**    | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibarorgbw.png"     height="100px" />| 
 |Fibaro 3-1 Motion Sensor         | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Fibsmokesensor.jpg"  height="100px" />| 
