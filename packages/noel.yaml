@@ -1,0 +1,72 @@
+automation:
+  - alias: arbre de noel soir on
+    initial_state: True
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      below: -1
+    action: 
+      - service: switch.turn_on
+        entity_id: switch.prise_sol_escalier
+      - service: notify.ios_iphoneadonno
+        data:
+          title: "Arbre on soir"
+          message: Arbre on soir
+          
+        
+  - alias: arbre de noel soir off
+    initial_state: True
+    trigger:  
+      platform: time 
+      at: '01:00:00'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.prise_sol_escalier
+        
+
+  - alias: arbre de noel matin off
+    initial_state: True
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: '{{ state.attributes.elevation }}'
+      above: 1
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+      - service: switch.turn_off
+        entity_id: switch.prise_sol_escalier      
+      - service: notify.ios_iphoneadonno
+        data:
+          title: "Arbre off morning"
+          message: Arbre off morning
+          
+  - alias: arbre de noel matin on
+    initial_state: True
+    trigger:
+        platform: time
+        at: '06:00:00'
+    condition: 
+      condition: and
+      conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: sun
+        before: sunrise
+        before_offset: "-1:00:00"
+      
+    action:
+      - service: switch.turn_on
+        entity_id: switch.prise_sol_escalier

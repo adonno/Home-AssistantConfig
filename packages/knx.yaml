@@ -67,9 +67,13 @@ switch:
 #############################
 ###  3etage /Combles
 #############################      
-    
-       
-       
 
- 
- 
+
+
+      
+sensor:
+  - platform: template
+    sensors:
+      knx_day:
+        value_template: >
+          {{ 1 if state_attr('sun.sun', 'elevation') | float >= -1.0 else 0 }}

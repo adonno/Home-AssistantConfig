@@ -82,7 +82,7 @@ cover:
 automation:
   - id: 'Close Blinds at dusk'
     alias: 'Fermer Jalousies au Soir'
-#    initial_state: True  
+    initial_state: True  
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -147,7 +147,7 @@ automation:
       - service: cover.set_cover_position
         data:          
           entity_id: cover.chac_parents
-          position: 7
+          position: 6
           
           
 ######################################3          
@@ -186,6 +186,9 @@ automation:
         entity_id: cover.cuisine
       - service: cover.open_cover
         entity_id: cover.chac_enfant_arriere
+    ### has to be disabled in the summer     
+      - service: cover.open_cover
+        entity_id: cover.front
         
 ####################################################################################################        
   - id: blinds morning
