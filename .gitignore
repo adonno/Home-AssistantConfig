@@ -8,12 +8,16 @@
 !*.md
 !packages
 !group
-!doc
+!docs
+!*.jpg
+!*.png
+!*.PNG
 
 # Ignore folders.
 .storage
 .cloud
 .google.token
+.www
 
 
 
@@ -22,4 +26,5 @@
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
-
+rln8-16-410.png 
+rlc-410-5MP.png 

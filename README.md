@@ -87,6 +87,7 @@ Maybe this issue could be solved by using alexa devices instead of Chormecasts.
 I will also need a big per channel amplifyer as i will have at least 6-7 Zones and have more powerful amps in a 2nd pahse as the current ones caon't keep up with the speakers
 
 Device List
+
 |-----------|----------------|--------------|
 |[Chomrecast Audio](https://www.google.com/chromecast/audio/explore/)| **4X**|<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/chromecast-audio.png"  height="100px" /> | 
 |[Loxone Speaker]( https://shop.loxone.com/enus/speaker.html)| **8X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/seitlich_rund.png"  height="100px" />| 
@@ -94,14 +95,16 @@ Device List
 |[Lepy-808 Black Digital-Amplifyer Stereo-Audio,20W](https://www.amazon.de/gp/product/B01M8NLFV8/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1) | **5X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/lepy.png"  height="100px" /> |
 |[Behringer Xenyx 502](https://www.thomann.de/gb/behringer_xenyx_502.htm) | **4X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/behringer-xenyx.jpg"  height="100px" /> |
 
+
 ### Storage/Server
 
 Synology DS415+ <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Synology.jpg" height="100px" />
 
 ### Screens:
 
-Megapad
-Lenovo
+[XORO Megapad](https://www.amazon.de/Xoro-MegaPAD-2151-Tablet-PC-Android/dp/B00JIKWBKK) A 21" Wallmounted Tabled (with no batteires)running on android for HA display   **2X**  
+
+Lenovo 
 
 
 
@@ -168,3 +171,4 @@ That will be a hell lot of work
 
 
 ### Alarm 
+
