@@ -21,13 +21,14 @@ So how did i stumble on Home-assitant an how i started with a hassbian then move
 My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in that. Somehow while looking for OpenHab I found homeassitant. I had already tried with OpenHab but I never really managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed at how simple it was to use and configure. 
 The community is amazing and quickly growing. There are several youtubers regurarely posting tutorials and the system is kept up to date on a 2 week schedule as of now. 
 
-## Hardware
+## House Automation Hardware
 
 ### Host system: RPi 3
 ### Backbone: KNX
 
 
 This is the Controlled electrical installation
+There is not much to say about this. As the house was a new construction this was the best way to go imho. Having everything wired makes it less error/interference porone and avoid additional radio frequencies. 
 
 | Device        |Quantities           |More Info          |Image    |   
 | ------------- |:-------------:|:-----:|-----------:|
@@ -65,9 +66,8 @@ This is the Controlled electrical installation
 Though it looks nice, it is not usable with home assitant except for the camera feed. If someone rings the bell, the phones where the app is installed on rings but there is no API as of now for HA to access.
 Contacted their support about the issue and still waiting on a reply from their side. 
 
- 
 
-## Audio 
+### Audio 
 
 I have several Choromecasts for my home audio entertainment system. I am actually using 1 for the Partental suite and 1 for the living/kitchen/entrance area 1 is used for TTS mesages
 I am using several Speakers:
@@ -80,27 +80,31 @@ I am using several Speakers:
 * 1 in the Wardrobe  - 80mm 10W
 * 1 in the Parental Bathroom -224mm 60W
 
-Thee will be more speakers addedd in the Garage and in the Wellness Aera at a later time
+There will be more speakers addedd in the Garage and in the Wellness Aera at a later
 
 I am currently working with mixers as chromecast don't continue with playback after a message as been broadcast over tts. 
 Maybe this issue could be solved by using alexa devices instead of Chormecasts.
-I will also need a big per channel amplifyer as i will have at least 6-7 Zones 
+I will also need a big per channel amplifyer as i will have at least 6-7 Zones and have more powerful amps in a 2nd pahse as the current ones caon't keep up with the speakers
 
 Device List
 |-----------|----------------|--------------|
-|Chomrecast Audio|   
-|Loxone Speaker|  https://shop.loxone.com/enus/speaker.html
-|Visaton Deckenlautsprecher Dl-8|  https://www.amazon.de/gp/product/B0000WP8XM/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
-     https://www.amazon.de/gp/product/B01M8NLFV8/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1
+|[Chomrecast Audio](https://www.google.com/chromecast/audio/explore/)| **4X**|<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/chromecast-audio.png"  height="100px" /> | 
+|[Loxone Speaker]( https://shop.loxone.com/enus/speaker.html)| **8X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/seitlich_rund.png"  height="100px" />| 
+|[Visaton Deckenlautsprecher Dl-8](https://www.amazon.de/gp/product/B0000WP8XM/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)| **4X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Visaton.png"  height="100px" />| 
+|[Lepy-808 Black Digital-Amplifyer Stereo-Audio,20W](https://www.amazon.de/gp/product/B01M8NLFV8/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1) | **5X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/lepy.png"  height="100px" /> |
+|[Behringer Xenyx 502](https://www.thomann.de/gb/behringer_xenyx_502.htm) | **4X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/behringer-xenyx.jpg"  height="100px" /> |
+
+### Storage/Server
+
+Synology DS415+ <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Synology.jpg" height="100px" />
+
+### Screens:
+
+Megapad
+Lenovo
 
 
 
-
-
-
-### Synology DS451+ 
-### XoroMgeapd 
-### Lenovo Tablet
 ### Amazon Alexa
 ### Harmony Hub
 
