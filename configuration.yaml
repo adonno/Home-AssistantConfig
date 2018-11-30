@@ -161,6 +161,11 @@ sensor:
 
       
   - platform: version
+    name: version_available
+    source: hassio
+    branch: stable
+    image: raspberrypi3
+  
   
   - platform: synologydsm
     host: !secret synology_ip
@@ -233,6 +238,10 @@ tts:
 
 
 knx:
+  # expose:
+  #   - type: 2.002
+  #     entity_id: sensor.knx_day
+  #     address: '4/2/16'
 
 # Cloud
 cloud:
