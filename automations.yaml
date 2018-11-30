@@ -61,18 +61,39 @@
       
 #########################################################################################################   
       
-- id: New Version notification
-  alias: Update notifications
-  initial_state: true
-  hide_entity : true
+# This alers me on my iPhone when a new release
+# of Home Assistant for Hass.io is released.
+#
+- alias: system_upgrade_alert
   trigger:
-  - platform: state
-    entity_id: updater.updater
+    platform: state
+    entity_id: sensor.version_available
+  condition:
+    - condition: template
+      value_template: >-
+        {{
+          states('sensor.version_available')
+          !=
+          states('sensor.version_current')
+        }}
   action:
-  - service: notify.ios_iphoneadonno
-    data_template:
-      title: New Home Assistant Release
-      message: Home Assistant  {{ states.updater.updater.state }}  is now available.
+    - service: notify.ios_iphoneadonno
+      data_template:
+        title: Upgrade time!
+        message: >-
+          There is a Home Assistant upgrade for Hass.io pending!
+          Version {{ states('sensor.version_available') }} just got released!
+        data:
+          attachment:
+            content-type: png
+            url: https://png2.kisspng.com/20180504/avq/kisspng-computer-icons-starburst-clip-art-the-store-to-upgrade-kuangshuai-5aecf79d6760f6.2104595515254793254235.png
+    - service: persistent_notification.create
+      data_template:
+        title: Upgrade time!
+        message: >-
+          There is a Home Assistant upgrade for Hass.io pending!
+          Version {{ states('sensor.version_available') }} just got released!
+        notification_id: hassio_upgrade      
       
 
 #########################################################################################################      
@@ -170,7 +191,7 @@
 - id: Welcome Home Andrea
   alias: welcome home Andrea
   trigger:
-  - entity_id: device_tracker.iphoneandrea
+  - entity_id: device_tracker.iphoneadonno
     platform: state
     to: home
   condition:
@@ -369,6 +390,8 @@
     entity_id: switch.armoire_sam
   - service: switch.turn_off
     entity_id: switch.armoire_cuisine
+  - service: switch.turn_off
+    entity_id: switch.prise_devant
   - service: notify.ios_iphoneadonno
     data:
       title: Light
@@ -398,7 +421,7 @@
     entity_id: device_tracker.rinas_iphone
     to: home
   - platform: state
-    entity_id: device_tracker.iphoneandrea
+    entity_id: device_tracker.iphoneadonno
     to: home
   condition:
     condition: sun
@@ -414,9 +437,9 @@
   - service: light.turn_on
     entity_id: light.lum_ext_avant
   - delay: '00:05:00'
-  - service: light.turn_on
+  - service: light.turn_off
     entity_id: light.hall_entree
-  - service: light.turn_on
+  - service: light.turn_off
     entity_id: light.lum_ext_avant
     
 #########################################################################################################      
@@ -429,7 +452,7 @@
     entity_id: device_tracker.rinas_iphone
     to: not_home
   - platform: state
-    entity_id: device_tracker.iphoneandrea
+    entity_id: device_tracker.iphoneadonno
     to: not_home
   condition:
     condition: state
