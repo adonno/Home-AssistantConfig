@@ -9,7 +9,11 @@ resources:
   - url: /local/monster-card.js?v=2.1
     type: module
   - url: /local/layout-card.js?v=2.1
-    type: module    
+    type: js
+  - url: /local/slider-entity-row.js?v=2.1
+    type: js
+  - url: /local/custom-lovelace/swipe-card/swipe-card.js?v=1.1.0
+    type: module
 
 # background: center / contain no-repeat url("/local/background.png")
 background: center / cover no-repeat url("/local/background.png") fixed
@@ -40,28 +44,46 @@ views:
               - entity: sensor.date
           - type: weather-forecast
             entity: weather.dark_sky
+
+          - type: custom:monster-card
+            show_empty: false
+            card:
+              type: glance
+            filter:
+              include:
+              - domain: binary_sensor
+                state: 'on'
+              exclude:
+              - entity: binary_sensor.3_in_1_sensor_motion_3
+              
+
           - type: glance
             title: Presence
             entities: 
-            - entity: device_tracker.iphoneandrea
+            - entity: device_tracker.iphoneadonno
               name: Andrea
             - entity: device_tracker.rinas_iphone
               name: Rina
 
-          - type: entities
-            title: Temperatures
-            entities:
-            - sensor.eingang
-            - sensor.buero
-            - sensor.living
-            - sensor.kueche
-            - sensor.kind2
-            - sensor.flur_og
-            - sensor.kind1
-            - sensor.eltern
-            - sensor.sdb_eltern
-            - sensor.sdb_kinder
-            - sensor.speicher
+          - type: horizontal-stack
+            cards:
+            - type: entities
+              title: Temperatures
+              entities:
+              - sensor.eingang
+              - sensor.buero
+              - sensor.living
+              - sensor.kueche
+              - sensor.kind2
+            - type: entities
+              title: Temperatures
+              entities:
+              - sensor.flur_og
+              - sensor.kind1
+              - sensor.eltern
+              - sensor.sdb_eltern
+              - sensor.sdb_kinder
+              - sensor.speicher
             
             
               
@@ -153,6 +175,12 @@ views:
                 style:
                   top: 52%
                   left: 75%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.prise_devant
+                style:
+                  top: 79%
+                  left: 60%
               - type: state-icon
                 tap_action: toggle
                 entity: lock.home
@@ -457,8 +485,8 @@ views:
                 image: /local/exclamation.png
                 style: { top: 20%, left: 23%, width: 5% }
                 state_filter:              
-                  "off": opacity(100%)
-                  "on": opacity(1%)
+                  "off": opacity(1%)
+                  "on": opacity(100%
               - type: image
                 entity: binary_sensor.cuisinie_lm
                 image: /local/exclamation.png
@@ -950,6 +978,10 @@ views:
 
 
 ####################################################################################################
+####################################################################################################
+####################################################################################################
+
+
   - title: Cave
     icon: mdi:numeric-0-box-multiple-outline  
     cards:
@@ -958,21 +990,39 @@ views:
       entities:
       - entity: cover.cave
         name: Cave Global 
-      - type: divider
-        style:
-          height: 1px
-          width: 80%
-          margin-left: auto
-          margin-right: auto
-          background: '#62717b'
+      - type: section
+        label: Local Technique
+        style: 
+          height: 3px
       - entity: cover.local_technique_fenetre
         name: Local Technique Fenêtre
-      - entity: cover.local_technique_porte
+        type: custom:slider-entity-row
+        icon: mdi:format-align-justify        
+      - entity: binary_sensor.local_technique_fenetre
+      - entity: cover.local_technique_porte 
         name: Local Technique Porte
+        icon: mdi:format-align-justify        
+        type: custom:slider-entity-row
+        
+      - entity: binary_sensor.local_technique_porte  
+      - type: section
+        label: Garage
+        style: 
+          height: 3px
       - entity: cover.garage_fenetre
         name: Garage Fenêtre
+        type: custom:slider-entity-row
+        icon: mdi:format-align-justify        
+      - entity: binary_sensor.garage_porte     
       - entity: cover.garage_porte
         name: Garage Porte
+        type: custom:slider-entity-row
+        icon: mdi:format-align-justify        
+      - entity: binary_sensor.garage_fenetre
+      - entity: binary_sensor.garage
+      - entity: binary_sensor.reserve
+      - entity: binary_sensor.entree
+      
     - type: horizontal-stack
       cards: 
       - type: entities
@@ -1001,7 +1051,12 @@ views:
         - entity: light.spots_escalier_01_bis
           name: Treppen 0 - 1 Lamper
           icon: /local/treppe_bis.png
-###########################################################################
+          
+          
+####################################################################################################
+####################################################################################################
+####################################################################################################
+
   - title: 1er
     icon: mdi:numeric-1-box-multiple-outline  
     cards:
@@ -1027,27 +1082,51 @@ views:
       - entity: cover.buero
         name: Buro
         icon: mdi:format-align-justify
+        type: custom:slider-entity-row
+      - entity: binary_sensor.buro
+
+
       - entity: cover.living
         name: Living
         icon: mdi:format-align-justify
+        type: custom:slider-entity-row
+      - entity: binary_sensor.living_l
+      - entity: binary_sensor.living_r
+      
+
+
       - type: section
         label: Küche
         style: 
           height: 3px           
       - entity: cover.kueche_links_a
+        type: custom:slider-entity-row
         name: Links Aussen
-        icon: mdi:format-align-justify      
+        icon: mdi:format-align-justify
+      - entity: binary_sensor.cuisine_la
+
       - entity: cover.kueche_links_m
         name: Links Mitte
-        icon: mdi:format-align-justify        
+        type: custom:slider-entity-row
+        icon: mdi:format-align-justify 
+      - entity: binary_sensor.cuisinie_lm
+
+
       - entity: cover.kueche_rechts_m
         name: Rechts Mitte
-        icon: mdi:format-align-justify        
+        type: custom:slider-entity-row
+        icon: mdi:format-align-justify
+      - entity: binary_sensor.cuisinie_rm
+
+        
+        
       - entity: cover.kueche_rechts_a
         name: Links Aussen
         icon: mdi:format-align-justify
+        type: custom:slider-entity-row
+      - entity: binary_sensor.cuisinie_ra
 
-            
+ 
             
   #######   LIVING    ######        
         
@@ -1063,12 +1142,17 @@ views:
             margin-left: auto
             margin-right: auto
             background: '#62717b'
+            
         - entity: light.centre_living
+          type: custom:slider-entity-row
+          toggle: true
           icon: mdi:ceiling-light
           name: Center
         - entity: light.spots_living
           icon: mdi:spotlight-beam
           name: Spots
+          type: custom:slider-entity-row
+          toggle: true
         - entity: switch.lampe_canape
           icon: mdi:sofa
           name: Couch
@@ -1095,9 +1179,13 @@ views:
         - entity: light.lumiere_sam
           name: Center
           icon: mdi:ceiling-light
+          type: custom:slider-entity-row
+          toggle: true
         - entity: light.spots_sam
           name: Spots
           icon: mdi:spotlight-beam
+          type: custom:slider-entity-row
+          toggle: true
         - entity: switch.armoire_sam
           name: Armoire
           icon: mdi:file-cabinet
@@ -1120,9 +1208,13 @@ views:
         - entity: light.spots_cuisine_ilot
           name: Ilot
           icon: mdi:spotlight
+          type: custom:slider-entity-row
+          toggle: true
         - entity: light.spots_cuisine
           name: Cuisine
           icon: mdi:spotlight-beam
+          type: custom:slider-entity-row
+          toggle: true
         - entity: switch.armoire_cuisine
           name: Armoire
           icon: mdi:file-cabinet
@@ -1150,7 +1242,8 @@ views:
         - entity: light.centre_living
           name: Center
           icon: mdi:border-vertical
-
+          type: custom:slider-entity-row
+          toggle: true
         - entity: light.lampe_wc
           name: WC 
           icon: mdi:toilet
@@ -1163,7 +1256,11 @@ views:
         - entity: light.couloir_1er
           name: Flur
           icon: mdi:select
-          
+          type: custom:slider-entity-row
+          toggle: true
+        - entity: switch.prise_sol_escalier
+          name: Weinachtbaum
+          icon: mdi:pine-tree
           
     - type: vertical-stack
       cards:
@@ -1177,26 +1274,42 @@ views:
         - entity: sensor.living
           name: Living
        
+ 
+      - type: custom:swipe-card
+        card_width: '80%'
+        parameters:
+          centeredSlides: true
+          slidesPerView: 'auto'
+          spaceBetween: 8
+          pagination:
+            type: 'progressbar'
+          navigation:
+          keyboard:
+            enabled: true
+            onlyInViewport: true
+        cards:
       # - type: horizontal-stack
       #   cards:
-      - type: sensor
-        entity: sensor.living
-        hours_to_show: 48
+        - type: sensor
+          entity: sensor.living
+          hours_to_show: 48
+  
+          line_color: "#039be5"
+        - type: sensor
+          entity: sensor.buero
+          hours_to_show: 48
+  
+          line_color: "#039be5"
+        - type: sensor
+          entity: sensor.kueche
+          hours to show: 48
+  
+          line_color: "#039be5"      
+####################################################################################################
+####################################################################################################
+####################################################################################################
 
-        line_color: "#039be5"
-      - type: sensor
-        entity: sensor.buero
-        hours_to_show: 48
 
-        line_color: "#039be5"
-      - type: sensor
-        entity: sensor.kueche
-        hours to show: 48
-
-        line_color: "#039be5"      
-###########################################################################
-###########################################################################
-###########################################################################
 #2nd
 
   - title: 2nd
@@ -1216,7 +1329,7 @@ views:
     #   - type: glance
     #     title: Presence
     #     entities: 
-    #     - entity: device_tracker.iphoneandrea
+    #     - entity: device_tracker.iphoneadonno
     #       name: Andrea
     #     - entity: device_tracker.rinas_iphone
     #       name: Rina
@@ -1244,6 +1357,7 @@ views:
 
       - entity: cover.chac_enfant_route
         name: Rolladen Strasse
+        type: custom:slider-entity-row
         icon: mdi:format-align-justify
       - entity: binary_sensor.chac_av
         name: Fenter Strasse
@@ -1251,6 +1365,9 @@ views:
       - entity: cover.chac_enfant_arriere
         name: Hinten
         icon: mdi:format-align-justify
+        type: custom:slider-entity-row
+      - entity: binary_sensor.chac_ar
+        name: Fenster
       - type: section
         label: Eltern
         style: 
@@ -1258,10 +1375,16 @@ views:
   
       - entity: cover.chac_parents
         name: Schlafzimmer
-        icon: mdi:format-align-justify      
+        type: custom:slider-entity-row
+        icon: mdi:format-align-justify
+      - entity: binary_sensor.chac_parents
+        name: Fenster      
       - entity: cover.sdb_parents
+        type: custom:slider-entity-row
         name: Badezimmer
-        icon: mdi:format-align-justify        
+        icon: mdi:format-align-justify    
+      - entity: binary_sensor.sdb_p
+        name: Fenster
 
 ######################################
 #Lights
@@ -1280,6 +1403,8 @@ views:
             height: 3px
         - entity: light.chambre_av
           id: lightchambreva
+          type: custom:slider-entity-row
+          toggle: true
           icon: mdi:ceiling-light
           name: Licht
         - entity: switch.prise_ch_enfant_av
@@ -1291,6 +1416,8 @@ views:
             height: 3px
         - entity: light.chambre_ar
           icon: mdi:ceiling-light
+          type: custom:slider-entity-row
+          toggle: true
           name: Licht
         - entity: switch.prise_ch_enfant_arr
           icon: mdi:sofa
@@ -1310,6 +1437,8 @@ views:
             height: 3px
         - entity: light.spots_parents
           icon: mdi:spotlight-beam
+          type: custom:slider-entity-row
+          toggle: true
           name: Spots
         - entity: light.led_parents
           icon: mdi:led-strip
@@ -1330,6 +1459,7 @@ views:
             height: 3px
         - entity: light.dressing
           icon: mdi:ceiling-light
+          type: custom:slider-entity-row
           name: Licht
         - entity: light.led_dressing
           icon: mdi:led-strip
@@ -1340,9 +1470,13 @@ views:
           style: 
             height: 3px
         - entity: light.spots_sdb_p
+          type: custom:slider-entity-row
+          toggle: true
           icon: mdi:ceiling-light
           name: Licht
         - entity: light.spots_douche_p
+          type: custom:slider-entity-row
+          toggle: true
           icon: mdi:shower-head
           name: Dusche
         - entity: light.led_sdb_p
@@ -1401,7 +1535,7 @@ views:
     # - type: glance
     #   title: Presence
     #   entities: 
-    #   - entity: device_tracker.iphoneandrea
+    #   - entity: device_tracker.iphoneadonno
     #     name: Andrea
     #   - entity: device_tracker.rinas_iphone
     #     name: Rina
@@ -1632,7 +1766,7 @@ views:
         id: etfilterradio
         entities:
           - group.residence_radio
-          - device_tracker.iphoneandrea
+          - device_tracker.iphoneadonno
           -  device_tracker.iphonederina
         state_filter:
           - 'home'
@@ -1642,7 +1776,7 @@ views:
       - type: entities
         title: test
         entities: 
-          - entity: device_tracker.iphoneandrea
+          - entity: device_tracker.iphoneadonno
             name: Andrea
           - entity: device_tracker.rinas_iphone
             name: Rina
