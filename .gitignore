@@ -1,6 +1,17 @@
-# Example .gitignore file for your config dir.
-# A * ensures that everything will be ignored.
-*
+# Extension ignores
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.pyc
+
+# Directory (contents) ignores
+deps
+.cloud
+.storage
+tts
+notebooks
+www/inside
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
@@ -8,16 +19,27 @@
 !*.md
 !packages
 !group
+!components
 !docs
 !*.jpg
 !*.png
 !*.PNG
 
 # Ignore folders.
-.storage
-.cloud
+
+#igrnore files
 .google.token
 .www
+.vscode
+.theia
+.ios.conf
+.homekit.state
+.spotify-token-cache
+.uuid
+core
+aircast.xml
+harmony_living.conf
+plex.conf
 
 
 
