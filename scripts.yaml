@@ -82,7 +82,7 @@ good_night:
       entity_id:
       - light.lit_d
       - light.lit_g
-      - light.spots_escalier_12
+      - light.spots_escalier_1_2
   - service: automation.trigger
     data:
       entity_id: automation.fermer_jalousies_au_soir
@@ -105,7 +105,11 @@ tschau:
   - service: cover.set_cover_position
     data:
       entity_id: cover.cave
-      position: 0      
+      position: 0     
+  - delay:
+      seconds: 3  
+  - service: light.turn_on
+    entity_id: light.cave_couloir
 
 aufhi:
   alias: aufhi

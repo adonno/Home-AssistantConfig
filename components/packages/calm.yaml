@@ -70,7 +70,9 @@ script:
       - service: automation.turn_on
         entity_id: automation.welcome_home_rina       
       - service: automation.turn_on
-        entity_id: automation.doorstaate2          
+        entity_id: automation.doorstaate2
+      - service: cover.open_cover
+        entity_id: cover.maison
       - service: notify.ios_rinas_iphone
         data_template:
           title: Mode Repos 

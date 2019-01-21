@@ -1,0 +1,51 @@
+script:
+
+  goodnight:
+    alias: Good Night
+    sequence:
+      - service: light.turn_off
+        entity_id: hall_entree
+      - service: light.turn_off
+        entity_id: cave_couloir
+      - service: light.turn_off
+        entity_id: garage
+      - service: light.turn_off
+        entity_id: wc_cave
+      - service: light.turn_off
+        entity_id: technique
+      - service: light.turn_off
+        entity_id: spots_escalier_0-1
+#1er#
+      - service: light.turn_off
+        entity_id: buro
+      - service: light.turn_off
+        entity_id: led_sam
+      - service: light.turn_off
+        entity_id: led_living
+      - service: light.turn_off
+        entity_id: led_cuisine
+      - service: light.turn_off
+        entity_id: lampe_wc
+      - service: light.turn_off
+        entity_id: spots_escalier_0-1_bis
+      - service: light.turn_off
+        entity_id: couloir_premier
+      - service: light.turn_off
+        entity_id: lumiere_sam
+      - service: light.turn_off
+        entity_id: spots_sam
+      - service: light.turn_off
+        entity_id: spots_living
+      - service: light.turn_off
+        entity_id: centre_living
+      - service: light.turn_off
+        entity_id: spots_cuisine
+      - service: light.turn_off
+        entity_id: spots_cuisine_ilot
+      - service: homeassistant.turn_off
+        entity_id: light_sam
+      - service: homeassistant.turn_off
+        entity_id: light_living 
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.chromecastkeller

@@ -12,34 +12,20 @@ homeassistant:
   time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
-  packages:  !include_dir_named packages
-
+  # packages:  !include_dir_named packages
+  packages: !include_dir_named components/packages
 # Show links to resources in log and frontend
 #introduction:
   # auth_providers:
   # - type: legacy_api_password
-  
-  
-vera:
-  vera_controller_url: !secret veraip
-  exclude: [ 39,40,45,48,47,48]
-  
-weather:
-  - platform: darksky
-    api_key: !secret dks_api_key  
-    language: fr   
-    
+zone: !include_dir_list components/zones
 
-lock:
-  - platform: nuki
-    host: !secret nuki_ip
-    port: 8080
-    token: !secret nuki_token
+
     
 mqtt:
   broker: !secret mqttip
 
-zone: !include zones.yaml
+
 
 # Enables the frontend
 frontend:
@@ -53,12 +39,7 @@ panel_iframe:
     icon: mdi:cellphone-text
     url: http://hassio.local:4277
     
-  # configurator:
-  #   title: Configurator
-  #   icon: mdi:wrench
-  #   url: http://hassio.local:3218
-    
-    
+ 
   # influxdb:
   #   title: InfluxDB
   #   icon: mdi:chart-areaspline
@@ -74,15 +55,16 @@ panel_iframe:
 #    icon: mdi:chart-areaspline
 #    url: http://hassio.local:3000
 
-  # shinobi:
-  #   title: Shinobi
-  #   icon: mdi:cctv
-  #   url: http://hassio.local:7440
-    
-  # lovelace:
-  #   title: Lovelace
-  #   icon: mdi:heart
-  #   url: http://hassio.local:8123/lovelace
+  motioneye:
+    title: Motioneye
+    icon: mdi:cctv
+    url: http://hassio.local:8765
+
+  pihole: 
+    title: pihole
+    icon: mdi:mdi:block-helper
+    url: http://hassio.local:4865
+
 
   ide:
     title: IDE
@@ -165,7 +147,9 @@ sensor:
     source: hassio
     branch: stable
     image: raspberrypi3
-  
+
+  - platform: version
+    name: version_current
   
   - platform: synologydsm
     host: !secret synology_ip

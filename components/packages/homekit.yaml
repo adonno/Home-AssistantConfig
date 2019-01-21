@@ -1,0 +1,15 @@
+---
+# The HomeKit component allows you to forward entities from Home Assistant
+# to Apple HomeKit, so they can be controlled from Apple’s Home app and Siri.
+#
+# https://www.home-assistant.io/components/homekit
+#
+homekit:
+  filter:
+    include_domains:
+    - light
+    - switch
+    - cover
+    - lock
+    - media_player
+

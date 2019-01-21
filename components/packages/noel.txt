@@ -9,6 +9,8 @@ automation:
     action: 
       - service: switch.turn_on
         entity_id: switch.prise_sol_escalier
+      - service: switch.turn_on
+        entity_id: switch.prise_devant  
       - service: notify.ios_iphoneadonno
         data:
           title: "Arbre on soir"
@@ -23,6 +25,8 @@ automation:
     action:
       - service: switch.turn_off
         entity_id: switch.prise_sol_escalier
+      - service: switch.turn_off
+        entity_id: switch.prise_devant
         
 
   - alias: arbre de noel matin off
@@ -42,7 +46,9 @@ automation:
         - fri
     action:
       - service: switch.turn_off
-        entity_id: switch.prise_sol_escalier      
+        entity_id: switch.prise_sol_escalier  
+      - service: switch.turn_off
+        entity_id: switch.prise_devant
       - service: notify.ios_iphoneadonno
         data:
           title: "Arbre off morning"
@@ -70,3 +76,5 @@ automation:
     action:
       - service: switch.turn_on
         entity_id: switch.prise_sol_escalier
+      - service: switch.turn_on
+        entity_id: switch.prise_devant      

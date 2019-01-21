@@ -29,7 +29,7 @@ Network_devices_mobile:
   entities: 
     - device_tracker.andreasplewatch
     - device_tracker.iphonederina
-    - device_tracker.iphoneandrea
+    - device_tracker.iphoneadonno
 
     
 Network_devices_misc:

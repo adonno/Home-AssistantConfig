@@ -23,12 +23,16 @@ The community is amazing and quickly growing. There are several youtubers regura
 
 ## House Automation Hardware
 
-### Host system: RPi 3
+### Host system: Intel Nuc
+
+I have ESXi Running on an Intel Nuc and Hassio running on a VM
+
+
 ### Backbone: KNX
 
 
 This is the Controlled electrical installation
-There is not much to say about this. As the house was a new construction this was the best way to go imho. Having everything wired makes it less error/interference porone and avoid additional radio frequencies. 
+There is not much to say about this. As the house was a new construction this was the best way to go imho. Having everything wired makes it less error/interference prone and avoid additional radio frequencies. 
 
 | Device        |Quantities           |More Info          |Image    |   
 | ------------- |:-------------:|:-----:|-----------:|
@@ -93,7 +97,7 @@ Device List
 |[Chomrecast Audio](https://www.google.com/chromecast/audio/explore/)| **4X**|<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/chromecast-audio.png"  height="100px" /> | 
 |[Loxone Speaker]( https://shop.loxone.com/enus/speaker.html)| **8X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/seitlich_rund.png"  height="100px" />| 
 |[Visaton Deckenlautsprecher Dl-8](https://www.amazon.de/gp/product/B0000WP8XM/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)| **4X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Visaton.jpg"  height="100px" />| 
-|[Lepy-808 Black Digital-Amplifyer Stereo-Audio,20W](https://www.amazon.de/gp/product/B01M8NLFV8/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1) | **5X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/lepy.jpg"  height="100px" /> |
+|[Lepy-808 Black Digital-Amplifyer Stereo-Audio,20W](https://www.amazon.de/gp/product/B01M8NLFV8/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1) | **5X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/lepy.png"  height="100px" /> |
 |[Behringer Xenyx 502](https://www.thomann.de/gb/behringer_xenyx_502.htm) | **4X** |<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/behringer-xenyx.jpg"  height="100px" /> |
 
 
@@ -169,6 +173,7 @@ That one will be installed in the heating central as it is GAS fueled. (i could 
 ### Tidy up my Hassio config
 
 Tidy up and Document my config better inspired by @freck 
+
 That will be a hell lot of work 
 
 

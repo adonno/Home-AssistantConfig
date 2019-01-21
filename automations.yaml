@@ -65,6 +65,7 @@
 # of Home Assistant for Hass.io is released.
 #
 - alias: system_upgrade_alert
+  initial_state: true
   trigger:
     platform: state
     entity_id: sensor.version_available
@@ -109,7 +110,7 @@
   action:
   - data:
       message: Hass restarted
-      title: Warning hassio
+      title: Restart Hassio
     service: notify.ios_iphoneadonno
 
   
@@ -126,7 +127,7 @@
   action:
     service: notify.ios_iphoneadonno
     data: 
-      title: Warning
+      title: Shutdown Warning
       message: Hassio shutdown
       
 
@@ -255,6 +256,16 @@
   action:
   - service: light.turn_on
     entity_id: light.lumiere_sam
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.chromecastkeller
+      volume_level: 0.3
+  - delay: '00:00:10'
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.chromecastkeller
+      media_content_id: http://sc-eldolive.newmedia.lu/;stream.mp3
+      media_content_type: audio/mp4
     
 #########################################################################################################      
 
@@ -283,6 +294,7 @@
     entity_id: light.lumiere_sam
   - service: light.turn_off
     entity_id: light.spots_cuisine_ilot
+
     
 #########################################################################################################      
 - id: inform when door is unlocked or locked phones
@@ -390,8 +402,6 @@
     entity_id: switch.armoire_sam
   - service: switch.turn_off
     entity_id: switch.armoire_cuisine
-  - service: switch.turn_off
-    entity_id: switch.prise_devant
   - service: notify.ios_iphoneadonno
     data:
       title: Light
@@ -651,7 +661,7 @@
         after: '06:00:00'
         before: '08:00:00'
       - condition: time
-        after:  '21:00:00'
+        after:  '22:00:00'
         before: '00:00:00'    
 
   action:
@@ -680,7 +690,7 @@
       state: 'off'
   action: 
     service: light.turn_off
-    entity_id: light.spots_escalier_12
+    entity_id: light.spots_escalier_1_2
     
 ####################################################################
 
