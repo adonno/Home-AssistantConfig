@@ -370,6 +370,8 @@
   - service: switch.turn_on
     entity_id: switch.armoire_sam
   - service: switch.turn_on
+    entity_id: switch.prise_sol_escalier
+  - service: switch.turn_on
     entity_id: switch.armoire_cuisine
   - service: notify.ios_iphoneadonno
     data:
@@ -460,9 +462,11 @@
   trigger:
   - platform: state
     entity_id: device_tracker.rinas_iphone
+    from: home
     to: not_home
   - platform: state
     entity_id: device_tracker.iphoneadonno
+    from: home
     to: not_home
   condition:
     condition: state
