@@ -72,6 +72,7 @@ good_night:
       - switch.lampe_canape
       - switch.armoire_sam
       - switch.rdoliving
+      - switch.prise_sol_escalier
       - switch.rdochparents
       - switch.terrasse
   - delay:
