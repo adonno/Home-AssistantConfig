@@ -2,7 +2,6 @@ binary_sensor:
   - platform: mqtt
     name: Entree
     state_topic: "windows/contacts"
-    icon: mid:door
     payload_on: "22 - 0"
     payload_off: "22 - 1"
     device_class: door
@@ -10,42 +9,36 @@ binary_sensor:
   - platform: mqtt
     name: Reserve
     state_topic: "windows/contacts"
-    icon: mid:window
     payload_on: "23 - 0"
     payload_off: "23 - 1"
     device_class: window
   - platform: mqtt
     name: Garage
     state_topic: "windows/contacts"
-    icon: mid:Garage_door
     payload_on: "24 - 0"
     payload_off: "24 - 1"
     device_class: Garage_door
   - platform: mqtt
     name: Local Technique Porte
     state_topic: "windows/contacts"
-    icon: mid:Door
     payload_on: "25 - 0"
     payload_off: "25 - 1"
     device_class: Door
   - platform: mqtt
     name: Local Technique Fenetre
     state_topic: "windows/contacts"
-    icon: mid:window
     payload_on: "26 - 0"
     payload_off: "26 - 1"
     device_class: window    
   - platform: mqtt
     name: Garage Porte
     state_topic: "windows/contacts"
-    icon: mid:Door
     payload_on: "27 - 0"
     payload_off: "27 - 1"
     device_class: Door
   - platform: mqtt
     name: Garage Fenetre
     state_topic: "windows/contacts"
-    icon: mid:window
     payload_on: "28 - 0"
     payload_off: "28 - 1"
     device_class: window
@@ -56,7 +49,6 @@ binary_sensor:
   - platform: mqtt
     name: Buro
     state_topic: "windows/contacts"
-    icon: mid:window
     payload_on: "29 - 0"
     payload_off: "29 - 1"
     device_class: window

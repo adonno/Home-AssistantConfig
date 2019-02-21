@@ -8,8 +8,8 @@ homekit:
   filter:
     include_domains:
     - light
-    - switch
-    - cover
+  #  - switch
+  #  - cover
     - lock
     - media_player
 
