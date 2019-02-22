@@ -133,7 +133,7 @@ ha-dev:
   allow_failure: true
 
 # ESPHome test jobs
-esphome-latest:
+# esphome-latest:
 #   <<: *esphome
 #   image:
 #     name: ottowinter/esphomeyaml:latest
