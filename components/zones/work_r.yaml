@@ -1,5 +1,6 @@
+---
 name: BBT
 latitude: !secret latitude_bbt
 longitude: !secret longitude_bbt
 radius: 100
-icon: mdi:school  
+icon: mdi:school

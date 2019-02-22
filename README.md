@@ -2,9 +2,9 @@
 
 So here we are, I finally managed to put my conifg on github and will try to keep it up to date. Follow along in this journey.
 
-# My homeassitant Dashboards
+## My homeassitant Dashboards
 
-I fully moved to lovelacelce-Ui. It took me several evenings in order to get it right and I am still tweaking. The main view is mostly used on big 21" built-in tablets. But is also usable on mobile devices. It shows the current state of an entity and it is possible to control the state of that entity by tapping the icon. 
+I fully moved to lovelacelce-Ui. It took me several evenings in order to get it right and I am still tweaking. The main view is mostly used on big 21" built-in tablets. But is also usable on mobile devices. It shows the current state of an entity and it is possible to control the state of that entity by tapping the icon.
 Please note that the scrennshots are only to give you an idea and maybe these aren't the most recent version
 
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="500px" />
@@ -17,7 +17,7 @@ Please note that the scrennshots are only to give you an idea and maybe these ar
 
 So how did i stumble on Home-assitant an how i started with a hassbian then moved to a docker container and came back on Hass.io on a pi.
 
-My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in that. Somehow while looking for OpenHab I found homeassitant. I had already tried with OpenHab but I never really managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed at how simple it was to use and configure. 
+My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in that. Somehow while looking for OpenHab I found homeassitant. I had already tried with OpenHab but I never really managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed at how simple it was to use and configure.
 The community is amazing and quickly growing. There are several youtubers regurarely posting tutorials and the system is kept up to date on a 2 week schedule as of now.
 
 ## House Automation Hardware
@@ -70,6 +70,7 @@ Contacted their support about the issue and still waiting on a reply from their 
 
 I have several Choromecasts for my home audio entertainment system. I am actually using 1 for the Partental suite and 1 for the living/kitchen/entrance area 1 is used for TTS mesages
 I am using several Speakers:
+
 * 4 above the TV/couch  - 224mm 60W
 * 2 in the kitchen - 224mm 60W
 * 1 in the WC - 80mm 10W
@@ -99,18 +100,19 @@ Device List
 
 Synology DS415+ <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Synology.jpg" height="100px" />
 
-### Screens:
+### Screens
 
 [XORO Megapad](https://www.amazon.de/Xoro-MegaPAD-2151-Tablet-PC-Android/dp/B00JIKWBKK) A 21" Wallmounted Tabled (with no batteires)running on android for HA display   **2X**
 
 Lenovo
 
 ### Amazon Alexa
+
 ### Harmony Hub
 
 ## BACKUP
 
-Every Sunday at 3:00 AM an automation creates a snapshot of my Setup. Knowing that SD cards can fail and maybe running the risk i could loose my snapshot is preocupating so I mounted the Backup folder with my Sonolgy nas and have a Job running on it copies the snapshots to a local folder. 
+Every Sunday at 3:00 AM an automation creates a snapshot of my Setup. Knowing that SD cards can fail and maybe running the risk i could loose my snapshot is preocupating so I mounted the Backup folder with my Sonolgy nas and have a Job running on it copies the snapshots to a local folder.
 I think i will create a Tutorial or a video Later on that matter
 
 ### On Hassio
@@ -139,6 +141,7 @@ This is an extenisve list of all the stuff i would like to work on soon.
 ### Automations
 
 ### Install Sensors
+
 I have several stuff I would monitor for "flood/Waterleaks"
 
 * Heating Central

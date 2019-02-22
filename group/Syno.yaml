@@ -1,7 +1,4 @@
-
-      
-      
-    
+---
 Syno_MISC:
   name: Syno General
   entities:
@@ -17,16 +14,14 @@ Disk_status:
     - sensor.status_sdb
     - sensor.status_sdc
     - sensor.status_sdd 
-    
-    
+
 Smart_status:
   name: S.M.A.R.T Status
-  entities: 
-   - sensor.status_smart_sda
-   - sensor.status_smart_sdb
-   - sensor.status_smart_sdc
-   - sensor.status_smart_sdd
- 
+  entities:
+    - sensor.status_smart_sda
+    - sensor.status_smart_sdb
+    - sensor.status_smart_sdc
+    - sensor.status_smart_sdd
 
 Disk_Temperatures:
   name: Temperatures
@@ -43,10 +38,10 @@ CPU_info:
     - sensor.cpu_load_user
     - sensor.cpu_load_other
     - sensor.cpu_load_system
-    
+
 volume_info:
   name: Disk Volume
-  entities: 
+  entities:
     - sensor.total_size_volume_1
     - sensor.used_space_volume_1
     - sensor.volume_used_volume_1

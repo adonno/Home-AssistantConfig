@@ -1,16 +1,14 @@
-
-
+---
 Network_devices_AP:
  name: Access Points
- entities: 
+ entities:
    - sensor.apbureau
    - sensor.apchambrarr
    - sensor.aplocaltech
    
-   
 Network_devices_Tablets:
   name: Tablets
-  entities: 
+  entities:
     - sensor.ipad_1
     - sensor.lenovoliving
     - sensor.xorokeller
@@ -18,23 +16,22 @@ Network_devices_Tablets:
     - camera.lenovo
     - camera.entree
 
-Network_devices_PCs: 
+Network_devices_PCs:
   name: PCs
-  entities: 
+  entities:
   - sensor.rinalt
   - sensor.swordlt
-  
+
 Network_devices_mobile:
   name: Mobile Devices
-  entities: 
+  entities:
     - device_tracker.andreasplewatch
     - device_tracker.iphonederina
     - device_tracker.iphoneadonno
 
-    
 Network_devices_misc:
   name: Network Devices Misc
-  entities: 
+  entities:
     - device_tracker.xp710
     - device_tracker.syno
     - device_tracker.knxip
@@ -43,12 +40,11 @@ Network_devices_misc:
     - device_tracker.tvbox_living
     - device_tracker.chaudiere
     - device_tracker.hassiotest
-    - binary_sensor.porte_1ard1   
-    
+    - binary_sensor.porte_1ard1
+ 
 Network_devices_router:
   name: Router
   entities:
-     
     - sensor.fritz_box
     - sensor.isp_connection
     - sensor.speedtest_download

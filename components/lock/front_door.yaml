@@ -1,3 +1,4 @@
+---
 platform: nuki
 host: !secret nuki_ip
 port: 8080

@@ -1,15 +1,15 @@
+---
 Overview1:
   name: Overview
   icon: mdi:eye
   entities:
-
     - group.cave_bis
     - group.1etage_bis
     - group.2etage_bis
 
 Cave:
   name: cave
-  view: yes
+  view: true
   icon: mdi:numeric-0-box-multiple-outline
   entities:
     - group.rolladen_keller
@@ -26,7 +26,6 @@ Cave:
     - group.overview1
     - group.residence_radio
 
-    
 Cave_bis:
   name: Cave
   
@@ -42,15 +41,11 @@ Cave_bis:
     - light.lum_ext_avant
     - light.lum_ext_arr   
 
-
-
-
 1Etage:
   name: 1Etage
-  view: yes
+  view: true
   icon: mdi:numeric-1-box-multiple-outline
   entities:
-
     - group.rolladen_premier
     - group.light_living
     - group.light_sam
@@ -61,7 +56,6 @@ Cave_bis:
     - automation.Light_center_1er_off
     - group.overview1
     - group.residence_radio
-    
 
 1Etage_bis:
   name: 1Etage
@@ -75,12 +69,9 @@ Cave_bis:
     - switch.prise_sol_ecalier
     - switch.Terrasse
 
-
-
-    
 2Etage:
   name: 2Etage
-  view: yes
+  view: true
   icon: mdi:numeric-2-box-multiple-outline
   entities:
     - group.rolladen_chambres
@@ -106,20 +97,19 @@ Cave_bis:
     - group.sdb_enfants
     - light.spots_escalier_23
     - light.couloir_2e 
-    
+ 
 3Etage:
   name: 3Etage
-  view: yes
+  view: true
   icon: mdi:numeric-3-box-multiple-outline
   entities:
-
     - light.spots_escalier_23
     - light.escalier_lumieres_centrale
     - light.combles
 
 Syno_infos:
   name: Synology
-  view: yes
+  view: true
   icon: mdi:server
   entities:
     - group.disk_status
@@ -129,11 +119,10 @@ Syno_infos:
     - group.CPU_info
     - group.volume_info
 
-
 Network_devices:
   name: Network Devices
-  view: yes
-  icon : mdi:network
+  view: true
+  icon: mdi:network
   entities: 
     
     - group.Network_devices_router
@@ -143,11 +132,9 @@ Network_devices:
     - group.Network_devices_PCs
     - group.Network_devices_misc
 
-
-
 default_view:
-#welcome:
-    view: yes
+# welcome:
+    view: true
     icon: mdi:home 
     entities:
       - script.reboothouse
@@ -164,7 +151,6 @@ default_view:
       - automation.open_back_in_the_afternoon
       - group.rolladen_g
 
-
 Rolladen_g:
   name: Rolladen
   icon: mdi:window-open
@@ -174,11 +160,9 @@ Rolladen_g:
       - cover.2ieme_etage
       - cover.avant
       - cover.arriere
-      
-
     
 Rolladen:
-  view: yes
+  view: true
   name: Rolladen
   icon: mdi:window-open
   entities:

@@ -1,3 +1,4 @@
+---
 name: Koerich
 latitude: !secret latitude_koerich
 longitude: !secret longitude_Koerich
