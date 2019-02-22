@@ -1,8 +1,9 @@
+---
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude_home 
+  latitude: !secret latitude_home
   longitude: !secret longitude_home
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret eleveation_home
@@ -15,22 +16,14 @@ homeassistant:
   # packages:  !include_dir_named packages
   packages: !include_dir_named components/packages
 # Show links to resources in log and frontend
-#introduction:
-  # auth_providers:
-  # - type: legacy_api_password
 zone: !include_dir_list components/zones
 
-
-    
 mqtt:
   broker: !secret mqttip
-
-
 
 # Enables the frontend
 frontend:
   themes: !include themes.yaml
-
 
 panel_iframe:
 
@@ -38,8 +31,7 @@ panel_iframe:
     title: logviewer
     icon: mdi:cellphone-text
     url: http://hassio.local:4277
-    
- 
+
   # influxdb:
   #   title: InfluxDB
   #   icon: mdi:chart-areaspline
@@ -50,42 +42,38 @@ panel_iframe:
   #   icon: mdi:sitemap
   #   url: http://hassio.local:1880
 
-#  grafana:
-#    title: Grafana
-#    icon: mdi:chart-areaspline
-#    url: http://hassio.local:3000
+  #  grafana:
+  #    title: Grafana
+  #    icon: mdi:chart-areaspline
+  #    url: http://hassio.local:3000
 
   motioneye:
     title: Motioneye
     icon: mdi:cctv
     url: http://hassio.local:8765
 
-  pihole: 
+  pihole:
     title: pihole
     icon: mdi:mdi:block-helper
     url: http://hassio.local:4865
 
-
   ide:
     title: IDE
     icon: mdi:code-braces
-    url: http://hassio.local:8321  
-    
+    url: http://hassio.local:8321
+
 logger:
   default: warn
   logs:
-    pychromecast.socket_client: fatal   
-
-
+    pychromecast.socket_client: fatal
 
 # Enables configuration UI
 config:
-
   base_url: !secret fritz_base_url
-  
+
 http:
   # api_password: !secret HA_PW
-  ip_ban_enabled: True
+  ip_ban_enabled: true
   login_attempts_threshold: 5
   # Secrets are defined in the file secrets.yaml
   # api_password: !secret http_password
@@ -123,8 +111,7 @@ sun:
 recorder:
   exclude:
     entities:
-      - sun.sun # Don't record sun data
-
+      - sun.sun    # Don't record sun data
       - sensor.date
 
 # Weather prediction
@@ -141,7 +128,6 @@ sensor:
       - humidity
       - ozone
 
-      
   - platform: version
     name: version_available
     source: hassio
@@ -150,7 +136,7 @@ sensor:
 
   - platform: version
     name: version_current
-  
+
   - platform: synologydsm
     host: !secret synology_ip
     username: !secret synology_username
@@ -172,17 +158,14 @@ sensor:
       - volume_device_type
       - volume_disk_temp_avg
 
-      
   - platform: speedtest
     monitored_conditions:
       - ping
       - download
       - upload
 
-      
   - platform: fritzbox_netmonitor
-     
-      
+
   - platform: fritzbox_callmonitor
     name: Phone
     username: !secret fritz_user
@@ -192,16 +175,12 @@ sensor:
       - '+49'
       - '+4989'
       - '089'
-      - '+352'  
-      
+      - '+352'
 
   - platform: time_date
     display_options:
       - 'time'
       - 'date'
-#      - 'date_time'
-#      - 'time_date'
-
 
 #  - platform: template
 #    sensors: !include template/sensors.yaml
@@ -218,8 +197,6 @@ tts:
 #   password: !secret influxdb_secret
 #   max_retries: 3
 #   default_measurement: state
- 
-
 
 knx:
   # expose:
@@ -230,28 +207,23 @@ knx:
 # Cloud
 cloud:
 
-
 #   - platform: spotify
 #     client_id: !secret spotify_id
 #     client_secret: !secret spotify_secret
 
 device_tracker:
-  - platform: unifi
-    username: !secret unify_id
-    password: !secret unify_secret
-    site_id: !secret unify_siteid
-    detection_time: 240
-    verify_ssl: false
-#    ssid_filter:
-#      - 'HomeSSID'
-#      - 'IoTSSID'
+  # - platform: unifi
+  #   username: !secret unify_id
+  #   password: !secret unify_secret
+  #   site_id: !secret unify_siteid
+  #   detection_time: 240
+  #   verify_ssl: false
 
-    
   - platform: fritz
     interval_seconds: 30
-#    consider_home: 180	
-    
-ios:  
+    # consider_home: 180
+
+ios:
   push:
     categories:
       - name: 'rollo'

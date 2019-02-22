@@ -1637,20 +1637,16 @@ views:
             name: 2-3
             icon: mdi:stairs
 
+  ###########################################################################
+  ###########################################################################
+  ###########################################################################
+  # 3rd
 
-###########################################################################
-###########################################################################
-###########################################################################
-#3rd
-
-
-  - id: 4  # Automatically created id
-    title: 3rd
+  - title: 3rd
     icon: mdi:numeric-3-box-multiple-outline
     cards:
 
-      - id: d3a562fbf3c54cf69dca7096b3c0f6c6  # Automatically created id
-        type: entities
+      - type: entities
         title: Radio
         entities:
           - switch.rdoliving
@@ -1658,11 +1654,10 @@ views:
           - switch.rdochparents
           - input_number.volume_radio_parents
 
-######################################
-#Lights
+  ######################################
+  # Lights
 
-      - id: 9dc232b2faee410799a03bccfe530f9c  # Automatically created id
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: entities
             title: Licht
@@ -1678,50 +1673,36 @@ views:
                 icon: mdi:water-pump
                 name: Technik
 
-
-  - id: 5  # Automatically created id
-    title: Synology Status
+  - title: Synology Status
     icon: mdi:server
     cards:
-
- 
-      - id: ab8a5e41ea024d08b6b7abc8d19257d4  # Automatically created id
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: markdown
             title: Syno global
             content: " "
-      # - type: horizontal-stack
-      #   cards:
           - type: sensor
             entity: sensor.memory_usage_real
             graph: line
             hours_to_show: 48
-        # accuracy: 5
             line_color: "#039be5"
             name: Memory Usage
           - type: horizontal-stack
             cards:
-        # icon: mdi:
               - type: sensor
                 entity: sensor.network_down
                 graph: line
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
                 name: Download
               - type: sensor
                 entity: sensor.network_up
                 graph: line
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
                 name: Upload
 
-
-
-      - id: b3aece79eddb4d7bb9a09a7205027602  # Automatically created id
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: markdown
             title: CPU Usage
@@ -1732,13 +1713,11 @@ views:
                 graph: line
                 entity: sensor.cpu_load_total
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
               - entity: sensor.cpu_load_system
                 graph: line
                 type: sensor
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
           - type: horizontal-stack
             cards:
@@ -1746,16 +1725,13 @@ views:
                 graph: line
                 type: sensor
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
               - entity: sensor.cpu_load_other
                 graph: line
                 type: sensor
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
-      - id: 5d94a244406844ccb60863f3cd06c1b2  # Automatically created id
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: markdown
             title: Disk Temperatures
@@ -1766,7 +1742,6 @@ views:
                 entity: sensor.temperature_sda
                 graph: line
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
                 name: SDC
                 icon: mdi:harddisk
@@ -1774,7 +1749,6 @@ views:
                 entity: sensor.temperature_sdb
                 hours_to_show: 48
                 graph: line
-          # accuracy: 5
                 line_color: "#039be5"
                 name: SDC
                 icon: mdi:harddisk
@@ -1785,7 +1759,6 @@ views:
                 graph: line
                 entity: sensor.temperature_sdc
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
                 name: SDC
                 icon: mdi:harddisk
@@ -1793,12 +1766,10 @@ views:
                 graph: line
                 entity: sensor.temperature_sdd
                 hours_to_show: 48
-          # accuracy: 5
                 line_color: "#039be5"
                 name: SDC
                 icon: mdi:harddisk
-      - id: cb573864bb6c4704b68e8e56d7f8dede  # Automatically created id
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: entities
             title: Disk Space
@@ -1811,8 +1782,7 @@ views:
             entity: sensor.volume_used_volume_1
             title: Volume Use
 
-      - id: 093e90be1e4c435a90ca218b85a674bc  # Automatically created id
-        type: horizontal-stack
+      - type: horizontal-stack
         cards:
           - type: entities
             title: Disk Status
@@ -1822,9 +1792,7 @@ views:
               - sensor.status_sdc
               - sensor.status_sdd
 
-
-      - id: 67baee54ff004d3b9d0949b60642edac  # Automatically created id
-        type: entities
+      - type: entities
         title: S.M.A.R.T Status
         entities:
           - sensor.status_smart_sda
@@ -1832,15 +1800,10 @@ views:
           - sensor.status_smart_sdc
           - sensor.status_smart_sdd
 
-
-
-
-  - id: 6  # Automatically created id
-    title: Network Devices
+  - title: Network Devices
     icon: mdi:network
     cards:
-      - id: a11449dc932a4c8c875b1dda17ebcd22  # Automatically created id
-        type: glance
+      - type: glance
         title: Access Points
         entities:
           - entity: device_tracker.aplocaltechnique
@@ -1849,8 +1812,7 @@ views:
             name: Living
           - entity: device_tracker.apchambrearr
             name: Deuxième
-      - id: 7045e7ab9b3c473da2335a8ac133463d  # Automatically created id
-        type: vertical-stack
+      - type: vertical-stack
         cards:
           - type: markdown
             title: Speedtest
@@ -1858,7 +1820,6 @@ views:
           - type: sensor
             entity: sensor.speedtest_ping
             hours_to_show: 48
-          # accuracy: 5
             line_color: "#039be5"
             name: Ping
           - type: horizontal-stack
@@ -1866,35 +1827,26 @@ views:
               - type: sensor
                 entity: sensor.speedtest_download
                 hours_to_show: 48
-            # accuracy: 5
                 line_color: "#039be5"
                 name: Down
               - type: sensor
                 entity: sensor.speedtest_upload
                 hours_to_show: 48
-            # accuracy: 5
                 line_color: "#039be5"
                 name: UP
 
-
-
-
-      - id: 8fd1f6a99a224cf39ae69496745190c8  # Automatically created id
-        type: glance
+      - type: glance
         title: Tablettes
         entities:
           - entity: device_tracker.ipaddeadonno
             name: iPad
 
-
-
-  ##################################################3
+  # #################################################3
   - title: Automations and scripts
-    id: at_sc
+
     icon: mdi:robot
     cards:
       - type: entity-filter
-        id: etfilterradio
         entities:
           - group.residence_radio
           - device_tracker.iphoneadonno
@@ -1904,8 +1856,7 @@ views:
         card_config:
           type: glance
           title: People that are home
-      - id: b122e59eaf26475cb7eb79126c29b367  # Automatically created id
-        type: entities
+      - type: entities
         title: test
         entities:
           - entity: device_tracker.iphoneadonno
@@ -1916,7 +1867,6 @@ views:
             name: Calm Off
           - entity: script.calm_on
             name: Calm On
-
           - entity: switch.quiet_mode
             name: Quiet Mode
           - entity: automation.notify_about_phone_state
@@ -1924,34 +1874,27 @@ views:
           - entity: automation.welcome_home_andrea
           - entity: automation.welcome_home_rina
           - entity: automation.doorstaate2
-      - id: e14b843aab1d478cb7b8be227926681c  # Automatically created id
-        type: custom:monster-card
+      - type: custom:monster-card
         card:
           type: entities
         filter:
           include:
             - entity_id: automation.*
-      - id: 5abffecd9bca4a9b9ec628afb1026204  # Automatically created id
-        type: custom:monster-card
+
+      - type: custom:monster-card
         card:
           type: entities
         filter:
           include:
             - entity_id: script.*
-      - id: f40ef2c57fdd4c50b7338a436ae768e7  # Automatically created id
-        type: iframe
+      - type: iframe
         url: hassio.local:3333
 
-
-
-
   - title: ARGBW
-    id: RGBW
     icon: mdi:led-strip
     cards:
 
-      - id: 3038b39a1c5546289f88be134dd3b7eb  # Automatically created id
-        type: entities
+      - type: entities
         title: RGBW
         entities:
           - light.blue_65
@@ -1959,10 +1902,3 @@ views:
           - light.rgbw_liv_31
           - light.rgbw_controller_sam_25
           - light.rgbw_sdb_61
-
-
-
-         
-
-      
-
