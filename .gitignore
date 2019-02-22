@@ -24,6 +24,7 @@ www/inside
 !*.jpg
 !*.png
 !*.PNG
+!.stubs
 
 # Ignore folders.
 
