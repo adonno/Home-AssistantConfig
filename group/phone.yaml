@@ -3,4 +3,4 @@ phone:
   name: Telephone
   icon: mdi:phone-classic
   entities:
-    - sensor.phone_line_status      
+    - sensor.phone_line_status

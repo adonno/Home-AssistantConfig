@@ -1,88 +1,81 @@
-#TODO 
-#check if weather is sunny based on the position close Front Blinds starting 9AM 
-#Based on waether and sun position open Frond Blinds and Close Back Blinds 
-#Starting 8PM Open Back Blinds 
-#Verify Romm Temperatures and Close Blinds if too warm 
-
+---
+# TODO
+# check if weather is sunny based on the position close Front Blinds starting 9AM
+# Based on waether and sun position open Frond Blinds and Close Back Blinds
+# Starting 8PM Open Back Blinds
+# Verify Romm Temperatures and Close Blinds if too warm
 
 cover:
   - platform: group
     name: Cave
     entities:
-    - cover.local_technique_porte
-    - cover.local_technique_fenetre
-    - cover.garage_fenetre    
-    - cover.garage_porte  
-      
-    
+      - cover.local_technique_porte
+      - cover.local_technique_fenetre
+      - cover.garage_fenetre
+      - cover.garage_porte
+
   - platform: group
     name: 1er etage
     entities:
-    - cover.buero
-    - cover.living
-    - cover.kueche_rechts_a    
-    - cover.kueche_rechts_m
-    - cover.kueche_links_m
-    - cover.kueche_links_a
-    
+      - cover.buero
+      - cover.living
+      - cover.kueche_rechts_a
+      - cover.kueche_rechts_m
+      - cover.kueche_links_m
+      - cover.kueche_links_a
+
   - platform: group
     name: 2ieme etage
     entities:
-    - cover.chac_enfant_route
-    - cover.chac_enfant_arriere
-    - cover.sdb_parents    
-    - cover.chac_parents
+      - cover.chac_enfant_route
+      - cover.chac_enfant_arriere
+      - cover.sdb_parents
+      - cover.chac_parents
 
   - platform: group
     name: avant
     entities:
-    - cover.buero
-    - cover.living
-    - cover.chac_enfant_route    
-    - cover.chac_parents  
-    
+      - cover.buero
+      - cover.living
+      - cover.chac_enfant_route
+      - cover.chac_parents
+
   - platform: group
     name: arriere
     entities:
-    - cover.local_technique_porte
-    - cover.local_technique_fenetre
-    - cover.garage_fenetre    
-    - cover.garage_porte  
-    - cover.kueche_rechts_a    
-    - cover.kueche_rechts_m
-    - cover.kueche_links_m
-    - cover.kueche_links_a
-    - cover.chac_enfant_arriere    
-    - cover.sdb_parents   
+      - cover.local_technique_porte
+      - cover.local_technique_fenetre
+      - cover.garage_fenetre
+      - cover.garage_porte
+      - cover.kueche_rechts_a
+      - cover.kueche_rechts_m
+      - cover.kueche_links_m
+      - cover.kueche_links_a
+      - cover.chac_enfant_arriere
+      - cover.sdb_parents
 
   - platform: group
     name: cuisine
     entities:
-    - cover.kueche_rechts_a    
-    - cover.kueche_rechts_m
-    - cover.kueche_links_m
-    - cover.kueche_links_a
-    
+      - cover.kueche_rechts_a
+      - cover.kueche_rechts_m
+      - cover.kueche_links_m
+      - cover.kueche_links_a
 
   - platform: group
     name: Maison
     entities:
-    - cover.arriere
-    - cover.avant
-    
-    
-    
-    
-    
-    
-#Closing Blinds on a give position of the sun 
+      - cover.arriere
+      - cover.avant
+
+# Closing Blinds on a give position of the sun
 # TODO:
 # check if a window is open and if so ask if blinds should close (with exception) instead of closing autmatically
-# work with outside light do maybe close a bit erlyer or later 
+# work with outside light do maybe close a bit erlyer or later
 automation:
   - id: 'Close Blinds at dusk'
     alias: 'Fermer Jalousies au Soir'
-    initial_state: True  
+    initial_state: treu
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -90,23 +83,23 @@ automation:
       below: -4
     condition:
       condition: time
-      after:  '16:30:00'
+      after: '16:30:00'
       before: '23:59:00'
     action:
       - service: notify.ios_iphoneadonno
         data:
           title: "Closing Binds"
-          message: Closing blinds      
+          message: Closing blinds
           data:
             push:
               badge: 0
               category: 'rollo'
-############cave#          
+      ############ cave#
       - service: cover.set_cover_position
         data:
           entity_id: cover.cave
           position: 0
-#############1er#
+      ############# 1er#
       - service: cover.set_cover_position
         data:
           entity_id: cover.kueche_links_a
@@ -116,44 +109,43 @@ automation:
           entity_id: cover.kueche_links_m
           position: 22
       - service: cover.set_cover_position
-        data:          
+        data:
           entity_id: cover.kueche_rechts_m
           position: 22
       - service: cover.set_cover_position
-        data:         
+        data:
           entity_id: cover.kueche_rechts_a
           position: 22
       - service: cover.set_cover_position
-        data:          
-          entity_id:  cover.living
+        data:
+          entity_id: cover.living
           position: 45
       - service: cover.set_cover_position
-        data:          
+        data:
           entity_id: cover.buero
           position: 22
-############2eme#
+      ############ 2eme#
       - service: cover.set_cover_position
-        data:        
+        data:
           entity_id: cover.chac_enfant_route
           position: 22
       - service: cover.set_cover_position
-        data:          
+        data:
           entity_id: cover.chac_enfant_arriere
           position: 22
       - service: cover.set_cover_position
-        data:          
-          entity_id: cover.sdb_parents  
+        data:
+          entity_id: cover.sdb_parents
           position: 22
       - service: cover.set_cover_position
-        data:          
+        data:
           entity_id: cover.chac_parents
           position: 6
-          
-          
-######################################3          
-  - id: stop blinds 
+
+  ######################################
+  - id: stop blinds
     alias: 'stop blinds ios app'
-    initial_state: True
+    initial_state: true
     hide_entity: true
     trigger:
       platform: event
@@ -161,16 +153,16 @@ automation:
       event_data:
         actionName: STOP_ROLLO
     action:
-     service: cover.stop_cover
-     entity_id: cover.maison
+      service: cover.stop_cover
+      entity_id: cover.maison
 
-#Opening Blinds in the Morining
-#TODO
+  # Opening Blinds in the Morining
+  # TODO
 
-##################################################################################################
-  - id: open blinds 
+  ##################################################################################################
+  - id: open blinds
     alias: 'Open Blinds at dawn'
-    initial_state: True
+    initial_state: true
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -186,14 +178,14 @@ automation:
         entity_id: cover.cuisine
       - service: cover.open_cover
         entity_id: cover.chac_enfant_arriere
-    ### has to be disabled in the summer     
+      ### has to be disabled in the summer
       - service: cover.open_cover
         entity_id: cover.front
-        
-####################################################################################################        
+
+  ####################################################################################################
   - id: blinds morning
     alias: 'close front in the morning'
-#    initial_state: true
+    # initial_state: true
     trigger:
       platform: numeric_state
       entity_id: sun.sun
@@ -201,18 +193,18 @@ automation:
       above: 217.79
     condition:
       condition: time
-      after:  '08:00:00'
+      after: '08:00:00'
       before: '10:00:00'
-#      condition: numeric_state
-#      entity_id: sensor.dark_sky_cloud_coverage
-#         above: 70
+      # condition: numeric_state
+      # entity_id: sensor.dark_sky_cloud_coverage
+      #   above: 70
     action:
       - service: cover.set_cover_position
         data:
           entity_id: cover.front
           position: 22
-        
-######################################################################################################        
+
+  ######################################################################################################
 
   - id: open blinds afternoon
     alias: 'open front in the afternoon'
@@ -228,9 +220,9 @@ automation:
         entity_id: switch.quiet_mode
         state: 'off'
       - condition: numeric_state
-        entity_id: sun.sun 
+        entity_id: sun.sun
         value_template: '{{ state.attributes.elevation }}'
-        above: 2     
+        above: 2
       - condition: state
         entity_id: group.network_devices_mobile
         state: home
@@ -240,45 +232,41 @@ automation:
       - service: notify.ios_iphoneadonno
         data:
           title: "Opening front"
-          message: Opening front      
+          message: Opening front
           data:
             push:
               badge: 2
               category: 'rollo'
-              
-############################################################################################              
-  # - id: close blinds afternoon
-  #   alias: 'close back in the afternoon'
-  #   initial_state: false
-  #   hide_entity: true
-  #   trigger:
-  #     platform: numeric_state
-  #     entity_id: sun.sun
-  #     value_template: '{{ state.attributes.azimuth }}'
-  #     above: 218.71
-  #     # below: 220.71
-  #   condition:
-  #     - condition: state
-  #       entity_id: switch.quiet_mode
-  #       state: 'off'
-  #     - condition: numeric_state
-  #       entity_id: sun.sun
-  #       value_template: '{{ state.attributes.elevation }}'
-  #       above: 2     
-  #     - condition: time
-  #       before:  '17:00:00'
-  #   action:
-  #     - service: cover.set_cover_position
-  #       data:
-  #         entity_id: cover.arriere
-  #         position: 22
-  #     - service: notify.ios_iphoneadonno
-  #       data:
-  #         title: "Closing Back"
-  #         message: Closing Back      
-  #         data:
-  #           push:
-  #             badge: 3
-  #             category: 'rollo'        
 
-
+#   alias: 'close back in the afternoon'
+#   initial_state: false
+#   hide_entity: true
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sun.sun
+#     value_template: '{{ state.attributes.azimuth }}'
+#     above: 218.71
+#     # below: 220.71
+#   condition:
+#     - condition: state
+#       entity_id: switch.quiet_mode
+#       state: 'off'
+#     - condition: numeric_state
+#       entity_id: sun.sun
+#       value_template: '{{ state.attributes.elevation }}'
+#       above: 2
+#     - condition: time
+#       before:  '17:00:00'
+#   action:
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.arriere
+#         position: 22
+#     - service: notify.ios_iphoneadonno
+#       data:
+#         title: "Closing Back"
+#         message: Closing Back
+#         data:
+#           push:
+#             badge: 3
+#             category: 'rollo'

@@ -1,3 +1,4 @@
+---
 title: Home
 
 # Exclude entities from "Unused entities" view
@@ -17,16 +18,15 @@ resources:
     type: js
 background: center / cover no-repeat url("/local/background.png") fixed
 views:
-####################################################################################################
-######################        FLOORPLAN    VIEW        ############################################# 
-####################################################################################################     
-  - id: 0  # Automatically created id
-    icon: mdi:floor-plan
+
+  # ###################################################################################################
+  # #####################        FLOORPLAN    VIEW        #############################################
+  # ###################################################################################################
+  - icon: mdi:floor-plan
     title: Floorplan
     panel: true
     cards:
-      - id: c00c8b79ae2f49d1b945c01f1c5493ea  # Automatically created id
-        type: custom:layout-card
+      - type: custom:layout-card
         layout: horizontal
         cards:
           - type: vertical-stack
@@ -36,8 +36,6 @@ views:
                 entities:
                   - entity: sensor.time
                   - entity: sensor.date
-          # - type: custom:weather-card            
-          #   entity_weather: weather.dark_sky
               - type: weather-forecast
                 entity: weather.dark_sky
               - type: custom:monster-card
@@ -86,9 +84,10 @@ views:
                   - input_number.volume_radio_living
                   - switch.rdochparents
                   - input_number.volume_radio_parents
-############################################
-############   PLAN Level 0       ##########   
-############################################
+
+          # ###########################################
+          # ###########   PLAN Level 0       ##########
+          # ###########################################
           - type: vertical-stack
             cards:
               - type: picture-elements
@@ -106,46 +105,46 @@ views:
                       below_horizon: opacity(100)
                       above_horizon: opacity(0)
 
-               ############################################
-               #########        Lights/Swiches     ########
-               ############################################                      
+                  # ###########################################
+                  # ########        Lights/Swiches     ########
+                  # ###########################################
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.cave_couloir
                     style: {top: 52%, left: 38%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.hall_entree
                     style: {top: 70%, left: 38%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.reserve
                     style: {top: 70%, left: 12%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.technique
                     style: {top: 34%, left: 30%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.spots_escalier_0_1
                     style: {top: 50%, left: 15%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.spots_escalier_0_1_bis
                     style: {top: 55%, left: 15%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.wc_cave
                     style: {top: 44%, left: 28%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.lum_ext_avant
                     style: {top: 85%, left: 30%}
@@ -155,33 +154,33 @@ views:
                     entity: light.lamp_ext_arr
                     style: {top: 15%, left: 50%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.garage
                     style: {top: 52%, left: 75%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.prise_devant
                     style: {top: 79%, left: 60%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.prise_arriere
                     style: {top: 15%, left: 60%}
                   - type: state-icon          #
-                    tap_action: 
-                      action: toggle        #   LOCK
+                    tap_action:
+                      action: toggle        # LOCK
                     entity: lock.home         #
-                    style: {top: 74%, left: 38%} #                
+                    style: {top: 74%, left: 38%}  #
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.rdoliving
                     style: {top: 57%, left: 38%}
-               ############################################
-               #########         DOORS  Sensors    ########
-               ############################################
+                  # ###########################################
+                  # ########         DOORS  Sensors    ########
+                  # ###########################################
                   - type: image
                     entity: binary_sensor.local_technique_fenetre
                     image: /local/exclamation.png
@@ -239,17 +238,17 @@ views:
                   - type: state-label
                     entity: sensor.ss_temp_rdc_18
                     style: {top: 51%, left: 45%, transform: rotate(90deg)}
-               ############################################
-               #########         Rolladen          ########
-               ############################################
+                  ############################################
+                  #########         Rolladen          ########
+                  ############################################
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.local_technique_fenetre
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
-                        entity_id: cover.local_technique_fenetre                             
+                        entity_id: cover.local_technique_fenetre
                     style: {top: 5%, left: 10%, width: 5%}
                     state_filter:
                       "open": opacity(25%)
@@ -257,31 +256,30 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.local_technique_fenetre
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
-                        entity_id: cover.local_technique_fenetre 
+                        entity_id: cover.local_technique_fenetre
                     style: {top: 5%, left: 15%, width: 5%}
 
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.local_technique_fenetre
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
-                        entity_id: cover.local_technique_fenetre 
+                        entity_id: cover.local_technique_fenetre
                     style: {top: 5%, left: 20%, width: 5%}
                     state_filter:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.local_technique_porte
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -293,7 +291,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.local_technique_porte
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -303,7 +301,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.local_technique_porte
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -316,7 +314,7 @@ views:
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.garage_porte
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -328,7 +326,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.garage_porte
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -338,7 +336,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.garage_porte
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -348,11 +346,10 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.garage_fenetre
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -364,7 +361,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.garage_fenetre
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -374,7 +371,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.garage_fenetre
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -383,9 +380,9 @@ views:
                     state_filter:
                       "open": opacity(100%)
                       "closed": opacity(25%)
-############################################
-############   PLAN Level 1       ##########   
-############################################       
+          ############################################
+          ############   PLAN Level 1       ##########
+          ############################################
           - type: vertical-stack
             cards:
 
@@ -404,117 +401,117 @@ views:
                       below_horizon: opacity(100)
                       above_horizon: opacity(0)
 
-               ############################################
-               #########        Lights/Swiches     ########
-               ############################################    
+                  ############################################
+                  #########        Lights/Swiches     ########
+                  ############################################
 
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.spots_cuisine_ilot
                     style: {top: 30%, left: 50%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.spots_cuisine
                     style: {top: 30%, left: 23%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.armoire_cuisine
                     style: {top: 30%, left: 87%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.armoire_sam
                     style: {top: 50%, left: 87%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.lampe_canape
                     style: {top: 68%, left: 87%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.armoire_tv
                     style: {top: 71%, left: 51%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.spots_living
                     style: {top: 65%, left: 58%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.spots_sam
                     style: {top: 50%, left: 58%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.spots_millieux
                     style: {top: 57%, left: 72%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.buro
                     style: {top: 70%, left: 28%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.prise_buero_arriere
                     style: {top: 70%, left: 48%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.couloir_1er
                     style: {top: 50%, left: 40%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.lampe_wc
                     style: {top: 60%, left: 19%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.lumiere_sam
                     style: {top: 50%, left: 70%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.lampe_terrasse
                     style: {top: 15%, left: 43%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.terrasse
                     style: {top: 15%, left: 65%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.prise_sol_escalier
                     style: {top: 50%, left: 33%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.centre_living
                     style: {top: 60%, left: 74%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.rdoliving
                     style: {top: 25%, left: 82%}
                   - type: state-label
                     entity: sensor.ss_temp_1er_14
                     style: {top: 54%, left: 37%}
-               ############################################
-               #########         DOORS  Sensors    ########
-               ############################################
+                  ############################################
+                  #########         DOORS  Sensors    ########
+                  ############################################
                   - type: image
                     entity: binary_sensor.cuisine_la
                     image: /local/exclamation.png
@@ -569,16 +566,14 @@ views:
                       "off": opacity(1%)
                       "on": opacity(100%)
 
-
-
-               ############################################
-               #########         Rolladen          ########
-               ############################################
+                  ############################################
+                  #########         Rolladen          ########
+                  ############################################
 
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.kueche_links_a
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -590,7 +585,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.kueche_links_a
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -600,7 +595,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.kueche_links_a
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -613,7 +608,7 @@ views:
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.kueche_links_m
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -625,7 +620,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.kueche_links_m
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -635,7 +630,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.kueche_links_m
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -645,12 +640,10 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.kueche_rechts_m
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -662,7 +655,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.kueche_rechts_m
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -672,7 +665,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.kueche_rechts_m
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -682,15 +675,14 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.kueche_rechts_a
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
-                        entity_id: cover.kueche_rechts_a                      
+                        entity_id: cover.kueche_rechts_a
                     style: {top: 5%, left: 87%, width: 5%}
                     state_filter:
                       "open": opacity(25%)
@@ -698,7 +690,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.kueche_rechts_a
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -708,22 +700,20 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.kueche_rechts_a
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
-                        entity_id: cover.kueche_rechts_a                      
+                        entity_id: cover.kueche_rechts_a
                     style: {top: 5%, left: 97%, width: 5%}
                     state_filter:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.buero
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -736,7 +726,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.buero
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -745,7 +735,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.buero
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -755,12 +745,10 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.living
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -772,7 +760,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.living
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -781,7 +769,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.living
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -790,9 +778,9 @@ views:
                     state_filter:
                       "open": opacity(100%)
                       "closed": opacity(25%)
-############################################
-############   PLAN Level 2       ##########   
-############################################  
+          ############################################
+          ############   PLAN Level 2       ##########
+          ############################################
           - type: vertical-stack
             cards:
               - type: picture-elements
@@ -811,73 +799,73 @@ views:
                       above_horizon: opacity(0)
 
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.chambre_ar
                     style: {top: 32%, left: 30%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.chambre_av
                     style: {top: 70%, left: 30%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.couloir_2e
                     style: {top: 49%, left: 38%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.dressing
                     style: {top: 40%, left: 80%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.escalier_lumieres_centrale
                     style: {top: 49%, left: 25%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.led_dressing
                     style: {top: 40%, left: 91%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.led_dressing
                     style: {top: 40%, left: 73%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.led_sdb_p
                     style: {top: 31%, left: 51%}
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.lit_g
                     style:
                       top: 68%
                       left: 88%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.lit_d
                     style:
                       top: 57%
                       left: 88%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.lumiere_sdb_e
                     style:
                       top: 43%
                       left: 56%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.spots_douche_p
@@ -885,7 +873,7 @@ views:
                       top: 31%
                       left: 59%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     hold-action: more-info
                     entity: light.spots_sdb_p
@@ -893,44 +881,45 @@ views:
                       top: 25%
                       left: 67%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.mirroir_parents
                     style:
                       top: 72%
                       left: 56%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.mirroir_sdb_p
                     style:
                       top: 25%
                       left: 51%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.spots_escalier_1_2
                     style:
                       top: 55%
                       left: 15%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: light.spots_escalier_2_3
                     style:
                       top: 43%
                       left: 15%
                   - type: state-icon
-                    tap_action: 
+                    tap_action:
                       action: toggle
                     entity: switch.rdochparents
                     style:
                       top: 55%
                       left: 65%
-              # - type: state-icon
-               ############################################
-               #########         DOORS  Sensors    ########
-               ############################################
+                  # - type: state-icon
+                  ############################################
+                  #########         DOORS  Sensors    ########
+                  ############################################
+
                   - type: image
                     entity: binary_sensor.chac_ar
                     image: /local/exclamation.png
@@ -962,15 +951,14 @@ views:
                       "off": opacity(1%)
                       "on": opacity(100%)
 
-               ############################################
-               #########         Rolladen          ########
-               ############################################
-
+                  ############################################
+                  #########         Rolladen          ########
+                  ############################################
 
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.chac_enfant_arriere
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -982,7 +970,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.chac_enfant_arriere
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -992,7 +980,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.chac_enfant_arriere
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -1002,13 +990,10 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
-
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.sdb_parents
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -1020,7 +1005,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.sdb_parents
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -1029,7 +1014,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.sdb_parents
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -1039,12 +1024,10 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(125%)
 
-
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.chac_enfant_route
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -1057,7 +1040,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.chac_enfant_route
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -1066,7 +1049,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.chac_enfant_route
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -1076,12 +1059,10 @@ views:
                       "open": opacity(100%)
                       "closed": opacity(25%)
 
-
-
                   - type: image
                     image: /local/arrow-up.png
                     entity: cover.chac_parents
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.open_cover
                       service_data:
@@ -1093,7 +1074,7 @@ views:
                   - type: icon
                     icon: mdi:stop
                     entity: cover.chac_parents
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.stop_cover
                       service_data:
@@ -1102,7 +1083,7 @@ views:
                   - type: image
                     image: /local/arrow-down.png
                     entity: cover.chac_parents
-                    tap_action: 
+                    tap_action:
                       action: call-service
                       service: cover.close_cover
                       service_data:
@@ -1111,15 +1092,13 @@ views:
                     state_filter:
                       "open": opacity(100%)
                       "closed": opacity(25%)
-############################################
-############   PLAN Level 3       ##########   
-############################################  
+  ############################################
+  ############   PLAN Level 3       ##########
+  ############################################
 
-
-####################################################################################################
-####################################################################################################
-####################################################################################################
-
+  ####################################################################################################
+  ####################################################################################################
+  ####################################################################################################
 
   - id: 1  # Automatically created id
     title: Cave
@@ -1193,10 +1172,9 @@ views:
                 name: Treppen 0 - 1 Lamper
                 icon: /local/treppe_bis.png
 
-
-####################################################################################################
-####################################################################################################
-####################################################################################################
+  ####################################################################################################
+  ####################################################################################################
+  ####################################################################################################
 
   - id: 2  # Automatically created id
     title: 1er
@@ -1227,15 +1205,12 @@ views:
             type: custom:slider-entity-row
           - entity: binary_sensor.buro
 
-
           - entity: cover.living
             name: Living
             icon: mdi:format-align-justify
             type: custom:slider-entity-row
           - entity: binary_sensor.living_l
           - entity: binary_sensor.living_r
-
-
 
           - type: section
             label: Küche
@@ -1253,14 +1228,11 @@ views:
             icon: mdi:format-align-justify
           - entity: binary_sensor.cuisinie_lm
 
-
           - entity: cover.kueche_rechts_m
             name: Rechts Mitte
             type: custom:slider-entity-row
             icon: mdi:format-align-justify
           - entity: binary_sensor.cuisinie_rm
-
-
 
           - entity: cover.kueche_rechts_a
             name: Links Aussen
@@ -1268,9 +1240,7 @@ views:
             type: custom:slider-entity-row
           - entity: binary_sensor.cuisinie_ra
 
-
-
-  #######   LIVING    ######        
+      #######   LIVING    ######
       - id: b581d33fe1544d8ea49da210157245fa  # Automatically created id
         type: vertical-stack
         cards:
@@ -1304,7 +1274,7 @@ views:
                 name: LED
                 icon: mdi:led-strip
 
-#######   SAM    ######  
+          # ######   SAM    ######
 
           - type: entities
             title: Salle à manger
@@ -1334,7 +1304,7 @@ views:
                 name: LED
                 icon: mdi:led-strip
 
-#######   CUISINE    ######  
+          # ######   CUISINE    ######
 
           - type: entities
             title: Cuisine
@@ -1363,7 +1333,7 @@ views:
                 name: LED
                 icon: mdi:led-strip
 
-#######   GLOBAL    ######            
+      # ######   GLOBAL    ######
 
       - id: ecca28f7511c4663becda1725ac112bb  # Automatically created id
         type: vertical-stack
@@ -1417,7 +1387,6 @@ views:
               - entity: sensor.living
                 name: Living
 
-
           - type: custom:swipe-card
             card_width: '80%'
             parameters:
@@ -1431,28 +1400,24 @@ views:
                 enabled: true
                 onlyInViewport: true
             cards:
-      # - type: horizontal-stack
-      #   cards:
               - type: sensor
                 entity: sensor.living
                 hours_to_show: 48
-                graph: line                
+                graph: line
               - type: sensor
                 entity: sensor.buero
                 hours_to_show: 48
-                graph: line                
+                graph: line
               - type: sensor
                 entity: sensor.kueche
                 hours to show: 48
                 graph: line
 
-                
-####################################################################################################
-####################################################################################################
-####################################################################################################
+  ####################################################################################################
+  ####################################################################################################
+  ####################################################################################################
 
-
-#2nd
+  # 2nd
 
   - id: 3  # Automatically created id
     title: 2nd
@@ -1510,8 +1475,8 @@ views:
           - entity: binary_sensor.sdb_p
             name: Fenster
 
-######################################
-#Lights
+      ######################################
+      # Lights
 
       - type: vertical-stack
         id: kinder2nd
@@ -1546,7 +1511,6 @@ views:
               - entity: switch.prise_ch_enfant_arr
                 icon: mdi:sofa
                 name: Steckdose
-
 
       - type: vertical-stack
         id: eltern2nd
@@ -1654,8 +1618,8 @@ views:
           - switch.rdochparents
           - input_number.volume_radio_parents
 
-  ######################################
-  # Lights
+      # #####################################
+      # Lights
 
       - type: vertical-stack
         cards:

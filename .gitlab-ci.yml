@@ -1,4 +1,3 @@
-
 ---
 image: docker:latest
 
@@ -6,11 +5,9 @@ stages:
   - preflight
   - homeassistant
 
-
 # Generic preflight template
 .preflight: &preflight
   stage: preflight
-
 
 # Generic Home Assistant template
 .ha: &ha
@@ -26,7 +23,6 @@ stages:
         --config ./ \
         --script check_config \
         --info all
-
 
 # Generic ESPHome template
 # .esphome: &esphome
@@ -46,7 +42,6 @@ stages:
 #         ); do
 #         esphomeyaml $file config
 #       done
-
 
 # Preflight jobs
 shellcheck:

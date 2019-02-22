@@ -1,51 +1,52 @@
+---
 light:
 
-#############################
-###  RDC /cave
-#############################
+  #############################
+  ###  RDC /cave
+  #############################
 
   - platform: knx
     name: Lum ext avant
-    address: '1/1/0'   
+    address: '1/1/0'
     state_address: '1/1/1'
   - platform: knx
     name: Hall Entree
-    address: '1/1/2'   
+    address: '1/1/2'
     state_address: '1/1/3'
   - platform: knx
     name: Reserve
-    address: '1/1/4'   
-    state_address: '1/1/5'    
+    address: '1/1/4'
+    state_address: '1/1/5'
   - platform: knx
     name: Cave Couloir
-    address: '1/1/6'   
+    address: '1/1/6'
     state_address: '1/1/7'
   - platform: knx
     name: Garage
-    address: '1/1/8'   
+    address: '1/1/8'
     state_address: '1/1/9'
   - platform: knx
     name: WC Cave
-    address: '1/1/10'   
+    address: '1/1/10'
     state_address: '1/1/11'
   - platform: knx
     name: Technique
-    address: '1/1/12'   
+    address: '1/1/12'
     state_address: '1/1/13'
   - platform: knx
     name: Lamp ext ARR
-    address: '1/1/14'   
-    state_address: '1/1/15'    
+    address: '1/1/14'
+    state_address: '1/1/15'
   - platform: knx
     name: Spots Escalier 0-1
-    address: '1/1/16'   
-    state_address: '1/1/17'   
+    address: '1/1/16'
+    state_address: '1/1/17'
 
-#############################
-###  1etage
-#############################
+  #############################
+  ###  1etage
+  #############################
 
-#	schalten 
+  # schalten
 
   - platform: knx
     name: "Buro"
@@ -79,15 +80,15 @@ light:
     name: "Spots escalier 0-1 bis"
     address: '2/1/14'
     state_address: '2/1/15'
-    
-#	dimmen   
-    
+
+  # dimmen
+
   - platform: knx
     name: "spots Millieux"
     address: '2/2/0'
     brightness_address: '2/2/2'
     state_address: '2/2/3'
-    brightness_state_address: '2/2/4'  
+    brightness_state_address: '2/2/4'
   - platform: knx
     name: "Couloir 1er"
     address: '2/2/5'
@@ -99,157 +100,150 @@ light:
     address: '2/2/10'
     brightness_address: '2/2/12'
     state_address: '2/2/13'
-    brightness_state_address: '2/2/14'    
+    brightness_state_address: '2/2/14'
   - platform: knx
     name: "spots sam"
     address: '2/2/15'
     brightness_address: '2/2/7'
     state_address: '2/2/18'
-    brightness_state_address: '2/2/19'  
+    brightness_state_address: '2/2/19'
   - platform: knx
     name: "Centre Living"
     address: '2/2/20'
     brightness_address: '2/2/22'
     state_address: '2/2/23'
-    brightness_state_address: '2/2/24'   
+    brightness_state_address: '2/2/24'
   - platform: knx
     name: "Spots Living"
     address: '2/2/25'
     brightness_address: '2/2/27'
     state_address: '2/2/28'
-    brightness_state_address: '2/2/29' 
+    brightness_state_address: '2/2/29'
   - platform: knx
     name: "Spots Cuisine"
     address: '2/2/30'
     brightness_address: '2/2/32'
     state_address: '2/2/33'
-    brightness_state_address: '2/2/34' 
+    brightness_state_address: '2/2/34'
   - platform: knx
     name: "Spots Cuisine Ilot"
     address: '2/2/35'
     brightness_address: '2/2/37'
     state_address: '2/2/38'
-    brightness_state_address: '2/2/39' 
+    brightness_state_address: '2/2/39'
 
-    
-#############################
-###  2etage
-#############################
+  #############################
+  ###  2etage
+  #############################
 
-#	schalten 
+  # schalten
 
-  
   - platform: knx
-    name: Spots Escalier 2-3 
-    address: '3/1/0'   
-    state_address: '3/1/1' 
+    name: Spots Escalier 2-3
+    address: '3/1/0'
+    state_address: '3/1/1'
   - platform: knx
     name: LED Parents
-    address: '3/1/2'   
+    address: '3/1/2'
     state_address: '3/1/3'
   - platform: knx
     name: Lit G
-    address: '3/1/4'   
+    address: '3/1/4'
     state_address: '3/1/5'
   - platform: knx
     name: Lit D
-    address: '3/1/6'   
+    address: '3/1/6'
     state_address: '3/1/7'
   - platform: knx
-    name: Mirroir Parents 
-    address: '3/1/8'   
-    state_address: '3/1/9'      
+    name: Mirroir Parents
+    address: '3/1/8'
+    state_address: '3/1/9'
   - platform: knx
-    name: Mirroir SDB Enfants 
-    address: '3/1/10'   
-    state_address: '3/1/11'  
+    name: Mirroir SDB Enfants
+    address: '3/1/10'
+    state_address: '3/1/11'
   - platform: knx
     name: Lumiere SDB E
-    address: '3/1/12'   
+    address: '3/1/12'
     state_address: '3/1/13'
   - platform: knx
     name: Mirroir SDB P
-    address: '3/1/14'   
-    state_address: '3/1/15'     
+    address: '3/1/14'
+    state_address: '3/1/15'
   - platform: knx
     name: LED SDB P
-    address: '3/1/16'   
+    address: '3/1/16'
     state_address: '3/1/17'
   - platform: knx
     name: LED Dressing
-    address: '3/1/18'   
+    address: '3/1/18'
     state_address: '3/1/19'
-    
-#	dimmen      
-    
+
+  # dimmen
+
   - platform: knx
     name: "Couloir 2e"
     address: '3/2/0'
     brightness_address: '3/2/2'
     state_address: '3/2/3'
-    brightness_state_address: '3/2/4' 
+    brightness_state_address: '3/2/4'
   - platform: knx
     name: "Chambre Av"
     address: '3/2/5'
     brightness_address: '3/2/7'
     state_address: '3/2/8'
-    brightness_state_address: '3/2/9'   
+    brightness_state_address: '3/2/9'
   - platform: knx
     name: "Chambre Ar"
     address: '3/2/10'
     brightness_address: '3/2/12'
     state_address: '3/2/13'
-    brightness_state_address: '3/2/14'  
+    brightness_state_address: '3/2/14'
   - platform: knx
     name: "Spots Parents"
     address: '3/2/15'
     brightness_address: '3/2/17'
     state_address: '2/2/18'
-    brightness_state_address: '3/2/19'  
+    brightness_state_address: '3/2/19'
   - platform: knx
     name: "Dressing"
     address: '3/2/20'
     brightness_address: '3/2/22'
     state_address: '3/2/23'
-    brightness_state_address: '3/2/24'     
+    brightness_state_address: '3/2/24'
   - platform: knx
     name: "Spots Douche P"
     address: '3/2/25'
     brightness_address: '3/2/27'
     state_address: '3/2/28'
-    brightness_state_address: '3/2/29' 
+    brightness_state_address: '3/2/29'
   - platform: knx
     name: "Spots SDB P"
     address: '3/2/30'
     brightness_address: '3/2/32'
     state_address: '2/2/33'
-    brightness_state_address: '3/2/34'  
+    brightness_state_address: '3/2/34'
 
+  #############################
+  ###  3etage /Combles
+  #############################
 
-#############################
-###  3etage /Combles
-#############################      
-    
- 
-#	schalten 
- 
+  # schalten
+
   - platform: knx
     name: Combles
-    address: '4/1/0'   
+    address: '4/1/0'
     state_address: '4/1/1'
   - platform: knx
     name: Local Technique
-    address: '4/1/2'   
+    address: '4/1/2'
     state_address: '4/1/3'
-        
-    
 
-#	dimmen  
+  # dimmen
 
   - platform: knx
     name: "Escalier Lumieres Centrale"
     address: '4/2/0'
     brightness_address: '4/2/2'
     state_address: '4/2/3'
-    brightness_state_address: '4/2/4' 
-
+    brightness_state_address: '4/2/4'

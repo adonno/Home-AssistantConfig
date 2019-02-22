@@ -1,23 +1,24 @@
-      apbureau:
-        value_template: '{% if is_state("device_tracker.apbureau", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Bureau'
-        icon_template: mdi:access-point
-      apchambrarr:
-        value_template: '{% if is_state("device_tracker.apchambrearr", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: '2eme etage' 
-        icon_template: mdi:access-point
-      aplocaltech:
-        value_template: '{% if is_state("device_tracker.aplocaltechnique", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Local Technique'  
-        icon_template: mdi:access-point
-      rinalt:
-        value_template: '{% if is_state("device_tracker.rinaltrina", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Laptop Rina'
-        icon_template: mdi:laptop-windows
-      swordlt:
-        value_template: '{% if is_state("device_tracker.luxlaptop018", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Laptop Andrea'
-        icon_template: mdi:laptop-windows        
+---
+apbureau:
+  value_template: '{% if is_state("device_tracker.apbureau", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Bureau'
+  icon_template: mdi:access-point
+apchambrarr:
+  value_template: '{% if is_state("device_tracker.apchambrearr", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: '2eme etage'
+  icon_template: mdi:access-point
+aplocaltech:
+  value_template: '{% if is_state("device_tracker.aplocaltechnique", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Local Technique'
+  icon_template: mdi:access-point
+rinalt:
+  value_template: '{% if is_state("device_tracker.rinaltrina", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Laptop Rina'
+  icon_template: mdi:laptop-windows
+swordlt:
+  value_template: '{% if is_state("device_tracker.luxlaptop018", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Laptop Andrea'
+  icon_template: mdi:laptop-windows
 #      battery_iphone_andrea:
 #        unit_of_measurement: '%'
 #        value_template: >-
@@ -28,63 +29,63 @@
 #            {%- endif %}
 #        icon_template: '{%- if is_state("sensor.battery_iphone", "unknown") %}mdi:battery-unknown{%- elif is_state_attr("device_tracker.iphone", "battery_status", "Charging") %}mdi:battery-charging{%- elif  states.device_tracker.iphone.attributes.battery <= 5 %}mdi:battery-outline{%- elif states.device_tracker.iphone.attributes.battery >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.device_tracker.iphone.attributes.battery|float / 10)|round*10}}{%- endif %}'
 #        friendly_name: 'Batterie iPhone Andrea'
-      fritz_box:
-        value_template: '{% if is_state("device_tracker.fritzbox", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Fritz Box'
-        icon_template: mdi:router-wireless
-      xp710:
-        value_template: '{% if is_state("device_tracker.epson5d921b", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Epson XP-710'
-        icon_template: mdi:printer
-      fourmicro:
-        value_template: '{% if is_state("device_tracker.siemensfourmicro", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Four Microndes'
-        icon_template: mdi:archive
-      fourvapeur:
-        value_template: '{% if is_state("device_tracker.siemensfourvapeur", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Four Microndes'
-        icon_template: mdi:archive        
-      chaudiere:
-        value_template: '{% if is_state("device_tracker.viessmannlancard", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Chaudiere'
-        icon_template: mdi:fire           
-      syno:
-        value_template: '{% if is_state("device_tracker.diskstation2", "home") and is_state("device_tracker.diskstation2_2", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Syno'
-        icon_template: '{%- if is_state("device_tracker.diskstation2", "home") and is_state("device_tracker.diskstation2_2", "home") %}mdi:server-network{% else %}mdi:server-network-off{% endif %}'    
-      knxip:
-        value_template: '{% if is_state("device_tracker.knxiprt801be8", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'KNX-IP Interface'
-        icon_template: mdi:upload-network         
-      ipad_1:
-        value_template: '{% if is_state("device_tracker.ipaddeadonno", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'iPad'
-        icon_template: mdi:tablet           
-      lenovoliving:
-        value_template: '{% if is_state("device_tracker.lenovotablet", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Lenovo Living'
-        icon_template: mdi:tablet           
-      xorokeller:
-        value_template: '{% if is_state("device_tracker.xorokitchen", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Tablet Cave'
-        icon_template: mdi:tablet                
-      xorokummer:
-        value_template: '{% if is_state("device_tracker.xorokummer", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'Tablet Chambre'
-        icon_template: mdi:tablet    
-      tvbox_living:
-        value_template: '{% if is_state("device_tracker.tvboxliving", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'TvBox Living'
-        icon_template: mdi:television   
-      hassiotest:
-        value_template: '{% if is_state("device_tracker.hassio", "home") %}Online{% else %}Offline{% endif %}'
-        friendly_name: 'hassiotest'
-        icon_template: mdi:cube-outline 
-      isp_connection:
-        value_template: '{%if is_state("sensor.fritz_netmonitor", "online")%} {{states.sensor.fritz_netmonitor.attributes.external_ip}} {% else %}Offline{% endif %}' 
-        friendly_name: 'Internet connection'
-        icon_template: mdi:earth
-      phone_line_status:
-        friendly_name: 'Line status'
-        value_template: '{% if is_state("sensor.phone", "idle") %}Idle{% elif is_state("sensor.phone", "dialing") %}{{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }}){% elif is_state("sensor.phone", "ringing") %}{{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }}){% else %}{{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }}){% endif %}'
-        icon_template: '{% if is_state("sensor.phone", "idle") %}mdi:phone-classic{% elif is_state("sensor.phone", "dialing") %}mdi:phone-outgoing{% elif is_state("sensor.phone", "ringing") %}mdi:phone-incoming{% else %}mdi:phone-in-talk{% endif %}'   
+fritz_box:
+  value_template: '{% if is_state("device_tracker.fritzbox", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Fritz Box'
+  icon_template: mdi:router-wireless
+xp710:
+  value_template: '{% if is_state("device_tracker.epson5d921b", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Epson XP-710'
+  icon_template: mdi:printer
+fourmicro:
+  value_template: '{% if is_state("device_tracker.siemensfourmicro", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Four Microndes'
+  icon_template: mdi:archive
+fourvapeur:
+  value_template: '{% if is_state("device_tracker.siemensfourvapeur", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Four Microndes'
+  icon_template: mdi:archive
+chaudiere:
+  value_template: '{% if is_state("device_tracker.viessmannlancard", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Chaudiere'
+  icon_template: mdi:fire
+syno:
+  value_template: '{% if is_state("device_tracker.diskstation2", "home") and is_state("device_tracker.diskstation2_2", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Syno'
+  icon_template: '{%- if is_state("device_tracker.diskstation2", "home") and is_state("device_tracker.diskstation2_2", "home") %}mdi:server-network{% else %}mdi:server-network-off{% endif %}'
+knxip:
+  value_template: '{% if is_state("device_tracker.knxiprt801be8", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'KNX-IP Interface'
+  icon_template: mdi:upload-network
+ipad_1:
+  value_template: '{% if is_state("device_tracker.ipaddeadonno", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'iPad'
+  icon_template: mdi:tablet
+lenovoliving:
+  value_template: '{% if is_state("device_tracker.lenovotablet", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Lenovo Living'
+  icon_template: mdi:tablet
+xorokeller:
+  value_template: '{% if is_state("device_tracker.xorokitchen", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Tablet Cave'
+  icon_template: mdi:tablet
+xorokummer:
+  value_template: '{% if is_state("device_tracker.xorokummer", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'Tablet Chambre'
+  icon_template: mdi:tablet
+tvbox_living:
+  value_template: '{% if is_state("device_tracker.tvboxliving", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'TvBox Living'
+  icon_template: mdi:television
+hassiotest:
+  value_template: '{% if is_state("device_tracker.hassio", "home") %}Online{% else %}Offline{% endif %}'
+  friendly_name: 'hassiotest'
+  icon_template: mdi:cube-outline
+isp_connection:
+  value_template: '{%if is_state("sensor.fritz_netmonitor", "online")%} {{states.sensor.fritz_netmonitor.attributes.external_ip}} {% else %}Offline{% endif %}'
+  friendly_name: 'Internet connection'
+  icon_template: mdi:earth
+phone_line_status:
+  friendly_name: 'Line status'
+  value_template: '{% if is_state("sensor.phone", "idle") %}Idle{% elif is_state("sensor.phone", "dialing") %}{{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }}){% elif is_state("sensor.phone", "ringing") %}{{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }}){% else %}{{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }}){% endif %}'
+  icon_template: '{% if is_state("sensor.phone", "idle") %}mdi:phone-classic{% elif is_state("sensor.phone", "dialing") %}mdi:phone-outgoing{% elif is_state("sensor.phone", "ringing") %}mdi:phone-incoming{% else %}mdi:phone-in-talk{% endif %}'

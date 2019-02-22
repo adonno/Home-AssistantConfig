@@ -1,110 +1,104 @@
+---
 group:
   Rolladen Premier:
     name: Rolladen 1er
-    entities: 
-    - cover.1er_etage
-    - automation.fermer_jalousies_au_soir 
-    - cover.kueche_links_a
-    - cover.kueche_links_m
-    - cover.kueche_rechts_m
-    - cover.kueche_rechts_a
-    - cover.living
-    - cover.buero
-    
+    entities:
+      - cover.1er_etage
+      - automation.fermer_jalousies_au_soir
+      - cover.kueche_links_a
+      - cover.kueche_links_m
+      - cover.kueche_rechts_m
+      - cover.kueche_rechts_a
+      - cover.living
+      - cover.buero
+
   Rolladen Keller:
     name: Rolladen cave
     entities:
-    - cover.cave
-    - automation.fermer_jalousies_au_soir    
-    - cover.local_technique_porte
-    - cover.local_technique_fenetre
-    - cover.garage_fenetre    
-    - cover.garage_porte  
+      - cover.cave
+      - automation.fermer_jalousies_au_soir
+      - cover.local_technique_porte
+      - cover.local_technique_fenetre
+      - cover.garage_fenetre
+      - cover.garage_porte
   Rolladen Chambres:
     name: Rolladen 2eme
     entities:
-    - cover.2eme_etage
-    - automation.fermer_jalousies_au_soir
-    - cover.chac_enfant_route
-    - cover.chac_enfant_arriere
-    - cover.sdb_parents   
-    - cover.chac_parents   
-    
-    
+      - cover.2eme_etage
+      - automation.fermer_jalousies_au_soir
+      - cover.chac_enfant_route
+      - cover.chac_enfant_arriere
+      - cover.sdb_parents
+      - cover.chac_parents
+
   Light 1er:
     name: Light
-    entities: 
-    - light.spots_escalier_01
-    - light.spots_escalier_01_bis
-    - light.spots_escalier_12
-    - light.couloir_1er
-    - light.spots_Millieux
-    - light.buro
-    - light.lampe_wc
-    
+    entities:
+      - light.spots_escalier_01
+      - light.spots_escalier_01_bis
+      - light.spots_escalier_12
+      - light.couloir_1er
+      - light.spots_Millieux
+      - light.buro
+      - light.lampe_wc
+
   Light Living:
     name: Living
     entities:
-    
-    - light.centre_Living
-    - light.spots_living
-    - light.led_living
-
-    - switch.lampe_canape
-    - switch.armoire_tv
+      - light.centre_Living
+      - light.spots_living
+      - light.led_living
+      - switch.lampe_canape
+      - switch.armoire_tv
 
   Light sam:
     name: Salle A Manger
     entities:
-    
-    - light.spots_sam  
-    - light.lumiere_sam
-    - light.led_sam
-    - switch.armoire_sam
-    
-  Light cuisine: 
+      - light.spots_sam
+      - light.lumiere_sam
+      - light.led_sam
+      - switch.armoire_sam
+
+  Light cuisine:
     name: Cuisine
     entities:
-    - light.spots_cuisine
-    - light.spots_cuisine_ilot
-    - light.led_cuisine   
-    - switch.armoire_cuisine
-    
+      - light.spots_cuisine
+      - light.spots_cuisine_ilot
+      - light.led_cuisine
+      - switch.armoire_cuisine
+
   sdb_enfants:
     name: SDB Enfants
     entities:
-    - light.Mirroir_SDB_Enfants
-    - light.Lumiere_SDB_E
-    
+      - light.Mirroir_SDB_Enfants
+      - light.Lumiere_SDB_E
+
   chambre_parents:
     name: Parents
-    entities:    
-    - light.LED_Parents
-    - light.Lit_G
-    - light.Lit_D
-    - light.Spots_Parents
-    - light.led_dressing
-    - light.mirroir_parents
-    - light.dressing
-    
+    entities:
+      - light.LED_Parents
+      - light.Lit_G
+      - light.Lit_D
+      - light.Spots_Parents
+      - light.led_dressing
+      - light.mirroir_parents
+      - light.dressing
+
   sdb_parents:
     name: SDB Parents
     entities:
-    - light.Spots_SDB_P
-    - light.Spots_Douche_P
-    - light.Mirroir_SDB_P
-    - light.LED_SDB_P
-    - climate.SDB_Parents
-    
+      - light.Spots_SDB_P
+      - light.Spots_Douche_P
+      - light.Mirroir_SDB_P
+      - light.LED_SDB_P
+      - climate.SDB_Parents
+
   chambre_enfant_avant:
     name: Enfant Av
     entities:
-    - light.chambre_av
-    
+      - light.chambre_av
+
   chambre_enfant_arriere:
     name: Enfant Ar
     entities:
-    - light.chambre_ar   
-    
-    
-    
+      - light.chambre_ar

@@ -1,104 +1,101 @@
-
-
+---
 sensor:
 
   - platform: knx
     name: Eingang
-    address: '4/2/11' 
-    type: temperature  
-    
+    address: '4/2/11'
+    type: temperature
+
   - platform: knx
     name: Kueche
-    address: '2/4/24' 
+    address: '2/4/24'
     type: temperature
   - platform: knx
     name: Living
-    address: '2/4/0' 
-    type: temperature    
- 
+    address: '2/4/0'
+    type: temperature
+
   - platform: knx
     name: Buero
-    address: '2/4/9' 
-    type: temperature    
- 
+    address: '2/4/9'
+    type: temperature
 
   - platform: knx
     name: Flur OG
-    address: '4/2/14' 
-    type: temperature  
+    address: '4/2/14'
+    type: temperature
   - platform: knx
     name: Eltern
-    address: '3/4/0' 
-    type: temperature  
+    address: '3/4/0'
+    type: temperature
   - platform: knx
     name: SDB Eltern
-    address: '3/4/12' 
+    address: '3/4/12'
     type: temperature
   - platform: knx
     name: Kind1
-    address: '3/4/24' 
+    address: '3/4/24'
     type: temperature
   - platform: knx
     name: Kind2
-    address: '3/4/36' 
-    type: temperature  
+    address: '3/4/36'
+    type: temperature
   - platform: knx
     name: SDB Kinder
-    address: '3/4/48' 
-    type: temperature  
+    address: '3/4/48'
+    type: temperature
 
   - platform: knx
     name: Speicher
-    address: '4/2/12' 
-    type: temperature  
-    
+    address: '4/2/12'
+    type: temperature
+
 # climate:
 #   - platform: knx
 #     name: Buero
-#     temperature_address: '2/4/9'            # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '2/4/9'            # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '2/4/10'    # Sollwert Komfort
 #     operation_mode_address: '2/4/19'        # Betriebsartvorwahl
 #     operation_mode_state_address: '2/4/11'  # DPT_HVAC Status
 
 #   - platform: knx
 #     name: Living
-#     temperature_address: '2/4/0'            # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '2/4/0'            # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '2/4/1'    # Sollwert Komfort
 #     operation_mode_address: '2/4/18'        # Betriebsartvorwahl
 #     operation_mode_state_address: '2/4/2'  # DPT_HVAC Status
 
-
 #   - platform: knx
 #     name: Eltern
-#     temperature_address: '3/4/0'            # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '3/4/0'            # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '3/4/1'     # Sollwert Komfort
 #     operation_mode_address: '3/4/3'         # Betriebsartvorwahl
 #     operation_mode_state_address: '3/4/4'   # DPT_HVAC Status
 
 #   - platform: knx
 #     name: SDB Eltern
-#     temperature_address: '3/4/12'           # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '3/4/12'           # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '3/4/13'    # Sollwert Komfort
 #     operation_mode_address: '3/4/15'        # Betriebsartvorwahl
 #     operation_mode_state_address: '3/4/16'  # DPT_HVAC Status
 
 #   - platform: knx
 #     name: Kind1
-#     temperature_address: '3/4/24'           # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '3/4/24'           # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '3/4/25'    # Sollwert Komfort
 #     operation_mode_address: '3/4/27'        # Betriebsartvorwahl
 #     operation_mode_state_address: '3/4/28'  # DPT_HVAC Status
 
 #   - platform: knx
 #     name: Kind2
-#     temperature_address: '3/4/36'           # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '3/4/36'           # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '3/4/37'    # Sollwert Komfort
 #     operation_mode_address: '3/4/39'        # Betriebsartvorwahl
 #     operation_mode_state_address: '3/4/40'  # DPT_HVAC Status
 
 #   - platform: knx
 #     name: SDB Kinder
-#     temperature_address: '3/4/48'           # Temeraturmesswert Uncertain (2 Byte)	Low	
+#     temperature_address: '3/4/48'           # Temeraturmesswert Uncertain (2 Byte)	Low
 #     target_temperature_address: '3/4/49'    # Sollwert Komfort
 #     operation_mode_address: '3/4/51'        # Betriebsartvorwahl
 #     operation_mode_state_address: '3/4/52'  # DPT_HVAC Status

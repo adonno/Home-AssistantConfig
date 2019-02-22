@@ -1,6 +1,5 @@
-#script 
+---
 script:
-
   eldo_liv_on:
     alias: Living on
     sequence:
@@ -9,15 +8,14 @@ script:
         entity_id: media_player.chromecastkeller
         media_content_id: http://sc-eldolive.newmedia.lu/;stream.mp3
         media_content_type: audio/mp4
-        
+
   eldo_liv_off:
     alias: Living off
-#    icon: mdi:radio
+    # icon: mdi:radio
     sequence:
       service: media_player.turn_off
       data:
         entity_id: media_player.chromecastkeller
-
 
   eldo_chp_on:
     alias: Parents on
@@ -27,10 +25,10 @@ script:
         entity_id: media_player.chromecastchparents
         media_content_id: http://sc-eldolive.newmedia.lu/;stream.mp3
         media_content_type: audio/mp4
-        
+
   eldo_chp_off:
     alias: Parents off
-#    icon: mdi:radio
+    # icon: mdi:radio
     sequence:
       service: media_player.turn_off
       data:
@@ -42,37 +40,35 @@ script:
 
 automation:
 
-#volume of the player is set via the slider 
+  # volume of the player is set via the slider
 
   - alias: Set Radio Volume with volume slider
-    initial_state: True
+    initial_state: true
     trigger:
       - platform: state
         entity_id: input_number.volume_radio_living
       - platform: state
         entity_id: input_number.volume_radio_parents
-#      - platform: state
-#        entity_id: input_number.volume_radio_haus
+    # - platform: state
+    #   entity_id: input_number.volume_radio_haus
     action:
       - service: media_player.volume_set
         data_template:
-          entity_id: media_player.chromecastkeller           
+          entity_id: media_player.chromecastkeller
           volume_level: "{{ states('input_number.volume_radio_living')|default(0.5)|float }}"
       - service: media_player.volume_set
         data_template:
-          entity_id: media_player.chromecastchparents           
-          volume_level: "{{ states('input_number.volume_radio_parents')|default(0.5)|float }}" 
+          entity_id: media_player.chromecastchparents
+          volume_level: "{{ states('input_number.volume_radio_parents')|default(0.5)|float }}"
 #      - service: media_player.volume_set
 #        data_template:
-#          entity_id: media_player.homeradio           
-#          volume_level: "{{ states('input_number.volume_radio_haus')|default(0.5)|float }}"  
-                
-         
+#          entity_id: media_player.homeradio
+#          volume_level: "{{ states('input_number.volume_radio_haus')|default(0.5)|float }}"
 
- #if an area is changed, teh station input is set to "select"       
+# if an area is changed, teh station input is set to "select"
 
-#  - alias: Change station to select 
-#    initial_state: True
+#  - alias: Change station to select
+#    initial_state: true
 #    trigger:
 #      - platform: state
 #        entity_id: input_select.chromecast_radio
@@ -81,25 +77,25 @@ automation:
 #      data:
 #        entity_id: input_select.listen_radio
 #        option: Select
-        
-#If teh volume on an area is changed the volume slider will be updated
+
+# If teh volume on an area is changed the volume slider will be updated
 #
 #  - alias: Music Volume Update
 #    trigger:
 #      - platform: state
-##        entity_id: media_player.homeradio
+#        entity_id: media_player.homeradio
 #      - platform: state
 #        entity_id: media_player.chromecastkeller
 #      - platform: state
-#        entity_id: media_player.chromecastchparents    
+#        entity_id: media_player.chromecastchparents
 #    action:
 #      - service: input_number.select_value
 #        data_template:
 #          entity_id: input_number.volume_radio_haus
 #          value: >
-#            {{ states.media_player.homeradio.attributes.volume_level }}  
+#            {{ states.media_player.homeradio.attributes.volume_level }}
 #      - service: input_number.select_value
-#        data_template:          
+#        data_template:
 #          entity_id: input_number.volume_radio_parents
 #          value: >
 #            {{ states.media_player.chromecastchparents.attributes.volume_level }}
@@ -107,21 +103,19 @@ automation:
 #        data_template:
 #          entity_id: input_number.volume_radio_keller
 #          value: >
-#            {{ states.media_player.chromecastkeller.attributes.volume_level }}  
-        
- 
+#            {{ states.media_player.chromecastkeller.attributes.volume_level }}
 
 ################################################
 ## Input Select
 ################################################
 
-#input_select:
+# input_select:
 #  listen_radio:
 #    name: Radio
 #    icon: mdi:radio
 #    initial: Select
 #    options:
-#      - Select      
+#      - Select
 #      - Eldoradio
 #      - RTL
 #      - Radio 538
@@ -150,8 +144,7 @@ input_number:
     min: 0
     max: 1
     step: 0.05
-    unit_of_measurement: step  
-    
+    unit_of_measurement: step
 
   volume_radio_parents:
     name: Volume Parents
@@ -159,24 +152,22 @@ input_number:
     min: 0
     max: 1
     step: 0.05
-    unit_of_measurement: step  
-    
-    
-    
+    unit_of_measurement: step
+
 ################################################
 ## Input switch
-################################################    
+################################################
 
 switch:
   - platform: template
-    switches: 
+    switches:
       rdoliving:
         friendly_name: Radio Living
         value_template: "{{ is_state('media_player.chromecastkeller', 'playing') }}"
         turn_on:
           service: script.eldo_liv_on
         turn_off:
-          service: script.eldo_liv_off        
+          service: script.eldo_liv_off
         icon_template: >-
           {% if is_state('media_player.chromecastkeller', 'playing') %}
             mdi:radio
@@ -189,13 +180,10 @@ switch:
         turn_on:
           service: script.eldo_chp_on
         turn_off:
-          service: script.eldo_chp_off        
+          service: script.eldo_chp_off
         icon_template: >-
           {% if is_state('media_player.chromecastchparents', 'playing') %}
             mdi:radio
           {% else %}
             mdi:radio
           {% endif %}
-
-
-

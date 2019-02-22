@@ -1,9 +1,10 @@
+---
 cloud:
   alexa:
     filter:
-#      include_entities:
-#        - light.kitchen
-#        - light.kitchen_left
+      # include_entities:
+      #   - light.kitchen
+      #   - light.kitchen_left
       include_domains:
         - switch
         - light
@@ -15,12 +16,12 @@ cloud:
         - switch.smoke_sensor_2eme_15
         - switch.smoke_sensor_rdc_17
         - switch.smoke_sensor_1er_13
-#        - switch.3_in_1_sensor_motion_3	
+        # - switch.3_in_1_sensor_motion_3
       exclude_domains:
         - automation
-#    entity_config:
-#      light.kitchen:
-#        name: Custom Name for Alexa
-#        description: The light in the kitchen
-#      switch.stairs:
-#        display_categories: LIGHT
+        # entity_config:
+        #   light.kitchen:
+        #     name: Custom Name for Alexa
+        #     description: The light in the kitchen
+        #   switch.stairs:
+        #     display_categories: LIGHT

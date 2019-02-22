@@ -13,7 +13,7 @@ Disk_status:
     - sensor.status_sda
     - sensor.status_sdb
     - sensor.status_sdc
-    - sensor.status_sdd 
+    - sensor.status_sdd
 
 Smart_status:
   name: S.M.A.R.T Status

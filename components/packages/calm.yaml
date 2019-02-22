@@ -1,14 +1,14 @@
-
+---
 switch:
   - platform: template
-    switches: 
+    switches:
       quiet_mode:
         friendly_name: Quiet Mode
         value_template: "{{ is_state('automation.doorstaate2', 'off') }}"
         turn_on:
           service: script.calm_on
         turn_off:
-          service: script.calm_off        
+          service: script.calm_off
         icon_template: >-
           {% if is_state('input_boolean.quiet_mode', 'on') %}
             mdi:bell-off
@@ -16,14 +16,9 @@ switch:
             mdi:bell-ring-outline
           {% endif %}
 
-
-
-
-
 script:
-
   calm_on:
-    alias: Calm on 
+    alias: Calm on
     sequence:
       - service: automation.turn_off
         entity_id: automation.notify_about_phone_state
@@ -32,21 +27,21 @@ script:
       - service: automation.turn_off
         entity_id: automation.welcome_home_andrea
       - service: automation.turn_off
-        entity_id: automation.welcome_home_rina       
+        entity_id: automation.welcome_home_rina
       - service: automation.turn_off
         entity_id: automation.doorstaate2
       - service: notify.ios_rinas_iphone
         data_template:
-          title: Mode Repos 
+          title: Mode Repos
           message: Le mode repos à été activé pensez a le desactiver
       - service: notify.ios_iphoneadonno
         data_template:
-          title: Quiet Mode 
+          title: Quiet Mode
           message: Enabled
           data:
             push:
               badge: 2
-              category: 'quiet'             
+              category: 'quiet'
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.chromecast_messages
@@ -55,9 +50,8 @@ script:
         entity_id: media_player.chromecast_messages
         data_template:
           message: "Mode sieste activé."
-          language: fr    
+          language: fr
 
-        
   calm_off:
     alias: Calm off
     sequence:
@@ -68,22 +62,22 @@ script:
       - service: automation.turn_on
         entity_id: automation.welcome_home_andrea
       - service: automation.turn_on
-        entity_id: automation.welcome_home_rina       
+        entity_id: automation.welcome_home_rina
       - service: automation.turn_on
         entity_id: automation.doorstaate2
       - service: cover.open_cover
         entity_id: cover.maison
       - service: notify.ios_rinas_iphone
         data_template:
-          title: Mode Repos 
+          title: Mode repos
           message: Le mode repos desactivé
       - service: notify.ios_iphoneadonno
         data_template:
-          title: Quiet Mode 
-          message: Disabled    
+          title: Quiet Mode
+          message: Disabled
           data:
             push:
-              badge: 2          
+              badge: 2
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.chromecast_messages
@@ -92,18 +86,18 @@ script:
         entity_id: media_player.chromecast_messages
         data_template:
           message: "Mode sieste désactivé."
-          language: fr   
-      - delay: 
+          language: fr
+      - delay:
           seconds: 2
       - service: media_player.volume_set
         data_template:
           entity_id: media_player.chromecast_messages
           volume_level: 0.7
-        
-automation:    
-  - id: calm off 
+
+automation:
+  - id: calm off
     alias: 'diable calm push'
-    initial_state: True
+    initial_state: true
     hide_entity: true
     trigger:
       platform: event
@@ -111,10 +105,9 @@ automation:
       event_data:
         actionName: QUIET_DISABLE
     action:
-     service: script.turn_on
-     entity_id: script.calm_off
-     
-     
+      service: script.turn_on
+      entity_id: script.calm_off
+
   - id: calm still enabled
     alias: 'clam notification'
     initial_state: true
@@ -130,9 +123,9 @@ automation:
     action:
       - service: notify.ios_iphoneadonno
         data_template:
-          title: Quiet Mode 
+          title: Quiet Mode
           message: Enabled
           data:
             push:
               badge: 2
-              category: 'quiet'    
+              category: 'quiet'

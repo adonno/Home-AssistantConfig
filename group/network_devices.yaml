@@ -1,11 +1,11 @@
 ---
 Network_devices_AP:
- name: Access Points
- entities:
-   - sensor.apbureau
-   - sensor.apchambrarr
-   - sensor.aplocaltech
-   
+  name: Access Points
+  entities:
+    - sensor.apbureau
+    - sensor.apchambrarr
+    - sensor.aplocaltech
+
 Network_devices_Tablets:
   name: Tablets
   entities:
@@ -19,8 +19,8 @@ Network_devices_Tablets:
 Network_devices_PCs:
   name: PCs
   entities:
-  - sensor.rinalt
-  - sensor.swordlt
+    - sensor.rinalt
+    - sensor.swordlt
 
 Network_devices_mobile:
   name: Mobile Devices
@@ -35,13 +35,13 @@ Network_devices_misc:
     - device_tracker.xp710
     - device_tracker.syno
     - device_tracker.knxip
-    - device_tracker.fourmicro 
+    - device_tracker.fourmicro
     - device_tracker.fourvapeur
     - device_tracker.tvbox_living
     - device_tracker.chaudiere
     - device_tracker.hassiotest
     - binary_sensor.porte_1ard1
- 
+
 Network_devices_router:
   name: Router
   entities:

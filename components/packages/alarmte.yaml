@@ -1,3 +1,4 @@
+---
 binary_sensor:
   - platform: mqtt
     name: Entree
@@ -5,7 +6,7 @@ binary_sensor:
     payload_on: "22 - 0"
     payload_off: "22 - 1"
     device_class: door
-    
+
   - platform: mqtt
     name: Reserve
     state_topic: "windows/contacts"
@@ -29,7 +30,7 @@ binary_sensor:
     state_topic: "windows/contacts"
     payload_on: "26 - 0"
     payload_off: "26 - 1"
-    device_class: window    
+    device_class: window
   - platform: mqtt
     name: Garage Porte
     state_topic: "windows/contacts"
@@ -43,8 +44,7 @@ binary_sensor:
     payload_off: "28 - 1"
     device_class: window
 
- 
-########  
+  ########
 
   - platform: mqtt
     name: Buro
@@ -57,7 +57,7 @@ binary_sensor:
     state_topic: "windows/contacts"
     payload_on: "30 - 0"
     payload_off: "30 - 1"
-    device_class: window 
+    device_class: window
   - platform: mqtt
     name: Living L
     state_topic: "windows/contacts"
@@ -88,8 +88,9 @@ binary_sensor:
     payload_on: "35 - 0"
     payload_off: "35 - 1"
     device_class: window
- ###################
- 
+
+  ###################
+
   - platform: mqtt
     name: Chac Parents
     state_topic: "windows/contacts"
@@ -97,7 +98,7 @@ binary_sensor:
     payload_off: "36 - 1"
     device_class: window
   - platform: mqtt
-    name: Chac av 
+    name: Chac av
     state_topic: "windows/contacts"
     payload_on: "37 - 0"
     payload_off: "37 - 1"
@@ -109,48 +110,47 @@ binary_sensor:
     payload_off: "38 - 1"
     device_class: window
   - platform: mqtt
-    name: SDB P 
+    name: SDB P
     state_topic: "windows/contacts"
     payload_on: "39 - 0"
     payload_off: "39 - 1"
-    device_class: window    
-    
-    
-######SABOTAGE######    
+    device_class: window
+
+  ###### SABOTAGE######
 
   - platform: mqtt
     name: RDC AV
     state_topic: "windows/sabotage"
     payload_on: "41 - 0"
     payload_off: "41 - 1"
-    device_class: problem   
+    device_class: problem
   - platform: mqtt
-    name: RDC ARR 
+    name: RDC ARR
     state_topic: "windows/sabotage"
     payload_on: "42 - 0"
     payload_off: "42 - 1"
-    device_class: problem   
+    device_class: problem
   - platform: mqtt
-    name: 1er AV 
+    name: 1er AV
     state_topic: "windows/sabotage"
     payload_on: "43 - 0"
     payload_off: "43 - 1"
-    device_class: problem   
+    device_class: problem
   - platform: mqtt
-    name: 1er ARR 
+    name: 1er ARR
     state_topic: "windows/sabotage"
     payload_on: "44 - 0"
     payload_off: "44 - 1"
-    device_class: problem   
+    device_class: problem
   - platform: mqtt
     name: 2eme AV
     state_topic: "windows/sabotage"
     payload_on: "45 - 0"
     payload_off: "45 - 1"
-    device_class: problem   
+    device_class: problem
   - platform: mqtt
-    name: 2eme ARR 
+    name: 2eme ARR
     state_topic: "windows/sabotage"
     payload_on: "46 - 0"
     payload_off: "46 - 1"
-    device_class: problem   
+    device_class: problem
