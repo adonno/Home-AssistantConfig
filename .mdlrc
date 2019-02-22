@@ -1,2 +1,2 @@
-rule "~MD033"
-rule 'MD013', :tables => false
+rules "~MD033" 
+rules 'MD013', :tables => false
