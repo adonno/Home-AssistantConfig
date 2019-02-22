@@ -114,7 +114,6 @@ recorder:
       - sun.sun    # Don't record sun data
       - sensor.date
 
-
 speedtestdotnet:
   scan_interval:
     minutes: 30
