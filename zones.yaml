@@ -1,4 +1,3 @@
-#zones
 ---
 - name: BBT
   latitude: !secret latitude_bbt
