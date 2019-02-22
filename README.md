@@ -1,24 +1,33 @@
 # Adonno's Assistant Configuration
 
-So here we are, I finally managed to put my conifg on github and will try to keep it up to date. Follow along in this journey.
+So here we are, I finally managed to put my conifg on github and will try to keep it up to date. Follow along in this
+journey.
 
 ## My homeassitant Dashboards
 
-I fully moved to lovelacelce-Ui. It took me several evenings in order to get it right and I am still tweaking. The main view is mostly used on big 21" built-in tablets. But is also usable on mobile devices. It shows the current state of an entity and it is possible to control the state of that entity by tapping the icon.
+I fully moved to lovelacelce-Ui. It took me several evenings in order to get it right and I am still tweaking. The main
+view is mostly used on big 21" built-in tablets. But is also usable on mobile devices. It shows the current state of an
+entity and it is possible to control the state of that entity by tapping the icon.
 Please note that the scrennshots are only to give you an idea and maybe these aren't the most recent version
 
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="500px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG" alt="Nightmode" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG" 
+alt="Nightmode" height="500px"/>
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/page1.PNG" alt="Page1" height="500px" />
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page2.png" alt="Page2" height="500px" />
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/nas.PNG" alt="Nas" height="500px" />
 
 ## History
 
-So how did i stumble on Home-assitant an how i started with a hassbian then moved to a docker container and came back on Hass.io on a pi.
+So how did i stumble on Home-assitant an how i started with a hassbian then moved to a docker container and came back on
+Hass.io on a pi.
 
-My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in that. Somehow while looking for OpenHab I found homeassitant. I had already tried with OpenHab but I never really managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed at how simple it was to use and configure.
-The community is amazing and quickly growing. There are several youtubers regurarely posting tutorials and the system is kept up to date on a 2 week schedule as of now.
+My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in 
+that. Somehow while looking for OpenHab I found homeassitant. I had already tried with OpenHab but I never really
+managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed 
+at how simple it was to use and configure.
+The community is amazing and quickly growing. There are several youtubers regurarely posting tutorials and the system is
+kept up to date on a 2 week schedule as of now.
 
 ## House Automation Hardware
 
@@ -29,7 +38,8 @@ I have ESXi Running on an Intel Nuc and Hassio running on a VM
 ### Backbone: KNX
 
 This is the Controlled electrical installation
-There is not much to say about this. As the house was a new construction this was the best way to go imho. Having everything wired makes it less error/interference prone and avoid additional radio frequencies.
+There is not much to say about this. As the house was a new construction this was the best way to go imho. Having
+everything wired makes it less error/interference prone and avoid additional radio frequencies.
 
 | Device        |Quantities           |More Info          |Image    |
 | ------------- |:-------------:|:-----:|-----------:|
@@ -63,12 +73,14 @@ There is not much to say about this. As the house was a new construction this wa
 |Fibaro Intercom          | **1X** | <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/fibaro_intercom.jpg"  height="100px" />|
 
 (I would not recommend this intercom)
-Though it looks nice, it is not usable with home assitant except for the camera feed. If someone rings the bell, the phones where the app is installed on rings but there is no API as of now for HA to access.
+Though it looks nice, it is not usable with home assitant except for the camera feed. If someone rings the bell, the
+phones where the app is installed on rings but there is no API as of now for HA to access.
 Contacted their support about the issue and still waiting on a reply from their side.
 
 ### Audio
 
-I have several Choromecasts for my home audio entertainment system. I am actually using 1 for the Partental suite and 1 for the living/kitchen/entrance area 1 is used for TTS mesages
+I have several Choromecasts for my home audio entertainment system. I am actually using 1 for the Partental suite and 1
+for the living/kitchen/entrance area 1 is used for TTS mesages
 I am using several Speakers:
 
 * 4 above the TV/couch  - 224mm 60W
@@ -82,9 +94,11 @@ I am using several Speakers:
 
 There will be more speakers addedd in the Garage and in the Wellness Aera at a later
 
-I am currently working with mixers as chromecast don't continue with playback after a message as been broadcast over tts.
+I am currently working with mixers as chromecast don't continue with playback after a message as been broadcast over
+tts.
 Maybe this issue could be solved by using alexa devices instead of Chormecasts.
-I will also need a big per channel amplifyer as i will have at least 6-7 Zones and have more powerful amps in a 2nd pahse as the current ones caon't keep up with the speakers
+I will also need a big per channel amplifyer as i will have at least 6-7 Zones and have more powerful amps in a 2nd
+pahse as the current ones caon't keep up with the speakers
 
 Device List
 
@@ -102,7 +116,8 @@ Synology DS415+ <img src="https://github.com/adonno/Home-AssistantConfig/blob/ma
 
 ### Screens
 
-[XORO Megapad](https://www.amazon.de/Xoro-MegaPAD-2151-Tablet-PC-Android/dp/B00JIKWBKK) A 21" Wallmounted Tabled (with no batteires)running on android for HA display   **2X**
+[XORO Megapad](https://www.amazon.de/Xoro-MegaPAD-2151-Tablet-PC-Android/dp/B00JIKWBKK) A 21" Wallmounted Tabled
+(with no batteires)running on android for HA display   **2X**
 
 Lenovo
 
@@ -112,7 +127,9 @@ Lenovo
 
 ## BACKUP
 
-Every Sunday at 3:00 AM an automation creates a snapshot of my Setup. Knowing that SD cards can fail and maybe running the risk i could loose my snapshot is preocupating so I mounted the Backup folder with my Sonolgy nas and have a Job running on it copies the snapshots to a local folder.
+Every Sunday at 3:00 AM an automation creates a snapshot of my Setup. Knowing that SD cards can fail and maybe running
+the risk i could loose my snapshot is preocupating so I mounted the Backup folder with my Sonolgy nas and have a
+Job running on it copies the snapshots to a local folder.
 I think i will create a Tutorial or a video Later on that matter
 
 ### On Hassio
@@ -152,7 +169,8 @@ I have several stuff I would monitor for "flood/Waterleaks"
 
 ### Install CO sensor
 
-That one will be installed in the heating central as it is GAS fueled. (i could maybe have a device having both flood and CO monitoring)
+That one will be installed in the heating central as it is GAS fueled. (i could maybe have a device having
+both flood and CO monitoring)
 
 ### Tidy up my Hassio config
 
