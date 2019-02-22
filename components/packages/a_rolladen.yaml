@@ -75,7 +75,7 @@ cover:
 automation:
   - id: 'Close Blinds at dusk'
     alias: 'Fermer Jalousies au Soir'
-    initial_state: treu
+    initial_state: true
     trigger:
       platform: numeric_state
       entity_id: sun.sun
