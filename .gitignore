@@ -46,7 +46,7 @@ plex.conf
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
-secrets.yaml
+/secrets.yaml
 known_devices.yaml
 rln8-16-410.png 
 rlc-410-5MP.png 

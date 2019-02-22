@@ -19,11 +19,11 @@ stages:
     PYTHONPATH: "/usr/src/app:$PYTHONPATH"
   before_script:
     - python -m homeassistant --version
-    - cp -R ./.stubs/* ./config
+    - cp -R ./.stubs/* ./
   script:
     - |
       python -m homeassistant \
-        --config ./config/ \
+        --config ./ \
         --script check_config \
         --info all
 
