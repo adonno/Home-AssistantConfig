@@ -11,7 +11,7 @@ entity and it is possible to control the state of that entity by tapping the ico
 Please note that the scrennshots are only to give you an idea and maybe these aren't the most recent version
 
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="500px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG" 
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG"
 alt="Nightmode" height="500px"/>
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/page1.PNG" alt="Page1" height="500px" />
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page2.png" alt="Page2" height="500px" />
@@ -22,9 +22,9 @@ alt="Nightmode" height="500px"/>
 So how did i stumble on Home-assitant an how i started with a hassbian then moved to a docker container and came back on
 Hass.io on a pi.
 
-My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in 
+My house is running on a KNX backbone, but the servers provided cost an arm and a leg and I didn't want to Invest in
 that. Somehow while looking for OpenHab I found homeassitant. I had already tried with OpenHab but I never really
-managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed 
+managed to get i working. Then i landed on HA website and saw some screenshots I installed it on the Pi and was amazed
 at how simple it was to use and configure.
 The community is amazing and quickly growing. There are several youtubers regurarely posting tutorials and the system is
 kept up to date on a 2 week schedule as of now.
