@@ -114,6 +114,14 @@ recorder:
       - sun.sun    # Don't record sun data
       - sensor.date
 
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 # Weather prediction
 sensor:
 
@@ -158,11 +166,11 @@ sensor:
       - volume_device_type
       - volume_disk_temp_avg
 
-  - platform: speedtest
-    monitored_conditions:
-      - ping
-      - download
-      - upload
+  # - platform: speedtest
+  #   monitored_conditions:
+  #     - ping
+  #     - download
+  #     - upload
 
   - platform: fritzbox_netmonitor
 
