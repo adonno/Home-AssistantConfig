@@ -60,7 +60,7 @@ panel_iframe:
   ide:
     title: IDE
     icon: mdi:code-braces
-    url: http://hassio.local:8321
+    url: !secret IDE_address
 
 logger:
   default: warn
@@ -93,8 +93,6 @@ updater:
 discovery:
   ignore:
     - plex_mediaserver
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -113,6 +111,9 @@ recorder:
     entities:
       - sun.sun    # Don't record sun data
       - sensor.date
+      - sensor.time
+
+system_health:
 
 speedtestdotnet:
   scan_interval:
@@ -123,7 +124,6 @@ speedtestdotnet:
     - upload
 # Weather prediction
 sensor:
-
   - platform: darksky
     api_key: !secret dks_api_key
     monitored_conditions:
@@ -138,8 +138,7 @@ sensor:
   - platform: version
     name: version_available
     source: hassio
-    branch: stable
-    image: raspberrypi3
+    image: qemux86-64
 
   - platform: version
     name: version_current
@@ -164,12 +163,6 @@ sensor:
       - volume_percentage_used
       - volume_device_type
       - volume_disk_temp_avg
-
-  # - platform: speedtest
-  #   monitored_conditions:
-  #     - ping
-  #     - download
-  #     - upload
 
   - platform: fritzbox_netmonitor
 
@@ -196,14 +189,14 @@ sensor:
 tts:
   - platform: google
 
-# influxdb:
-#   host: a0d7b954-influxdb
-#   port: 8086
-#   database: homeassistant
-#   username: !secret influxdb_user
-#   password: !secret influxdb_secret
-#   max_retries: 3
-#   default_measurement: state
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_user
+  password: !secret influxdb_secret
+  max_retries: 3
+  default_measurement: state
 
 knx:
 #   expose:
