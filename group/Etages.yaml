@@ -131,8 +131,8 @@ Network_devices:
     - group.Network_devices_PCs
     - group.Network_devices_misc
 
-default_view:
-  # welcome:
+# default_view:
+welcome:
   view: true
   icon: mdi:home
   entities:
