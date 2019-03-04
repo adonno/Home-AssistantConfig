@@ -1,4 +1,4 @@
 ---
 vera:
   vera_controller_url: !secret veraip
-  exclude: [39, 40, 45, 48, 47, 48]
+  exclude: [39, 40, 45, 48, 47, 48, 42, 44, 51, 52, 56]
