@@ -40,7 +40,7 @@ panel_iframe:
   # nodered:
   #   title: Node-RED
   #   icon: mdi:sitemap
-    # url: http://hassio.local:1880
+  #   url: http://hassio.local:1880
 
   grafana:
     title: Grafana
