@@ -30,7 +30,7 @@ panel_iframe:
   logviewer:
     title: logviewer
     icon: mdi:cellphone-text
-    url: http://hassio.local:4277
+    url: !secret LOG_address
 
   # influxdb:
   #   title: InfluxDB
@@ -40,12 +40,12 @@ panel_iframe:
   # nodered:
   #   title: Node-RED
   #   icon: mdi:sitemap
-  #   url: http://hassio.local:1880
+    # url: http://hassio.local:1880
 
-  #  grafana:
-  #    title: Grafana
-  #    icon: mdi:chart-areaspline
-  #    url: http://hassio.local:3000
+  grafana:
+    title: Grafana
+    icon: mdi:chart-areaspline
+    url: !secret Graf_url
 
   motioneye:
     title: Motioneye
