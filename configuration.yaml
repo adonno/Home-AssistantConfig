@@ -25,7 +25,6 @@ mqtt:
 frontend:
   themes: !include themes.yaml
 
-
 logger:
   default: warn
   logs:

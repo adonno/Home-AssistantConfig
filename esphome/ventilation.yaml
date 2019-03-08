@@ -1,0 +1,8 @@
+substitutions:
+  plug_name: switch_ventilation
+  # Higher value gives lower watt readout
+  current_res: "0.00226"
+  # Lower value gives lower voltage readout
+  voltage_div: "930"
+
+<<: !include gosund_sp1.yaml
