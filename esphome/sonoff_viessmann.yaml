@@ -15,6 +15,12 @@ wifi:
 
 # Enable logging
 logger:
+
+# Enable UART for the power sensor
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
 # Enable Web server
 web_server:
   port: 80
