@@ -1,3 +1,4 @@
+---
 esphome:
   name: sonoff_viessmann
   platform: ESP8266
@@ -12,7 +13,6 @@ wifi:
     subnet: !secret wifi_subnet
     dns1: !secret wifi_dns1
 
-
 # Enable logging
 logger:
 # Enable Web server
@@ -26,7 +26,6 @@ ota:
 time:
   - platform: homeassistant
     id: homeassistant_time
-
 
 #################################################
 sensor:
@@ -48,6 +47,3 @@ sensor:
 text_sensor:
   - platform: version
     name: esphome_viessmann_esphome_version
-
-
-

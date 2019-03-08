@@ -1,8 +1,18 @@
+---
 substitutions:
   plug_name: switch_dishwasher
   # Higher value gives lower watt readout
   current_res: "0.00221"
   # Lower value gives lower voltage readout
   voltage_div: "955"
-  
+
+wifi:
+  ssid: !secret Wifi_SSID
+  password: !secret Wifi_PWD
+  manual_ip:
+    static_ip: !secret esphome_switch_dishwasher_static_ip
+    gateway: !secret wifi_gateway
+    subnet: !secret wifi_subnet
+    dns1: !secret wifi_dns1
+
 <<: !include gosund_sp1.yaml

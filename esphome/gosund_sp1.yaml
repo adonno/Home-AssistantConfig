@@ -1,3 +1,4 @@
+---
 esphome:
   name: ${plug_name}
   platform: ESP8266
@@ -15,44 +16,34 @@ ota:
 time:
   - platform: homeassistant
     id: homeassistant_time
-    
-wifi:
-  ssid: !secret Wifi_SSID
-  password: !secret Wifi_PWD
-  manual_ip:
-    static_ip: !secret esphome_${plug_name}_static_ip
-    gateway: !secret wifi_gateway
-    subnet: !secret wifi_subnet
-    dns1: !secret wifi_dns1
-    use_address: 192.168.1.109
 
 binary_sensor:
   - platform: gpio
     pin:
       number: GPIO3
-      inverted: True
+      inverted: true
     name: "${plug_name}_button"
-    
+
 switch:
-- platform: gpio
-  name: "${plug_name}_Relay"
-  pin: GPIO14
-  restore_mode: ALWAYS_ON
-- platform: gpio
-  name: "${plug_name}_LED_Blue"
-  pin: GPIO1
-  inverted: True
-  restore_mode: ALWAYS_OFF
-- platform: gpio
-  name: "${plug_name}_LED_Red"
-  pin: GPIO13
-  inverted: True
-  restore_mode: ALWAYS_OFF
+  - platform: gpio
+    name: "${plug_name}_Relay"
+    pin: GPIO14
+    restore_mode: ALWAYS_ON
+  - platform: gpio
+    name: "${plug_name}_LED_Blue"
+    pin: GPIO1
+    inverted: true
+    restore_mode: ALWAYS_OFF
+  - platform: gpio
+    name: "${plug_name}_LED_Red"
+    pin: GPIO13
+    inverted: true
+    restore_mode: ALWAYS_OFF
 sensor:
   - platform: hlw8012
     sel_pin:
       number: GPIO12
-      inverted: True
+      inverted: true
     cf_pin: GPIO04
     cf1_pin: GPIO05
     current_resistor: ${current_res}
@@ -73,10 +64,10 @@ sensor:
     name: "${plug_name}_Total Daily Energy"
     power_id: "${plug_name}_Wattage"
     filters:
-        # Multiplication factor from W to kW is 0.001
-        - multiply: 0.001
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
     unit_of_measurement: kWh
-      
-# Extra sensor to keep track of plug uptime
+
+  # Extra sensor to keep track of plug uptime
   - platform: uptime
     name: ${plug_name}_Uptime Sensor
