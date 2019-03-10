@@ -36,7 +36,7 @@ stages:
   script:
     - |
       for file in $(find \
-        ./esphome \
+        ./config/esphome \
         -type f \
         -name "*.yaml"\
         -not -name "secrets.yaml"
