@@ -4,6 +4,7 @@ image: docker:latest
 stages:
   - preflight
   - homeassistant
+  - esphome
 
 # Generic preflight template
 .preflight: &preflight
