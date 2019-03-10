@@ -42,8 +42,6 @@ stages:
         ); do
         esphome $file config
       done
-  tags:
-    - test
 
 # Preflight jobs
 shellcheck:
