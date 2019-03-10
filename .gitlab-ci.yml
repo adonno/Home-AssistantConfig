@@ -25,23 +25,25 @@ stages:
         --info all
 
 # Generic ESPHome template
-# .esphome: &esphome
-#   stage: esphome
-#   variables:
-#     PYTHONPATH: "/usr/src/app:$PYTHONPATH"
-#   before_script:
-#     - esphomeyaml dummy.yaml version
-#     - cp -R ./.stubs/* ./config/esphomeyaml/
-#   script:
-#     - |
-#       for file in $(find \
-#         ./config/esphomeyaml \
-#         -type f \
-#         -name "*.yaml"\
-#         -not -name "secrets.yaml"
-#         ); do
-#         esphomeyaml $file config
-#       done
+.esphome: &esphome
+  stage: esphome
+  variables:
+    PYTHONPATH: "/usr/src/app:$PYTHONPATH"
+  before_script:
+    - esphome dummy.yaml version
+    - cp -R ./.stubs/* ./esphome/
+  script:
+    - |
+      for file in $(find \
+        ./esphome \
+        -type f \
+        -name "*.yaml"\
+        -not -name "secrets.yaml"
+        ); do
+        esphome $file config
+      done
+  tags:
+    - test
 
 # Preflight jobs
 shellcheck:
@@ -125,22 +127,22 @@ ha-dev:
   allow_failure: true
 
 # ESPHome test jobs
-# esphome-latest:
-#   <<: *esphome
-#   image:
-#     name: ottowinter/esphomeyaml:latest
-#     entrypoint: [""]
+esphome-latest:
+  <<: *esphome
+  image:
+    name: esphome/esphome:latest
+    entrypoint: [""]
 
-# esphome-rc:
-#   <<: *esphome
-#   image:
-#     name: ottowinter/esphomeyaml:rc
-#     entrypoint: [""]
-#   allow_failure: true
+esphome-beta:
+  <<: *esphome
+  image:
+    name: esphome/esphome:beta
+    entrypoint: [""]
+  allow_failure: true
 
-# esphome-dev:
-#   <<: *esphome
-#   image:
-#     name: ottowinter/esphomeyaml:dev
-#     entrypoint: [""]
-#   allow_failure: true
+esphome-dev:
+  <<: *esphome
+  image:
+    name: esphome/esphome:dev
+    entrypoint: [""]
+  allow_failure: true
