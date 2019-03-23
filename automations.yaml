@@ -633,6 +633,7 @@
       entity_id: light.led_dressing
 
 ########################################################################################################
+
 - alias: light on SDB P avec Dressing
   initial_state: true
   trigger:
@@ -655,6 +656,7 @@
     entity_id: light.mirroir_sdb_p
 
 #####################################################################
+
 - alias: switch off Stairs with bed_light
   initial_state: true
   id: switch_off_lights_with_bedlights
@@ -678,7 +680,46 @@
     service: light.turn_off
     entity_id: light.spots_escalier_1_2
 
-####################################################################
+#####################################################################
+
+- alias: circulation pump with lights
+  initial_state: true
+  id: Circulation_pump_with_lights
+  trigger:
+    - platform: state
+      entity_id: light.spots_cuisine_ilot
+      to: 'on'
+    - platform: state
+      entity_id: light.mirroir_sdb_p
+      to: 'on'
+    - platform: state
+      entity_id: light.lampe_wc
+      to: 'on'
+    - platform: state
+      entity_id: light.LED_SDB_P
+      to: 'on'
+    - platform: state
+      entity_id: light.lumiere_sdb_e
+      to: 'on'
+  condition:
+    - condition: time
+      after: '05:00:00'
+      before: '23:59:59'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.circulation_pump_relay
+    # - service: light.turn_on
+    #   data_template:
+    #     entity_id: > 
+    #       {% if trigger.entity_id == 'light.spots_cuisine_ilot' %}
+    #           light.right.red_sam_27
+    #       {% elif trigger.entity_id == 'light.LED_SDB_P' %}
+    #           light.red_63
+    #       {% else %}
+    #           light.LED_SDB_P
+    #       {% endif %}
+
+###################################################################
 
 - alias: weeklysnapshot
   initial_state: true
@@ -694,6 +735,7 @@
     - service: hassio.snapshot_full
       data_template:
         name: Automated Backup {{ now().strftime('%Y-%m-%d') }}
+
 # - service: notify.slack_notify
 #   data_template:
 #     message: Creating backup named "Automated Backup {{ now().strftime('%Y-%m-%d') }}"
@@ -725,14 +767,14 @@
 #     - service_template: "light.turn{{ trigger.to_state.state | lower}}"
 #       entity_id: light.rgbw_liv_31
 
-- id: Led_Living_rgbw_2
-  alias: rgbw_living_2
-  trigger:
-    - platform: state
-      entity_id: light.led_living
-  action:
-    - service_template: "light.turn_{{ states('light.led_living') | lower }}"
-      entity_id: light.brightness_rgbw_liv_32
+# - id: Led_Living_rgbw_2
+#   alias: rgbw_living_2
+#   trigger:
+#     - platform: state
+#       entity_id: light.led_living
+#   action:
+#     - service_template: "light.turn_{{ states('light.led_living') | lower }}"
+#       entity_id: light.brightness_rgbw_liv_32
 # - service_template: "light.turn_{{ states('light.led_living') | lower }}"
 #   entity_id: light.rgbw_liv_31
 # - service_template: "homeassistant.turn_{{ trigger.to_state.state | lower}}"
