@@ -1,0 +1,12 @@
+web_server:
+  port: 80
+# Enable Home Assistant API
+wifi:
+  ssid: !secret Wifi_SSID
+  password: !secret Wifi_PWD
+  manual_ip:
+    static_ip: ${ip_address}
+    gateway: !secret wifi_gateway
+    subnet: !secret wifi_subnet
+    dns1: !secret wifi_dns1
+#  use_address: 192.168.1.105

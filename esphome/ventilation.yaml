@@ -7,4 +7,4 @@ substitutions:
   voltage_div: "930"
   ip_address: !secret esphome_switch_ventilation_static_ip
 
-<<: !include gosund_sp1.yaml
+<<: !include includes/gosund_sp1.yaml

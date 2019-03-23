@@ -7,4 +7,4 @@ substitutions:
   voltage_div: "955"
   ip_address: !secret esphome_switch_dishwasher_static_ip
 
-<<: !include gosund_sp1.yaml
+<<: !include includes/gosund_sp1.yaml

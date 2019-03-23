@@ -1,0 +1,86 @@
+substitutions:
+  plug_name: circulation_pump
+  ip_address: !secret esphome_viessmann_static_ip
+  
+esphome:
+  name: ${plug_name}
+  platform: ESP8266
+  board: esp01_1m
+  
+<<: !include includes/network.yaml
+
+logger:
+  baud_rate: 0
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+# Enable Home Assistant API
+api:
+  password: !secret ESP_API_PWD
+  reboot_timeout:
+    hours: 1
+ota:
+  password: !secret ESP_OTA_PWD
+  
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+sensor:
+  - platform: wifi_signal
+    name: ${plug_name}_wifi_signal
+    update_interval: 10s
+  - platform: uptime
+    name: ${plug_name}_uptime    
+  - platform: cse7766
+    current:
+      name: "${plug_name}_current"
+    voltage:
+      name: "${plug_name}_voltage"
+    power:
+      name: "${plug_name}_power"
+
+
+
+text_sensor:
+  - platform: version
+    name: ${plug_name}_esphome_version
+    
+switch:
+  - platform: restart
+    name: ${plug_name}_restart
+  - platform: gpio
+    name: ${plug_name}_relay
+    id: relay
+    pin: GPIO12
+    # restore_mode: ALWAYS_ON
+    on_turn_on:
+      - light.turn_on: led
+      - delay: 180s
+      - switch.turn_off: relay
+    on_turn_off:
+      - light.turn_off: led
+      
+binary_sensor:
+  - platform: gpio
+    id: button
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      - switch.toggle: relay
+
+output:
+  - platform: esp8266_pwm
+    id: blue_led
+    pin:
+      number: GPIO13
+      inverted: true
+
+light:
+  - platform: monochromatic
+    output: blue_led
+    id: led
