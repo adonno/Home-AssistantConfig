@@ -1,3 +1,4 @@
+---
 # Extension ignores
 *.log
 *.db
@@ -12,6 +13,8 @@ deps
 tts
 notebooks
 www/inside
+/glances
+/node-red
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
@@ -25,7 +28,7 @@ www/inside
 !*.png
 !*.PNG
 !.stubs/secrets.yaml
-# Ignore folders.
+# Ignore folders
 
 #igrnore files
 .google.token
@@ -41,14 +44,11 @@ aircast.xml
 harmony_living.conf
 plex.conf
 
-
-
-
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 /secrets.yaml
 /esphome/secrets.yaml
 /esphome/includes/secrets.yaml
 known_devices.yaml
-rln8-16-410.png 
-rlc-410-5MP.png 
+rln8-16-410.png
+rlc-410-5MP.png
