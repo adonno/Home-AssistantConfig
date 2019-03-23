@@ -708,16 +708,16 @@
   action:
     - service: switch.turn_on
       entity_id: switch.circulation_pump_relay
-    # - service: light.turn_on
-    #   data_template:
-    #     entity_id: > 
-    #       {% if trigger.entity_id == 'light.spots_cuisine_ilot' %}
-    #           light.right.red_sam_27
-    #       {% elif trigger.entity_id == 'light.LED_SDB_P' %}
-    #           light.red_63
-    #       {% else %}
-    #           light.LED_SDB_P
-    #       {% endif %}
+      # - service: light.turn_on
+      #   data_template:
+      #     entity_id: >
+      #       {% if trigger.entity_id == 'light.spots_cuisine_ilot' %}
+      #           light.right.red_sam_27
+      #       {% elif trigger.entity_id == 'light.LED_SDB_P' %}
+      #           light.red_63
+      #       {% else %}
+      #           light.LED_SDB_P
+      #       {% endif %}
 
 ###################################################################
 
