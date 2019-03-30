@@ -56,6 +56,10 @@ updater:
 discovery:
   ignore:
     - plex_mediaserver
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiamomi_gateway
 
 # Enables support for tracking state changes over time
 history:
