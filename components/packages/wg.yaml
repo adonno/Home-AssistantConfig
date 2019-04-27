@@ -17,7 +17,7 @@ automation:
         entity_id: switch.quiet_mode
         state: 'off'
     action:
-      - service: tts.google_say
+      - service: tts.google_translate
         entity_id: media_player.chromecast_messages
         data:
           message: Benvenuto. Sergio
@@ -43,7 +43,7 @@ automation:
 #     entity_id: switch.quiet_mode
 #     state: 'off'
 #   action:
-#   - service: tts.google_say
+#   - service: tts.google_translate
 #     entity_id: media_player.chromecast_messages
 #     data:
 #       message: Benvenuto. Sergio

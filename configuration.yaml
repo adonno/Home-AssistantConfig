@@ -35,9 +35,11 @@ config:
   base_url: !secret fritz_base_url
 
 http:
-  # api_password: !secret HA_PW
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  use_x_forwarded_for: true
+  trusted_proxies: 172.30.33.8
+
   # Secrets are defined in the file secrets.yaml
   # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
@@ -154,12 +156,13 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
-  database: homeassistant
+  database: homeassistant2
   username: !secret influxdb_user
   password: !secret influxdb_secret
   max_retries: 3

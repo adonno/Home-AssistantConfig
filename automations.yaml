@@ -27,7 +27,7 @@
           \ }} ({{ states.sensor.phone.attributes.from }})\n{% else %}\n  Talking to\
           \ {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with\
           \ }})\n{% endif %}"
-    - service: tts.google_say
+    - service: tts.google_translate_say
       entity_id: media_player.chromecast_messages
       data_template:
         message: "{% if is_state(\"sensor.phone\", \"ringing\")  %}\n   Appel entrant\
@@ -167,12 +167,12 @@
           \ %}\n    {{ state.name }}\n  {%- endif -%}\n{% endfor %}\n"
     - service: light.turn_on
       entity_id: group.all_lights
-    - service: tts.google_say
+    - service: tts.google_translate_say
       entity_id: media_player.chromecast_messages
       data:
         message: Feuer! Verlasst das Haus!
         language: de
-    - service: tts.google_say
+    - service: tts.google_translate_say
       entity_id: media_player.chromecast_messages
       data:
         message: Incendie Detecté! Quittez la maison!
@@ -198,7 +198,7 @@
         language: en
         message: Welcome home. Andrea!
       entity_id: media_player.chromecast_messages
-      service: tts.google_say
+      service: tts.google_translate_say
 
 #########################################################################################################
 
@@ -213,7 +213,7 @@
       after: 08:00:00
       before: '20:00:00'
   action:
-    - service: tts.google_say
+    - service: tts.google_translate_say
       entity_id: media_player.chromecast_messages
       data:
         message: Bienvenue. Rina
@@ -314,7 +314,7 @@
     - platform: state
       entity_id: lock.home
   action:
-    - service: tts.google_say
+    - service: tts.google_translate_say
       entity_id: media_player.chromecast_messages
       data_template:
         message: >
