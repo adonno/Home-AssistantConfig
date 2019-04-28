@@ -1,3 +1,4 @@
+---
 esphome:
   name: saltlevel_sensor
   platform: ESP8266
@@ -30,7 +31,7 @@ sensor:
     trigger_pin: D1
     echo_pin: D2
     name: "Saltlevel"
-#    update_interval: 12h
+    #    update_interval: 12h
     update_interval: 10s
 
   - platform: dht
