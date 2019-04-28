@@ -1,0 +1,43 @@
+esphome:
+  name: saltlevel_sensor
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret Wifi_SSID
+  password: !secret Wifi_PWD
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+
+api:
+  password: !secret ESP_API_PWD
+  reboot_timeout:
+    hours: 1
+ota:
+  password: !secret ESP_OTA_PWD
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+switch:
+  - platform: restart
+    name: "Saltlevel Sensor Restart"
+sensor:
+  - platform: ultrasonic
+    trigger_pin: D1
+    echo_pin: D2
+    name: "Saltlevel"
+#    update_interval: 12h
+    update_interval: 10s
+
+  - platform: dht
+    pin: D3
+    model: DHT11
+    temperature:
+      name: "Garage Temperature"
+    humidity:
+      name: "Garage Humidity"
+    update_interval: 10s
