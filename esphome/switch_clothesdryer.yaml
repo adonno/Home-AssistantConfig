@@ -1,10 +1,62 @@
 ---
 substitutions:
   plug_name: switch_clothesdryer
-  # Higher value gives lower watt readout
-  current_res: "0.00221"
-  # Lower value gives lower voltage readout
-  voltage_div: "955"
   ip_address: !secret esphome_switch_clothesdryer_static_ip
 
 <<: !include includes/gosund_sp1.yaml
+
+sensor:
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
+    current:
+      name: "${plug_name}_Amperage"
+      unit_of_measurement: A
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 0.01
+            - 10.5 -> 8.2
+
+    voltage:
+      name: "${plug_name}_Voltage"
+      unit_of_measurement: V
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 0.0
+            - 622.5 -> 240.8
+            - 617.0 -> 238.8
+            - 612.7 -> 237.4
+
+    power:
+      name: "${plug_name}_Wattage"
+      unit_of_measurement: W
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 1.4
+            - 4.1 -> 2.0
+            - 10463 -> 1800
+
+      id: "${plug_name}_Wattage"
+    change_mode_every: 4
+    update_interval: 10s
+  - platform: total_daily_energy
+    name: "${plug_name}_Total Daily Energy"
+    power_id: "${plug_name}_Wattage"
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
+
+binary_sensor:
+  - platform: template
+    name: Seche Linge
+    filters:
+      - delayed_off: 10s
+    lambda: |-
+      return id(${plug_name}_Wattage).state > 80;
