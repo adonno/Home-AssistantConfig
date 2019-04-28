@@ -8,3 +8,43 @@ substitutions:
   ip_address: !secret esphome_switch_radio_parents_static_ip
 
 <<: !include includes/gosund_sp1.yaml
+
+sensor:
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
+    current:
+      name: "${plug_name}_Amperage"
+      unit_of_measurement: A
+      # filters:
+      #   - calibrate_linear:
+      #       # Map 0.0 (from sensor) to 0.0 (true value)
+      #       - 0.0 -> 0.0
+
+    voltage:
+      name: "${plug_name}_Voltage"
+      unit_of_measurement: V
+      #  filters:
+      #  - calibrate_linear:
+      #     Map 0.0 (from sensor) to 0.0 (true value)
+
+    power:
+      name: "${plug_name}_Wattage"
+      unit_of_measurement: W
+      #    filters:
+      #      - calibrate_linear:
+      #         Map 0.0 (from sensor) to 0.0 (true value)
+
+      id: "${plug_name}_Wattage"
+    change_mode_every: 4
+    update_interval: 10s
+  - platform: total_daily_energy
+    name: "${plug_name}_Total Daily Energy"
+    power_id: "${plug_name}_Wattage"
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
