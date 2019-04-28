@@ -20,19 +20,23 @@ script:
   eldo_chp_on:
     alias: Parents on
     sequence:
-      service: media_player.play_media
-      data:
-        entity_id: media_player.chromecastchparents
-        media_content_id: http://sc-eldolive.newmedia.lu/;stream.mp3
-        media_content_type: audio/mp4
+      - service: switch.turn_on
+        entity_id: switch.switch_radio_parents_Relay
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.chromecastchparents
+          media_content_id: http://sc-eldolive.newmedia.lu/;stream.mp3
+          media_content_type: audio/mp4
 
   eldo_chp_off:
     alias: Parents off
     # icon: mdi:radio
     sequence:
-      service: media_player.turn_off
-      data:
-        entity_id: media_player.chromecastchparents
+      - service: switch.turn_off
+        entity_id: switch.switch_radio_parents_Relay
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.chromecastchparents
 
 ################################################
 ## Automation
