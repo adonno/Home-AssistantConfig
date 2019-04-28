@@ -157,7 +157,7 @@ sensor:
 # Text to speech
 tts:
   - platform: google_translate
-    service_name: google_say
+    service_name: google_translate_say
 
 influxdb:
   host: a0d7b954-influxdb
