@@ -46,7 +46,7 @@ script:
         data_template:
           entity_id: media_player.chromecast_messages
           volume_level: 0.5
-      - service: tts.google_say
+      - service: tts.google_translate_say
         entity_id: media_player.chromecast_messages
         data_template:
           message: "Mode sieste activé."
@@ -82,7 +82,7 @@ script:
         data_template:
           entity_id: media_player.chromecast_messages
           volume_level: 0.5
-      - service: tts.google_say
+      - service: tts.google_translate_say
         entity_id: media_player.chromecast_messages
         data_template:
           message: "Mode sieste désactivé."
