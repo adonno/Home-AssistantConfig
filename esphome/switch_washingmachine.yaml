@@ -18,7 +18,7 @@ sensor:
       filters:
         - calibrate_linear:
             # Map 0.0 (from sensor) to 0.0 (true value)
-            - 0.0 -> 0.01 
+            - 0.0 -> 0.01
             - 10.0 -> 8.22
 
     voltage:
@@ -31,7 +31,6 @@ sensor:
             - 588.8 -> 241.8
             - 580 -> 236
 
-
     power:
       name: "${plug_name}_Wattage"
       unit_of_measurement: W
@@ -42,7 +41,6 @@ sensor:
             - 41.4 -> 9
             - 10674 -> 1942
 
-            
       id: "${plug_name}_Wattage"
     change_mode_every: 4
     update_interval: 10s
@@ -53,8 +51,8 @@ sensor:
       # Multiplication factor from W to kW is 0.001
       - multiply: 0.001
     unit_of_measurement: kWh
-    
-binary_sensor: 
+
+binary_sensor:
   - platform: template
     name: Lave Linge
     filters:
