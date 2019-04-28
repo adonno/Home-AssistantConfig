@@ -1,0 +1,63 @@
+---
+substitutions:
+  plug_name: switch_washingmachine
+  ip_address: !secret esphome_switch_washingmachine_static_ip
+
+<<: !include includes/gosund_sp1.yaml
+
+sensor:
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
+    current:
+      name: "${plug_name}_Amperage"
+      unit_of_measurement: A
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 0.01 
+            - 10.0 -> 8.22
+
+    voltage:
+      name: "${plug_name}_Voltage"
+      unit_of_measurement: V
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 0.0
+            - 588.8 -> 241.8
+            - 580 -> 236
+
+
+    power:
+      name: "${plug_name}_Wattage"
+      unit_of_measurement: W
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 1.4
+            - 41.4 -> 9
+            - 10674 -> 1942
+
+            
+      id: "${plug_name}_Wattage"
+    change_mode_every: 4
+    update_interval: 10s
+  - platform: total_daily_energy
+    name: "${plug_name}_Total Daily Energy"
+    power_id: "${plug_name}_Wattage"
+    filters:
+      # Multiplication factor from W to kW is 0.001
+      - multiply: 0.001
+    unit_of_measurement: kWh
+    
+binary_sensor: 
+  - platform: template
+    name: Lave Linge
+    filters:
+      - delayed_off: 10s
+    lambda: |-
+      return id(${plug_name}_Wattage).state > 8;
