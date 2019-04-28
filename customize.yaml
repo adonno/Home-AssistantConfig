@@ -2,3 +2,9 @@
 switch.armoire_cuisine:
   friendly_name: Armoire Cuisine
   icon: mdi:power-socket-eu
+binary_sensor.lave_vaisaille:
+  friendly_name: "lave vaisselle"
+binary_sensor.lave_linge:
+  friendly_name: "lave linge"
+binary_sensor.seche_linge:
+  friendly_name: "sêche linge"
