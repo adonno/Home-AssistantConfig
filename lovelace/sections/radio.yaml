@@ -1,0 +1,8 @@
+---
+entities:
+  - switch.rdoliving
+  - input_number.volume_radio_living
+  - switch.rdochparents
+  - input_number.volume_radio_parents
+title: Radio
+type: entities

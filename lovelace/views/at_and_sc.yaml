@@ -1,0 +1,105 @@
+---
+icon: 'mdi:robot'
+id: at_sc
+title: Automations and scripts
+cards:
+
+  # - card_config:
+  #     title: People that are home
+  #     type: glance
+  #   entities:
+  #     - group.residence_radio
+  #     - device_tracker.iphoneadonno
+  #     - device_tracker.iphonederina
+
+  #   state_filter:
+  #     - home
+  #   type: entity-filter
+  - entities:
+      - entity: device_tracker.iphoneadonno
+        name: Andrea
+      - entity: device_tracker.rinas_iphone
+        name: Rina
+      - entity: script.calm_off
+        name: Calm Off
+      - entity: script.calm_on
+        name: Calm On
+      - entity: switch.quiet_mode
+        name: Quiet Mode
+      - entity: automation.notify_about_phone_state
+      - entity: automation.open_blinds_at_dawn
+      - entity: automation.welcome_home_andrea
+      - entity: automation.welcome_home_rina
+      - entity: automation.doorstaate2
+
+    title: test
+    type: entities
+  - card:
+      entities:
+        - entity: automation.allumer_led_sdb_parents
+        - entity: automation.allumer_led_sdb_parents_2
+        - entity: automation.clam_notification
+        - entity: automation.close_front_in_the_morning
+        - entity: automation.couch_an_schierf_owes_aus
+        - entity: automation.couch_an_schierf_owes_un
+        - entity: automation.diable_calm_push
+        - entity: automation.doorstaate
+        - entity: automation.doorstaate2
+        - entity: automation.fermer_jalousies_au_soir
+        - entity: automation.fernseh_un_radio_aus
+        - entity: automation.frontend_day_mode
+        - entity: automation.hass_shutdown_notification
+        - entity: automation.hass_startup_notification
+        - entity: automation.light_center_1er_off
+        - entity: automation.light_center_1er_on
+        - entity: automation.light_off_couloir_avec_reserve_cave
+        - entity: automation.light_off_led_dressing
+        - entity: automation.light_on_couloir_avec_reserve_cave
+        - entity: automation.light_on_led_dressing
+        - entity: automation.light_on_sdb_p_avec_dressing
+        - entity: automation.light_sam_off_morning
+        - entity: automation.light_sam_on_morning
+        - entity: automation.lock_door_io_app
+        - entity: automation.notify_about_phone_state
+        - entity: automation.nuki_battery_low
+        - entity: automation.open_blinds_at_dawn
+        - entity: automation.open_front_in_the_afternoon
+        - entity: automation.radio_off_when_leaving_home
+        - entity: automation.rgbw_living_2
+        - entity: automation.set_radio_volume_with_volume_slider
+        - entity: automation.stop_blinds_ios_app
+        - entity: automation.switch_off_stairs_with_bed_light
+        - entity: automation.switch_on_lights_when_coming_home
+        - entity: automation.system_upgrade_alert
+        - entity: automation.trigger_fire_alarm_when_smoke_detected
+        - entity: automation.weeklysnapshot
+        - entity: automation.welcome_home_andrea
+        - entity: automation.welcome_home_rina
+        - entity: automation.welcome_sergio
+      type: entities
+    filter:
+      include:
+        - entity_id: automation.*
+
+    type: 'custom:monster-card'
+  - card:
+      entities:
+        - entity: script.aufhi
+        - entity: script.calm_off
+        - entity: script.calm_on
+        - entity: script.close1st
+        - entity: script.eldo_chp_off
+        - entity: script.eldo_chp_on
+        - entity: script.eldo_liv_off
+        - entity: script.eldo_liv_on
+        - entity: script.good_night
+        - entity: script.open1st
+        - entity: script.reboothouse
+        - entity: script.tschau
+        - entity: script.zuhi
+      type: entities
+    filter:
+      include:
+        - entity_id: script.*
+    type: iframe
+    url: 'hassio.local:3333'

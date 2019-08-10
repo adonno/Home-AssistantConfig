@@ -1,0 +1,30 @@
+---
+badges:
+  - binary_sensor.lave_linge
+  - binary_sensor.seche_linge
+  - binary_sensor.lave_vaisaille
+  - binary_sensor.ventitlation
+cards:
+
+  - cards:
+      - entities:
+          - sensor.switch_clothesdryer_wattage
+        hours_to_show: 4
+        points_per_hour: 30
+        type: 'custom:mini-graph-card'
+      - entities:
+          - sensor.switch_washingmachine_wattage
+        hours_to_show: 4
+        points_per_hour: 60
+        type: 'custom:mini-graph-card'
+      - entities:
+          - sensor.switch_dishwasher_wattage
+        hours_to_show: 24
+        type: 'custom:mini-graph-card'
+      - entities:
+          - sensor.switch_ventilation_wattage
+        hours_to_show: 24
+        type: 'custom:mini-graph-card'
+    type: vertical-stack
+icon: 'mdi:power'
+title: powerusage

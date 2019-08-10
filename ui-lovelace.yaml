@@ -1,0 +1,22 @@
+---
+title: Home
+background: center / cover no-repeat url("/local/background.png") fixed
+excluded_entities: null
+resources: !include_dir_list lovelace/resources
+cch:
+  options: clock
+
+views:
+  - !include lovelace/views/floor_plans.yaml
+  - !include lovelace/views/floor_0.yaml
+  - !include lovelace/views/floor_1.yaml
+  - !include lovelace/views/floor_2.yaml
+  - !include lovelace/views/floor_3.yaml
+  - !include lovelace/views/at_and_sc.yaml
+  - !include lovelace/views/synology_status.yaml
+  - !include lovelace/views/network_devices.yaml
+  - !include lovelace/views/housecontrol.yaml
+  - !include lovelace/views/power_usage.yaml
+  - !include lovelace/views/rgbw_leds.yaml
+  - !include lovelace/views/cameras.yaml
+  

@@ -1,0 +1,82 @@
+---
+icon: 'mdi:numeric-0-box-multiple-outline'
+id: 1
+title: Cave
+cards:
+
+  - entities:
+      - entity: cover.cave
+        name: Cave Global
+      - label: Local Technique
+        style:
+          height: 3px
+        type: section
+      - entity: cover.local_technique_fenetre
+        icon: 'mdi:format-align-justify'
+        name: Local Technique Fenêtre
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.local_technique_fenetre
+      - entity: cover.local_technique_porte
+        icon: 'mdi:format-align-justify'
+        name: Local Technique Porte
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.local_technique_porte
+      - label: Garage
+        style:
+          height: 3px
+        type: section
+      - entity: cover.garage_fenetre
+        icon: 'mdi:format-align-justify'
+        name: Garage Fenêtre
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.garage_porte
+      - entity: cover.garage_porte
+        icon: 'mdi:format-align-justify'
+        name: Garage Porte
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.garage_fenetre
+      - entity: binary_sensor.garage
+      - entity: binary_sensor.reserve
+      - entity: binary_sensor.entree
+    show_header_toggle: false
+    theme: Backend-selected
+    title: Rolladen
+    type: entities
+  - cards:
+      - entities:
+          - entity: light.hall_entree
+            name: Eingang
+          - entity: light.cave_couloir
+            name: Flur
+          - entity: light.technique
+            name: Technik
+          - entity: light.wc_cave
+            name: WC
+        type: entities
+      - entities:
+          - entity: light.reserve
+            name: Reserve
+          - entity: light.garage
+            name: Garage
+          - entity: light.lum_ext_avant
+            name: Front
+          - entity: light.lamp_ext_arr
+            name: Garten
+          - entity: light.spots_escalier_0_1
+            icon: 'mdi:stairs'
+            name: Treppen 0 - 1
+          - entity: light.spots_escalier_0_1_bis
+            icon: /local/treppe_bis.png
+            name: Treppen 0 - 1 Lamper
+        type: entities
+    type: horizontal-stack
+  - entities:
+      - entity: switch.circulation_pump_relay
+      - entity: sensor.circulation_pump_power
+      - entity: sensor.circulation_pump_current
+      - entity: sensor.circulation_pump_voltage
+      - entity: sensor.circulation_pump_wifi_signal
+      - entity: switch.circulation_pump_restart
+    show_header_toggle: false
+    title: Circulation-Viessmann
+    type: entities

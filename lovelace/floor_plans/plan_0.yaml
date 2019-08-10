@@ -1,0 +1,363 @@
+---
+cards:
+  - elements:
+      - entity: sun.sun
+        image: /local/Floor0VN.PNG
+        state_filter:
+          above_horizon: opacity(0)
+          below_horizon: opacity(100)
+        style:
+          left: 50%
+          top: 50%
+          width: 100%
+        tap_action: none
+        type: image
+      - entity: light.cave_couloir
+        style:
+          left: 38%
+          top: 52%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.hall_entree
+        style:
+          left: 38%
+          top: 70%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.reserve
+        style:
+          left: 12%
+          top: 70%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.technique
+        style:
+          left: 30%
+          top: 34%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.spots_escalier_0_1
+        style:
+          left: 15%
+          top: 50%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.spots_escalier_0_1_bis
+        style:
+          left: 15%
+          top: 55%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.wc_cave
+        style:
+          left: 28%
+          top: 44%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.lum_ext_avant
+        style:
+          left: 30%
+          top: 85%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.lamp_ext_arr
+        style:
+          left: 50%
+          top: 15%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.garage
+        style:
+          left: 75%
+          top: 52%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.prise_devant
+        style:
+          left: 60%
+          top: 79%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.prise_arriere
+        style:
+          left: 60%
+          top: 15%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: lock.home
+        style:
+          left: 38%
+          top: 74%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.rdoliving
+        style:
+          left: 38%
+          top: 57%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: binary_sensor.local_technique_fenetre
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 23%
+          top: 20%
+          width: 5%
+        type: image
+      - entity: binary_sensor.local_technique_porte
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 39%
+          top: 20%
+          width: 5%
+        type: image
+      - entity: binary_sensor.garage_porte
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 63%
+          top: 20%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.garage_fenetre
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 78%
+          top: 20%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.garage
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 72%
+          top: 75%
+          width: 10%
+        type: image
+      - color: red
+        entity: binary_sensor.entree
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 38%
+          top: 79%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.reserve
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 22%
+          top: 79%
+          width: 5%
+        type: image
+      - entity: sensor.ss_temp_rdc_18
+        style:
+          left: 45%
+          top: 51%
+          transform: rotate(90deg)
+        type: state-label
+      - entity: cover.local_technique_fenetre
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 10%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.local_technique_fenetre
+        type: image
+      - entity: cover.local_technique_fenetre
+        icon: 'mdi:stop'
+        style:
+          left: 15%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.local_technique_fenetre
+        type: icon
+      - entity: cover.local_technique_fenetre
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 20%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.local_technique_fenetre
+        type: image
+      - entity: cover.local_technique_porte
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 37%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.local_technique_porte
+        type: image
+      - entity: cover.local_technique_porte
+        icon: 'mdi:stop'
+        style:
+          left: 42%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.local_technique_porte
+        type: icon
+      - entity: cover.local_technique_porte
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 47%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.local_technique_porte
+        type: image
+      - entity: cover.garage_porte
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 60%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.garage_porte
+        type: image
+      - entity: cover.garage_porte
+        icon: 'mdi:stop'
+        style:
+          left: 65%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.garage_porte
+        type: icon
+      - entity: cover.garage_porte
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 70%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.garage_porte
+        type: image
+      - entity: cover.garage_fenetre
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 87%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.garage_fenetre
+        type: image
+      - entity: cover.garage_fenetre
+        icon: 'mdi:stop'
+        style:
+          left: 92%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.garage_fenetre
+        type: icon
+      - entity: cover.garage_fenetre
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 97%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.garage_fenetre
+        type: image
+    image: /local/Floor0V.PNG
+    type: picture-elements
+type: vertical-stack

@@ -1,0 +1,111 @@
+---
+icon: 'mdi:server'
+title: Synology Status
+cards:
+
+  - cards:
+      - content: ' '
+        title: Syno global
+        type: markdown
+      - entity: sensor.memory_usage_real
+        graph: line
+        hours_to_show: 48
+        line_color: '#039be5'
+        name: Memory Usage
+        type: sensor
+      - cards:
+          - entity: sensor.network_down
+            graph: line
+            hours_to_show: 48
+            line_color: '#039be5'
+            name: Download
+            type: sensor
+          - entity: sensor.network_up
+            graph: line
+            hours_to_show: 48
+            line_color: '#039be5'
+            name: Upload
+            type: sensor
+        type: horizontal-stack
+
+    type: vertical-stack
+  - cards:
+      - content: ' '
+        title: CPU Usage
+        type: markdown
+      - entities:
+          - sensor.cpu_load_total
+          - sensor.cpu_load_system
+          - sensor.cpu_load_user
+          - sensor.cpu_load_other
+        type: 'custom:mini-graph-card'
+    type: vertical-stack
+  - cards:
+      - content: ' '
+        title: Disk Temperatures
+        type: markdown
+      - cards:
+          - entity: sensor.temperature_sda
+            graph: line
+            hours_to_show: 48
+            icon: 'mdi:harddisk'
+            line_color: '#039be5'
+            name: SDC
+            type: sensor
+          - entity: sensor.temperature_sdb
+            graph: line
+            hours_to_show: 48
+            icon: 'mdi:harddisk'
+            line_color: '#039be5'
+            name: SDC
+            type: sensor
+        type: horizontal-stack
+      - cards:
+          - entity: sensor.temperature_sdc
+            graph: line
+            hours_to_show: 48
+            icon: 'mdi:harddisk'
+            line_color: '#039be5'
+            name: SDC
+            type: sensor
+          - entity: sensor.temperature_sdd
+            graph: line
+            hours_to_show: 48
+            icon: 'mdi:harddisk'
+            line_color: '#039be5'
+            name: SDC
+            type: sensor
+        type: horizontal-stack
+
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: sensor.total_size_volume_1
+            name: Available Space
+          - entity: sensor.used_space_volume_1
+            name: Used Space
+        title: Disk Space
+        type: entities
+      - entity: sensor.volume_used_volume_1
+        title: Volume Use
+        type: gauge
+
+    type: vertical-stack
+  - cards:
+      - entities:
+          - sensor.status_sda
+          - sensor.status_sdb
+          - sensor.status_sdc
+          - sensor.status_sdd
+        title: Disk Status
+        type: entities
+
+    type: horizontal-stack
+  - entities:
+      - sensor.status_smart_sda
+      - sensor.status_smart_sdb
+      - sensor.status_smart_sdc
+      - sensor.status_smart_sdd
+
+    title: S.M.A.R.T Status
+    type: entities

@@ -1,0 +1,481 @@
+---
+cards:
+  - elements:
+      - entity: sun.sun
+        image: /local/Floor1VN.PNG
+        state_filter:
+          above_horizon: opacity(0)
+          below_horizon: opacity(100)
+        style:
+          left: 50%
+          top: 50%
+          width: 100%
+        tap_action: none
+        type: image
+      - entity: light.spots_cuisine_ilot
+        style:
+          left: 50%
+          top: 30%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.spots_cuisine
+        style:
+          left: 23%
+          top: 30%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.armoire_cuisine
+        style:
+          left: 87%
+          top: 30%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.armoire_sam
+        style:
+          left: 87%
+          top: 50%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.lampe_canape
+        style:
+          left: 87%
+          top: 68%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.armoire_tv
+        style:
+          left: 51%
+          top: 71%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.spots_living
+        hold-action: more-info
+        style:
+          left: 58%
+          top: 65%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.spots_sam
+        hold-action: more-info
+        style:
+          left: 58%
+          top: 50%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.spots_millieux
+        hold-action: more-info
+        style:
+          left: 72%
+          top: 57%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.buro
+        style:
+          left: 28%
+          top: 70%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.prise_buero_arriere
+        style:
+          left: 48%
+          top: 70%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.couloir_1er
+        hold-action: more-info
+        style:
+          left: 40%
+          top: 50%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.lampe_wc
+        style:
+          left: 19%
+          top: 60%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.lumiere_sam
+        hold-action: more-info
+        style:
+          left: 70%
+          top: 50%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.lampe_terrasse
+        style:
+          left: 43%
+          top: 15%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.terrasse
+        style:
+          left: 65%
+          top: 15%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.prise_sol_escalier
+        style:
+          left: 33%
+          top: 50%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: light.centre_living
+        hold-action: more-info
+        style:
+          left: 74%
+          top: 60%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: switch.rdoliving
+        style:
+          left: 82%
+          top: 25%
+        tap_action:
+          action: toggle
+        type: state-icon
+      - entity: sensor.ss_temp_1er_14
+        style:
+          left: 37%
+          top: 54%
+        type: state-label
+      - entity: binary_sensor.cuisine_la
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%
+        style:
+          left: 23%
+          top: 20%
+          width: 5%
+        type: image
+      - entity: binary_sensor.cuisinie_lm
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 42%
+          top: 20%
+          width: 5%
+        type: image
+      - entity: binary_sensor.cuisinie_rm
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 59%
+          top: 20%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.cuisinie_ra
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 78%
+          top: 20%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.living_l
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 69%
+          top: 75%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.living_r
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 79%
+          top: 75%
+          width: 5%
+        type: image
+      - color: red
+        entity: binary_sensor.buro
+        image: /local/exclamation.png
+        state_filter:
+          'off': opacity(1%)
+          'on': opacity(100%)
+        style:
+          left: 29%
+          top: 79%
+          width: 5%
+        type: image
+      - entity: cover.kueche_links_a
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 10%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.kueche_links_a
+        type: image
+      - entity: cover.kueche_links_a
+        icon: 'mdi:stop'
+        style:
+          left: 15%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.kueche_links_a
+        type: icon
+      - entity: cover.kueche_links_a
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 20%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.kueche_links_a
+        type: image
+      - entity: cover.kueche_links_m
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 37%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.kueche_links_m
+        type: image
+      - entity: cover.kueche_links_m
+        icon: 'mdi:stop'
+        style:
+          left: 42%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.kueche_links_m
+        type: icon
+      - entity: cover.kueche_links_m
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 47%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.kueche_links_m
+        type: image
+      - entity: cover.kueche_rechts_m
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 60%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.kueche_rechts_m
+        type: image
+      - entity: cover.kueche_rechts_m
+        icon: 'mdi:stop'
+        style:
+          left: 65%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.kueche_rechts_m
+        type: icon
+      - entity: cover.kueche_rechts_m
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 70%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.kueche_rechts_m
+        type: image
+      - entity: cover.kueche_rechts_a
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 87%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.kueche_rechts_a
+        type: image
+      - entity: cover.kueche_rechts_a
+        icon: 'mdi:stop'
+        style:
+          left: 92%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.kueche_rechts_a
+        type: icon
+      - entity: cover.kueche_rechts_a
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 97%
+          top: 5%
+          width: 5%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.kueche_rechts_a
+        type: image
+      - entity: cover.buero
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 27%
+          top: 90%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.buero
+        type: image
+      - entity: cover.buero
+        icon: 'mdi:stop'
+        style:
+          left: 32%
+          top: 90%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.buero
+        type: icon
+      - entity: cover.buero
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 37%
+          top: 90%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.buero
+        type: image
+      - entity: cover.living
+        image: /local/arrow-up.png
+        state_filter:
+          closed: opacity(100%)
+          open: opacity(25%)
+        style:
+          left: 70%
+          top: 90%
+        tap_action:
+          action: call-service
+          service: cover.open_cover
+          service_data:
+            entity_id: cover.living
+        type: image
+      - entity: cover.living
+        icon: 'mdi:stop'
+        style:
+          left: 75%
+          top: 90%
+        tap_action:
+          action: call-service
+          service: cover.stop_cover
+          service_data:
+            entity_id: cover.living
+        type: icon
+      - entity: cover.living
+        image: /local/arrow-down.png
+        state_filter:
+          closed: opacity(25%)
+          open: opacity(100%)
+        style:
+          left: 80%
+          top: 90%
+        tap_action:
+          action: call-service
+          service: cover.close_cover
+          service_data:
+            entity_id: cover.living
+        type: image
+    image: /local/Floor1V.PNG
+    type: picture-elements
+type: vertical-stack

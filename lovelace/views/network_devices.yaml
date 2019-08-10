@@ -1,0 +1,41 @@
+---
+icon: 'mdi:network'
+title: Network Devices
+cards:
+
+  - entities:
+      - entity: device_tracker.aplocaltechnique
+        name: Cave
+      - entity: device_tracker.apbureau
+        name: Living
+      - entity: device_tracker.apchambrearr
+        name: Deuxième
+    title: Access Points
+    type: glance
+  - cards:
+      - content: ' '
+        title: Speedtest
+        type: markdown
+      - entity: sensor.speedtest_ping
+        hours_to_show: 48
+        line_color: '#039be5'
+        name: Ping
+        type: sensor
+      - cards:
+          - entity: sensor.speedtest_download
+            hours_to_show: 48
+            line_color: '#039be5'
+            name: Down
+            type: sensor
+          - entity: sensor.speedtest_upload
+            hours_to_show: 48
+            line_color: '#039be5'
+            name: UP
+            type: sensor
+        type: horizontal-stack
+    type: vertical-stack
+  - entities:
+      - entity: device_tracker.ipaddeadonno
+        name: iPad
+    title: Tablettes
+    type: glance

@@ -1,0 +1,23 @@
+---
+badges: []
+title: cameras
+icon: mdi:camera
+cards:
+  - camera_view: live
+    entity: camera.entree
+    type: picture-entity
+  - camera_view: live
+    entity: camera.reserve
+    type: picture-entity
+  - camera_view: live
+    entity: camera.erika
+    type: picture-entity
+  - camera_view: live
+    entity: camera.technique
+    type: picture-entity
+  - camera_view: live
+    entity: camera.garage
+    type: picture-entity
+  - camera_view: live
+    entity: camera.garagef
+    type: picture-entity

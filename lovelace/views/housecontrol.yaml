@@ -1,0 +1,15 @@
+---
+icon: 'mdi:wrench'
+badges: []
+cards:
+
+  - entity: sensor.saltlevel
+    max: 0.45
+    min: 0.03
+    name: Salt Level
+    severity:
+      green: 0
+      red: 0.38
+      yellow: 0.26
+    theme: default
+    type: gauge

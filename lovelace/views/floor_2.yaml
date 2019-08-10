@@ -1,0 +1,168 @@
+---
+cards:
+  - !include ../sections/radio.yaml
+  - entities:
+      - entity: cover.2ieme_etage
+        icon: 'mdi:numeric-2-box-multiple-outline'
+        name: Global
+      - label: Kinder
+        style:
+          height: 3px
+        type: section
+      - entity: cover.chac_enfant_route
+        icon: 'mdi:format-align-justify'
+        name: Rolladen Strasse
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.chac_av
+        name: Fenter Strasse
+      - entity: cover.chac_enfant_arriere
+        icon: 'mdi:format-align-justify'
+        name: Hinten
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.chac_ar
+        name: Fenster
+      - label: Eltern
+        style:
+          height: 3px
+        type: section
+      - entity: cover.chac_parents
+        icon: 'mdi:format-align-justify'
+        name: Schlafzimmer
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.chac_parents
+        name: Fenster
+      - entity: cover.sdb_parents
+        icon: 'mdi:format-align-justify'
+        name: Badezimmer
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.sdb_p
+        name: Fenster
+    id: rol2ndfloor
+    title: Rolladen
+    type: entities
+  - cards:
+      - entities:
+          - id: section front
+            label: Front
+            style:
+              height: 3px
+            type: section
+          - entity: light.chambre_av
+            icon: 'mdi:ceiling-light'
+            id: lightchambreva
+            name: Licht
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.prise_ch_enfant_av
+            icon: 'mdi:power-socket-eu'
+            name: Steckdose
+          - label: Hinten
+            style:
+              height: 3px
+            type: section
+          - entity: light.chambre_ar
+            icon: 'mdi:ceiling-light'
+            name: Licht
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.prise_ch_enfant_arr
+            icon: 'mdi:sofa'
+            name: Steckdose
+        icon: ceiling-light
+        title: Kinder
+        type: entities
+    id: kinder2nd
+    type: vertical-stack
+  - cards:
+      - entities:
+          - label: Schlafzimmer
+            style:
+              height: 3px
+            type: section
+          - entity: light.spots_parents
+            icon: 'mdi:spotlight-beam'
+            name: Spots
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.led_parents
+            icon: 'mdi:led-strip'
+            name: LED
+          - entity: light.mirroir_parents
+            icon: 'mdi:tablet'
+            name: Coiffeuse
+          - entity: light.lit_d
+            icon: 'mdi:wall-sconce'
+            name: Andrea
+          - entity: light.lit_g
+            icon: 'mdi:wall-sconce'
+            name: Rina
+          - label: Dressing
+            style:
+              height: 3px
+            type: section
+          - entity: light.dressing
+            icon: 'mdi:ceiling-light'
+            name: Licht
+            type: 'custom:slider-entity-row'
+          - entity: light.led_dressing
+            icon: 'mdi:led-strip'
+            name: LED
+          - label: Badezimmer
+            style:
+              height: 3px
+            type: section
+          - entity: light.spots_sdb_p
+            icon: 'mdi:ceiling-light'
+            name: Licht
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.spots_douche_p
+            icon: 'mdi:shower-head'
+            name: Dusche
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.led_sdb_p
+            icon: 'mdi:led-strip'
+            name: LED
+          - entity: light.mirroir_sdb_p
+            icon: 'mdi:tablet'
+            name: Spiegel
+        icon: ceiling-light
+        title: Eltern
+        type: entities
+    id: eltern2nd
+    type: vertical-stack
+  - cards:
+      - entities:
+          - entity: light.lumiere_sdb_e
+            icon: 'mdi:ceiling-light'
+            name: Licht
+          - entity: light.mirroir_sdb_enfants
+            icon: 'mdi:tablet'
+            name: Spiegel
+        title: Badezimmer Kinder
+        type: entities
+
+    type: vertical-stack
+  - entities:
+      - entity: light.couloir_2e
+        name: Flur
+      - entity: light.spots_escalier_1_2
+        icon: 'mdi:stairs'
+        name: 1-2
+      - entity: light.spots_escalier_2_3
+        icon: 'mdi:stairs'
+        name: 2-3
+
+    title: Licht
+    type: entities
+  - entities:
+      - sensor.eltern
+      - sensor.kind1
+      - sensor.kind2
+      - sensor.sdb_eltern
+    name: 1st Floor
+    type: 'custom:mini-graph-card'
+icon: 'mdi:numeric-2-box-multiple-outline'
+id: 3
+title: 2nd

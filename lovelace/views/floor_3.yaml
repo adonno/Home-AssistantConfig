@@ -1,0 +1,22 @@
+---
+cards:
+  - !include ../sections/radio.yaml
+  - cards:
+      - entities:
+          - entity: light.escalier_lumieres_centrale
+            icon: 'mdi:ceiling-light'
+            name: Escalier
+          - entity: light.combles
+            icon: 'mdi:spotlight-beam'
+            name: Speicher
+          - entity: light.local_technique
+            icon: 'mdi:water-pump'
+            name: Technik
+        icon: ceiling-light
+        title: Licht
+        type: entities
+
+    type: vertical-stack
+icon: 'mdi:numeric-3-box-multiple-outline'
+id: 4
+title: 3rd

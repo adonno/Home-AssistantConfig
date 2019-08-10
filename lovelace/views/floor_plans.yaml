@@ -1,0 +1,81 @@
+---
+icon: 'mdi:floor-plan'
+id: 0
+panel: true
+title: Floorplan
+cards:
+  - type: 'custom:layout-card'
+    layout: horizontal
+    cards:
+      - cards:
+          - cards:
+              - entity: binary_sensor.lave_linge
+                image: /local/lave-linge.png
+                show_name: false
+                type: picture-entity
+              - entity: binary_sensor.seche_linge
+                image: /local/seche-linge.png
+                show_name: false
+                type: picture-entity
+              - entity: binary_sensor.lave_vaisaille
+                image: /local/lave-vaiselle.png
+                show_name: false
+                type: picture-entity
+              - entity: switch.switch_ventilation_relay
+                image: /local/ventilation.png
+                show_name: false
+                tap_action:
+                  action: toggle
+                type: picture-entity
+            type: horizontal-stack
+          - card:
+              entities:
+                - entity: light.lit_d
+                  name: Andrea
+                  tap_action:
+                    action: toggle
+                - entity: light.lit_g
+                  name: Rina
+                  tap_action:
+                    action: toggle
+              type: glance
+            conditions:
+              - entity: switch.quiet_mode
+                state: 'on'
+            type: conditional
+          - camera_view: live
+            entity: camera.intercom
+            type: picture-entity
+          - entities:
+              - entity: device_tracker.iphoneadonno
+                name: Andrea
+              - entity: device_tracker.rinas_iphone
+                name: Rina
+            title: Presence
+            type: glance
+          - !include ../sections/radio.yaml
+          - cards:
+              - entities:
+                  - sensor.eingang
+                  - sensor.buero
+                  - sensor.living
+                  - sensor.kueche
+                  - sensor.kind2
+                show_header_toggle: false
+                title: Temperatures
+                type: entities
+              - entities:
+                  - sensor.flur_og
+                  - sensor.kind1
+                  - sensor.eltern
+                  - sensor.sdb_eltern
+                  - sensor.sdb_kinder
+                  - sensor.speicher
+                show_header_toggle: false
+                title: Temperatures
+                type: entities
+            type: horizontal-stack
+        type: vertical-stack
+      - !include ../floor_plans/plan_0.yaml
+      - !include ../floor_plans/plan_1.yaml
+      - !include ../floor_plans/plan_2.yaml

@@ -1,0 +1,189 @@
+---
+icon: 'mdi:numeric-1-box-multiple-outline'
+id: 2
+title: 1er
+cards:
+  - !include ../sections/radio.yaml
+  - entities:
+      ##### covers #####
+      - entity: cover.1er_etage
+        icon: 'mdi:numeric-1-box-multiple-outline'
+        name: Global
+      - label: Front
+        style:
+          height: 3px
+        type: section
+      - entity: cover.buero
+        icon: 'mdi:format-align-justify'
+        name: Buro
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.buro
+      - entity: cover.living
+        icon: 'mdi:format-align-justify'
+        name: Living
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.living_l
+      - entity: binary_sensor.living_r
+      - label: Küche
+        style:
+          height: 3px
+        type: section
+      - entity: cover.kueche_links_a
+        icon: 'mdi:format-align-justify'
+        name: Links Aussen
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.cuisine_la
+      - entity: cover.kueche_links_m
+        icon: 'mdi:format-align-justify'
+        name: Links Mitte
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.cuisinie_lm
+      - entity: cover.kueche_rechts_m
+        icon: 'mdi:format-align-justify'
+        name: Rechts Mitte
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.cuisinie_rm
+      - entity: cover.kueche_rechts_a
+        icon: 'mdi:format-align-justify'
+        name: Links Aussen
+        type: 'custom:slider-entity-row'
+      - entity: binary_sensor.cuisinie_ra
+    title: Rolladen
+    type: entities
+  - cards:
+      - entities:
+          - style:
+              background: '#62717b'
+              height: 1px
+              margin-left: auto
+              margin-right: auto
+              width: 80%
+            type: divider
+          - entity: light.centre_living
+            icon: 'mdi:ceiling-light'
+            name: Center
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.spots_living
+            icon: 'mdi:spotlight-beam'
+            name: Spots
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.lampe_canape
+            icon: 'mdi:sofa'
+            name: Couch
+          - Name: TV
+            entity: switch.armoire_tv
+            icon: 'mdi:television'
+          - entity: light.led_living
+            icon: 'mdi:led-strip'
+            name: LED
+        title: Living
+        type: entities
+      - entities:
+          - style:
+              background: '#62717b'
+              height: 1px
+              margin-left: auto
+              margin-right: auto
+              width: 80%
+            type: divider
+          - entity: light.lumiere_sam
+            icon: 'mdi:ceiling-light'
+            name: Center
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.spots_sam
+            icon: 'mdi:spotlight-beam'
+            name: Spots
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.armoire_sam
+            icon: 'mdi:file-cabinet'
+            name: Armoire
+          - entity: light.led_sam
+            icon: 'mdi:led-strip'
+            name: LED
+        title: Salle à manger
+        type: entities
+      - entities:
+          - style:
+              background: '#62717b'
+              height: 1px
+              margin-left: auto
+              margin-right: auto
+              width: 80%
+            type: divider
+          - entity: light.spots_cuisine_ilot
+            icon: 'mdi:spotlight'
+            name: Ilot
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.spots_cuisine
+            icon: 'mdi:spotlight-beam'
+            name: Cuisine
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.armoire_cuisine
+            icon: 'mdi:file-cabinet'
+            name: Armoire
+          - entity: light.led_cuisine
+            icon: 'mdi:led-strip'
+            name: LED
+        title: Cuisine
+        type: entities
+    type: vertical-stack
+  - cards:
+      - entities:
+          - style:
+              background: '#62717b'
+              height: 1px
+              margin-left: auto
+              margin-right: auto
+              width: 80%
+            type: divider
+          - entity: light.buro
+            icon: 'mdi:office'
+            name: Buro
+          - entity: light.centre_living
+            icon: 'mdi:border-vertical'
+            name: Center
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.lampe_wc
+            icon: 'mdi:toilet'
+            name: WC
+          - entity: light.spots_escalier_0_1
+            icon: 'mdi:stairs'
+            name: 0 - 1
+          - entity: light.spots_escalier_1_2
+            icon: 'mdi:stairs'
+            name: 1 - 2
+          - entity: light.couloir_1er
+            icon: 'mdi:select'
+            name: Flur
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.prise_sol_escalier
+            icon: 'mdi:pine-tree'
+            name: Weinachtbaum
+        title: Lights
+        type: entities
+    type: vertical-stack
+  - cards:
+      - content: ' '
+        title: Temperatures
+        type: markdown
+      - entities:
+          - entity: sensor.buero
+            name: Buro
+          - entity: sensor.living
+            name: Living
+        type: entities
+      - entities:
+          - sensor.buero
+          - sensor.kueche
+          - sensor.living
+        name: 1st Floor
+        type: 'custom:mini-graph-card'
+    type: vertical-stack

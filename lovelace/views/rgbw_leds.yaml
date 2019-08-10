@@ -1,0 +1,14 @@
+---
+cards:
+
+  - entities:
+      - light.blue_65
+      - light.blue_liv_35
+      - light.rgbw_liv_31
+      - light.rgbw_controller_sam_25
+      - light.rgbw_sdb_61
+    title: RGBW
+    type: entities
+icon: 'mdi:led-strip'
+id: RGBW
+title: ARGBW
