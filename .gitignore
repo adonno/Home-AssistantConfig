@@ -17,6 +17,7 @@ www/community
 custom_components
 /glances
 /node-red
+.Trash-0
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
