@@ -13,6 +13,8 @@ deps
 tts
 notebooks
 www/inside
+www/community
+custom_components
 /glances
 /node-red
 
