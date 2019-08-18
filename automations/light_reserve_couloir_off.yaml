@@ -1,0 +1,13 @@
+---
+alias: light off resreve avec couloir cave
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.cave_couloir
+    to: 'off'
+action:
+  - service: light.turn_off
+    entity_id: light.reserve
+  - service: light.turn_off
+    entity_id: light.spots_escalier_01_bis

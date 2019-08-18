@@ -1,0 +1,14 @@
+---
+alias: Light center 1er on
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.spots_sam
+    to: 'on'
+  - platform: state
+    entity_id: light.spots_living
+    to: 'on'
+action:
+  service: light.turn_on
+  entity_id: light.spots_millieux

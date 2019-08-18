@@ -1,0 +1,14 @@
+---
+sensor:
+  - platform: knx
+    name: Helligkeit Treppe oben
+    state_address: '4/2/15'
+    type: 'illuminance'
+
+
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: knx
+    state_address: '4/2/19'
+    name: Bm_flur_status
+

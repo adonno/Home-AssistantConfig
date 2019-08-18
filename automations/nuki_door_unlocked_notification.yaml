@@ -1,0 +1,22 @@
+---
+id: inform when door is unlocked or locked phones
+alias: doorstaate
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: lock.home
+action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Front Door
+      message: >
+          {% if is_state('lock.home', 'locked' ) %} Door Locked {% else %} !!Door Unlocked!! {% endif %}
+      data:
+        push:
+          badge: 0
+          category: 'lockdoor'
+# - service: notify.ios_rinas_iphone
+#   data:
+#     title: Entrée
+#     message: >
+#         {% if is_state('lock.home', 'locked' ) %} Porte Verouillée {% else %} Déverouillée!!! {% endif %}

@@ -1,0 +1,26 @@
+---
+id: light couch off
+alias: Couch an schierf owes aus
+initial_state: true
+trigger:
+  platform: time
+  at: '23:30:00'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: group.network_devices_mobile
+      state: not_home
+action:
+  - service: homeassistant.turn_off
+    entity_id: switch.lampe_canape
+  - service: switch.turn_off
+    entity_id: switch.armoire_sam
+  - service: switch.turn_off
+    entity_id: switch.prise_sol_escalier
+  - service: switch.turn_on
+    entity_id: switch.armoire_cuisine
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Light
+      message: Switching off lights

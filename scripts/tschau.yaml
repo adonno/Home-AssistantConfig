@@ -1,0 +1,22 @@
+---
+tschau:
+  alias: tschau
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.armoire_tv
+          - switch.rdoliving
+          - switch.rdochparents
+          - switch.terrasse
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.cave
+        position: 0
+    - delay:
+        seconds: 3
+    - service: light.turn_on
+      entity_id: light.cave_couloir

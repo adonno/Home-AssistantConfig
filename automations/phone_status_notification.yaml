@@ -1,0 +1,46 @@
+---
+id: Phone Stat notifications
+alias: Notify about phone state
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: sensor.phone
+action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Phone
+      message: "{% if is_state(\"sensor.phone\", \"idle\") %}\n  Phone is idle\n{%\
+        \ elif is_state(\"sensor.phone\", \"dialing\") %}\n  Calling {{ states.sensor.phone.attributes.to_name\
+        \ }} ({{ states.sensor.phone.attributes.to }})\n{% elif is_state(\"sensor.phone\"\
+        , \"ringing\") %}\n  Incoming call from {{ states.sensor.phone.attributes.from_name\
+        \ }} ({{ states.sensor.phone.attributes.from }})\n{% else %}\n  Talking to\
+        \ {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with\
+        \ }})\n{% endif %}"
+  - service: notify.rinas_iphone
+    data:
+      title: Phone
+      message: "{% if is_state(\"sensor.phone\", \"idle\") %}\n  Phone is idle\n{%\
+        \ elif is_state(\"sensor.phone\", \"dialing\") %}\n  Calling {{ states.sensor.phone.attributes.to_name\
+        \ }} ({{ states.sensor.phone.attributes.to }})\n{% elif is_state(\"sensor.phone\"\
+        , \"ringing\") %}\n  Incoming call from {{ states.sensor.phone.attributes.from_name\
+        \ }} ({{ states.sensor.phone.attributes.from }})\n{% else %}\n  Talking to\
+        \ {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with\
+        \ }})\n{% endif %}"
+  - service: tts.google_translate_say
+    entity_id: media_player.chromecast_messages
+    data_template:
+      message: "{% if is_state(\"sensor.phone\", \"ringing\")  %}\n   Appel entrant\
+        \ de {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from\
+        \ }})\n{% endif %}"
+      language: fr
+# - service: media_player.volume_set
+#   data_template:
+#     entity_id: media_player.chromecastkeller
+#     volume_level: 0.5
+# - service: media_player.volume_set
+#   data_template:
+#     entity_id: media_player.chromecastchparents
+#     volume_level: 0.5
+
+#########################################################################################################

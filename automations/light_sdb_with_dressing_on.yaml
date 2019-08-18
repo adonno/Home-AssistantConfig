@@ -1,0 +1,21 @@
+---
+alias: light on SDB P avec Dressing
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: light.Dressing
+    to: 'on'
+
+condition:
+  condition: or
+  conditions:
+    - condition: time
+      after: '06:00:00'
+      before: '08:00:00'
+    - condition: time
+      after: '22:00:00'
+      before: '00:00:00'
+
+action:
+  service: light.turn_on
+  entity_id: light.mirroir_sdb_p

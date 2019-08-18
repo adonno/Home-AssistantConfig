@@ -1,0 +1,15 @@
+---
+alias: light on LED Dressing
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.Dressing
+    to: 'on'
+condition:
+  condition: time
+  after: '07:00:00'
+  before: '23:00:00'
+action:
+  - service: light.turn_on
+    entity_id: light.led_dressing

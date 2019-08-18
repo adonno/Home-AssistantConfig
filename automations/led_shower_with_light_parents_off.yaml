@@ -1,0 +1,12 @@
+---
+id: Led_sdb_parentsOff
+alias: eteindre led sdb Parents
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.spots_douche_p
+    to: 'off'
+action:
+  - service: light.turn_off
+    entity_id: light.LED_SDB_P

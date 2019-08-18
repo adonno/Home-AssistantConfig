@@ -1,0 +1,34 @@
+---
+id: Fire Alarm
+alias: Trigger fire alarm when smoke detected
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: binary_sensor.smoke_sensor_1er_13
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.smoke_sensor_2eme_15
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.smoke_sensor_rdc_17
+    to: 'on'
+action:
+  - service: notify.ios_iphoneadonno
+    data_template:
+      title: '*BRAND alarm!*'
+      message: "Firealarm um: {% for state in states.binary_sensor -%}\n  {% if state.state\
+        \ == 'on' and state.name != 'Wasmachine' and state.name != 'Ping to Vera'\
+        \ %}\n    {{ state.name }}\n  {%- endif -%}\n{% endfor %}\n"
+  - service: light.turn_on
+    entity_id: group.all_lights
+  - service: tts.google_translate_say
+    entity_id: media_player.chromecast_messages
+    data:
+      message: Feuer! Verlasst das Haus!
+      language: de
+  - service: tts.google_translate_say
+    entity_id: media_player.chromecast_messages
+    data:
+      message: Incendie Detecté! Quittez la maison!
+      language: fr

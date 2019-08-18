@@ -1,0 +1,13 @@
+---
+id: Nuki battery low
+alias: Nuki battery low
+initial_state: true
+hide_entity: true
+trigger:
+  platform: template
+  value_template: "{{ states.lock.home.attributes.battery_critical == 'true' }}"
+action:
+  - service: notify.ios_iphoneadonno
+    data_template:
+      title: Nuki Battery Warning
+      message: Nuki battery level critical. Please replace batteries

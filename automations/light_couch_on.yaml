@@ -1,0 +1,36 @@
+---
+id: light couch on
+alias: Couch an schierf owes Un
+initial_state: true
+trigger:
+  platform: numeric_state
+  entity_id: sun.sun
+  value_template: '{{ state.attributes.elevation }}'
+  below: -1
+condition:
+  condition: and
+  conditions:
+    # - condition: state
+    #   entity_id: group.network_devices_mobile
+    #   state: not_home
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+action:
+  - service: homeassistant.turn_on
+    entity_id: switch.lampe_canape
+  - service: switch.turn_on
+    entity_id: switch.armoire_sam
+  - service: switch.turn_on
+    entity_id: switch.prise_sol_escalier
+  - service: switch.turn_on
+    entity_id: switch.armoire_cuisine
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Light
+      message: Switching on light living
+  - service: frontend.set_theme
+    data:
+      name: darkcyan
+  - service: switch.turn_off
+    entity_id: switch.day_night

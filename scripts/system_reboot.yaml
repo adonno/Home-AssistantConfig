@@ -1,0 +1,5 @@
+---
+reboothouse:
+  alias: neustart
+  sequence:
+    - service: homeassistant.restart

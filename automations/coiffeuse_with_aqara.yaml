@@ -1,0 +1,14 @@
+---
+id: coiffeuse_with_aqaura
+alias: couffeurs light on
+initial_state: true
+hide_entity: true
+trigger:
+  platform: event
+  event_type: deconz_event
+  event_data:
+    id: switch_rina
+    event: 1002
+action:
+  - service: light.toggle
+    entity_id: light.mirroir_parents

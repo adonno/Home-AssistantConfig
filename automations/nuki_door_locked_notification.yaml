@@ -1,0 +1,15 @@
+---
+id: inform when door is unlocked or locked speakers
+alias: doorstaate2
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: lock.home
+action:
+  - service: tts.google_translate_say
+    entity_id: media_player.chromecast_messages
+    data_template:
+      message: >
+          {% if is_state('lock.home', 'locked' )  %} Porte Verouillée {% else %}Attention! Porte déverouillée!
+          {% endif %}
+      language: fr

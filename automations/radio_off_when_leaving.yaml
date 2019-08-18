@@ -1,0 +1,30 @@
+---
+alias: Radio off when leaving home
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: device_tracker.rinas_iphone
+    from: home
+    to: not_home
+  - platform: state
+    entity_id: device_tracker.iphoneadonno
+    from: home
+    to: not_home
+condition:
+  condition: state
+  entity_id: group.network_devices_mobile
+  state: not_home
+action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Goodbye
+      message: Goodbye
+  - service: light.turn_off
+    entity_id: light.hall_entree
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.chromecastkeller
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.chromecastchparents

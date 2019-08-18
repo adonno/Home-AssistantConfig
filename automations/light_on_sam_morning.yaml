@@ -1,0 +1,35 @@
+---
+id: light sam on morning
+alias: light sam on morning
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: light.mirroir_sdb_p
+    to: 'off'
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      after: 06:00:00
+      before: 08:00:00
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: sun
+      before: sunrise
+action:
+  - service: light.turn_on
+    entity_id: light.lumiere_sam
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.chromecastkeller
+      volume_level: 0.3
+  - delay: '00:00:10'
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.chromecastkeller
+      media_content_id: http://sc-eldolive.newmedia.lu/;stream.mp3
+      media_content_type: audio/mp4

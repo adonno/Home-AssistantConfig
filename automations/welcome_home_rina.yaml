@@ -1,0 +1,17 @@
+---
+id: Welcome Home Rina
+alias: welcome home Rina
+trigger:
+  - platform: state
+    entity_id: device_tracker.rinas_iphone
+    to: home
+condition:
+  - condition: time
+    after: 08:00:00
+    before: '20:00:00'
+action:
+  - service: tts.google_translate_say
+    entity_id: media_player.chromecast_messages
+    data:
+      message: Bienvenue. Rina
+      language: fr

@@ -1,0 +1,19 @@
+---
+alias: light on couloir avec reserve cave
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.cave_couloir
+    to: 'on'
+condition:
+  - condition: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 10
+
+action:
+  - service: light.turn_on
+    entity_id: light.reserve
+  - service: light.turn_on
+    entity_id: light.spots_escalier_01_bis

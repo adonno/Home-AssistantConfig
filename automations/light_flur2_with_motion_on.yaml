@@ -1,0 +1,15 @@
+---
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: binary_sensor.bm_flur_status
+    to: 'on'
+condition:
+  - condition: time
+    after: '07:00:00'
+    before: '22:00:00'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.couloir_2e
+      brightness: 100

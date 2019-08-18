@@ -1,0 +1,18 @@
+---
+id: Led_sdb_parents_on
+alias: allumer led sdb Parents
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.spots_douche_p
+    to: 'on'
+action:
+  - service: light.turn_on
+    entity_id: light.LED_SDB_P
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    entity_id: light.brightness_62
+  - service: light.turn_on
+    entity_id: light.rgbw_sdb_61

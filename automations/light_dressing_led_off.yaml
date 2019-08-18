@@ -1,0 +1,15 @@
+---
+alias: light off LED Dressing
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: state
+    entity_id: light.dressing
+    to: 'off'
+condition:
+  condition: state
+  entity_id: light.dressing
+  state: 'off'
+action:
+  service: light.turn_off
+  entity_id: light.led_dressing

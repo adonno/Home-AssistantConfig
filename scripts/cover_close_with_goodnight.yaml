@@ -1,0 +1,59 @@
+---
+# rollo_close_gn:
+#   alias: rollo close at goodnight
+#   sequence:
+#     - service: notify.ios_iphoneadonno
+#       data:
+#         title: "Closing Binds"
+#         message: Closing blinds
+#         data:
+#           push:
+#             badge: 0
+#             category: 'rollo'
+# ############cave#
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.cave
+#         position: 0
+# #############1er#
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.kueche_links_a
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.kueche_links_m
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.kueche_rechts_m
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.kueche_rechts_a
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id:  cover.living
+#         position: 45
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.buero
+#         position: 22
+# ############2eme#
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.chac_enfant_route
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.chac_enfant_arriere
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.sdb_parents
+#         position: 22
+#     - service: cover.set_cover_position
+#       data:
+#         entity_id: cover.chac_parents
+#         position: 10

@@ -1,0 +1,14 @@
+---
+id: Frontend day mode
+alias: frontend day mode
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: time
+    at: 07:00:00
+action:
+  - service: frontend.set_theme
+    data:
+      name: default
+  - service: switch.turn_on
+    entity_id: switch.day_night

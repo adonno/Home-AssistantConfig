@@ -1,0 +1,13 @@
+---
+id: ios_lock_door
+alias: 'lock door io app'
+initial_state: true
+hide_entity: true
+trigger:
+  platform: event
+  event_type: ios.notification_action_fired
+  event_data:
+    actionName: LOCK_DOOR
+action:
+  - service: lock.lock
+    entity_id: lock.home

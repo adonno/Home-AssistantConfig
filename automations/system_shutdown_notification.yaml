@@ -1,0 +1,13 @@
+---
+id: Hass Shutdown Notification
+alias: Hass Shutdown Notification
+initial_state: true
+hide_entity: true
+trigger:
+  - platform: homeassistant
+    event: shutdown
+action:
+  service: notify.ios_iphoneadonno
+  data:
+    title: Shutdown Warning
+    message: Hassio shutdown

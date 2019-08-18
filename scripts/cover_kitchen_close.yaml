@@ -1,0 +1,8 @@
+---
+zuhi:
+  alias: zuhi
+  sequence:
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.cuisine
+        position: 22

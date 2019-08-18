@@ -1,0 +1,15 @@
+---
+alias: weeklysnapshot
+initial_state: true
+id: weeklysnapshot
+trigger:
+  - platform: time
+    at: 03:00:00
+condition:
+  - condition: time
+    weekday:
+      - sun
+action:
+  - service: hassio.snapshot_full
+    data_template:
+      name: Automated Backup {{ now().strftime('%Y-%m-%d') }}

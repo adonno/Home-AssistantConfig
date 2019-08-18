@@ -54,27 +54,21 @@ cards:
             title: Presence
             type: glance
           - !include ../sections/radio.yaml
-          - cards:
-              - entities:
-                  - sensor.eingang
-                  - sensor.buero
-                  - sensor.living
-                  - sensor.kueche
-                  - sensor.kind2
-                show_header_toggle: false
-                title: Temperatures
-                type: entities
-              - entities:
-                  - sensor.flur_og
-                  - sensor.kind1
-                  - sensor.eltern
-                  - sensor.sdb_eltern
-                  - sensor.sdb_kinder
-                  - sensor.speicher
-                show_header_toggle: false
-                title: Temperatures
-                type: entities
-            type: horizontal-stack
+          - type: custom:banner-card
+            heading: "Temperatures"
+            row_size: 4
+            entities:
+              - sensor.eingang
+              - sensor.buero
+              - sensor.living
+              - sensor.kueche
+              - sensor.kind2
+              - sensor.flur_og
+              - sensor.kind1
+              - sensor.eltern
+              - sensor.sdb_eltern
+              - sensor.sdb_kinder
+              - sensor.speicher
         type: vertical-stack
       - !include ../floor_plans/plan_0.yaml
       - !include ../floor_plans/plan_1.yaml

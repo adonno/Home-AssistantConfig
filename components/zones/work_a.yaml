@@ -1,5 +1,0 @@
----
-name: Kadaster
-latitude: !secret latitude_kad
-longitude: !secret longitude_kad
-icon: mdi:worker

@@ -1,0 +1,50 @@
+---
+wood:
+  primary-color: "#6B3A1F"
+  disabled-text-color: "#A58456"
+  divider-color: "#EDE4D8"   # "rgba(255, 255, 255, 0.15)"
+  dark-primary-color: "#592A13"
+
+  primary-background-color: "#C4AD92"
+  primary-text-color: "#FFFFFF"
+  secondary-background-color: "#675335"
+  secondary-text-color: "#6B3A1F"
+  text-primary-color: "#693A23"
+
+  label-badge-background-color: "var(--primary-background-color)"
+  label-badge-text-color: "var(--text-primary-color)"
+
+  paper-card-background-color: "#A58456"
+  paper-grey-50: "#6B3A1F"
+  paper-grey-200: "#DDD4C8"
+  paper-item-icon-color: "#6B3A1F"
+  paper-listbox-background-color: "#A58456"
+  paper-listbox-color: "#6B3A1F"
+
+  paper-card-header-color: "#EDE4D8"
+
+  paper-item-icon-active-color: "#F7C02A"
+  paper-item-icon_-_color: "#FF00FF"
+
+  paper-slider-active-color: "#A56521"
+  paper-slider-knob-color: "#A56521"
+  paper-slider-knob-start-color: "#6B3A1F"
+  paper-slider-pin-color: "#FF00FF"
+  paper-slider-secondary-color: "#A06020"
+
+  paper-toggle-button-checked-ink-color: "#A56521"
+  paper-toggle-button-checked-button-color: "#A56521"
+  paper-toggle-button-checked-bar-color: "#EDE4D8"
+  paper-toggle-button-unchecked-bar-color: "#EDE4D8"
+
+  table-row-background-color: "#A58456"
+  table-row-alternative-background-color: "#C67A2E"
+
+  google-red: "#A56521"
+  google-green: "#A58456"
+  google-blue: "#268BD2"
+  google-yellow: "#6B3A1F"
+  accent-color: "#EDE4D8"
+  paper-green: "#A58456"
+  paper-blue: "#268BD2"
+  paper-orange: "#EDE4D8"

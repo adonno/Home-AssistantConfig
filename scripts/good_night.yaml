@@ -1,0 +1,31 @@
+---
+good_night:
+  alias: good night
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.armoire_cuisine
+          - switch.armoire_tv
+          - switch.lampe_canape
+          - switch.armoire_sam
+          - switch.rdoliving
+          - switch.prise_sol_escalier
+          - switch.rdochparents
+          - switch.terrasse
+    - delay:      # supports milliseconds, seconds, minutes, hours, days
+        seconds: 3
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.lit_d
+          - light.lit_g
+          - light.spots_escalier_1_2
+    - service: automation.trigger
+      data:
+        entity_id: automation.fermer_jalousies_au_soir
+    - service: lock.lock
+      entity_id: lock.home

@@ -1,0 +1,10 @@
+---
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: binary_sensor.bm_flur_status
+    to: 'off'
+action:
+  - service: light.turn_off
+    entity_id: light.couloir_2e
+

@@ -1,0 +1,20 @@
+---
+id: Welcome Home Andrea
+alias: welcome home Andrea
+trigger:
+  - entity_id: device_tracker.iphoneadonno
+    platform: state
+    to: home
+condition:
+  - after: 08:00:00
+    before: '20:00:00'
+    condition: time
+  - condition: state
+    entity_id: device_tracker.rinas_iphone
+    state: not home
+action:
+  - data:
+      language: en
+      message: Welcome home. Andrea!
+    entity_id: media_player.chromecast_messages
+    service: tts.google_translate_say

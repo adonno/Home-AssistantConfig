@@ -1,0 +1,30 @@
+---
+# The Home Assistant for iOS app offers a companion app for iOS which
+# is deeply integrated into both Home Assistant and iOS.
+#
+# https://www.home-assistant.io/components/ios/
+# https://www.home-assistant.io/docs/ecosystem/ios/
+#
+ios:
+  push:
+    categories:
+      - name: 'rollo'
+        identifier: 'rollo'
+        actions:
+          - identifier: 'STOP_ROLLO'
+            title: 'Stop'
+            destructive: true
+            activationMode: 'background'
+      - name: 'quiet'
+        identifier: 'quiet'
+        actions:
+          - identifier: 'QUIET_DISABLE'
+            title: 'Disable'
+            activationMode: 'background'
+      - name: 'lockdoor'
+        identifier: 'lockdoor'
+        actions:
+          - identifier: 'LOCK_DOOR'
+            title: 'Lock The Door'
+            destructive: true
+            activationMode: 'background'

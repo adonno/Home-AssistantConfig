@@ -1,0 +1,5 @@
+---
+logger:
+  default: warn
+  logs:
+    pychromecast.socket_client: fatal

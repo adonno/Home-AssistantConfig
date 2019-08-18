@@ -1,0 +1,27 @@
+---
+alias: circulation pump with lights
+initial_state: true
+id: Circulation_pump_with_lights
+trigger:
+  - platform: state
+    entity_id: light.spots_cuisine_ilot
+    to: 'on'
+  - platform: state
+    entity_id: light.mirroir_sdb_p
+    to: 'on'
+  - platform: state
+    entity_id: light.lampe_wc
+    to: 'on'
+  - platform: state
+    entity_id: light.LED_SDB_P
+    to: 'on'
+  - platform: state
+    entity_id: light.lumiere_sdb_e
+    to: 'on'
+condition:
+  - condition: time
+    after: '05:00:00'
+    before: '23:59:59'
+action:
+  - service: switch.turn_on
+    entity_id: switch.circulation_pump_relay

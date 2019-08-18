@@ -1,0 +1,14 @@
+# - id: Notify when rina leaves and arrives home
+#  alias: Notify when rina leaves and arrives home
+#  initial_state: true
+#  trigger:
+#  - platform: state
+#    entity_id: device_tracker.iphonederina
+#  action:
+#  - service: notify.ios_iphoneadonno
+#    data:
+#      title: Presence Rina
+#      message: "{% if is_state(\"device_tracker.iphonederina\", \"home\") %}\n  Rina\
+#        \ Arrived Home\n{% elif is_state(\"sensor.phone\", \"not_home\") %}\n  Rina\
+#        \ Left Home\n{% else is_state(\"sensor.phone\", \"not home\") %}\n  Rina Left\
+#        \ Home            \n{% endif %}"

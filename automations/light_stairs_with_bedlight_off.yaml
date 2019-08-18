@@ -1,0 +1,23 @@
+---
+alias: switch off Stairs with bed_light
+initial_state: true
+id: switch_off_lights_with_bedlights
+trigger:
+  - platform: state
+    entity_id: light.lit_d
+    to: 'off'
+  - platform: state
+    entity_id: light.lit_g
+    to: 'off'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: light.lit_d
+      state: 'off'
+    - condition: state
+      entity_id: light.lit_g
+      state: 'off'
+action:
+  service: light.turn_off
+  entity_id: light.spots_escalier_1_2

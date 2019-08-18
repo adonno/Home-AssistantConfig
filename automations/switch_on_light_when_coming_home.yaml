@@ -1,0 +1,28 @@
+---
+alias: Switch on lights when coming home
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: device_tracker.rinas_iphone
+    to: home
+  - platform: state
+    entity_id: device_tracker.iphoneadonno
+    to: home
+condition:
+  condition: sun
+  after: sunset
+  before_offset: '-1:00:00'
+action:
+  - service: notify.ios_iphoneadonno
+    data:
+      title: Welcome home
+      message: Welcome
+  - service: light.turn_on
+    entity_id: light.hall_entree
+  - service: light.turn_on
+    entity_id: light.lum_ext_avant
+  - delay: '00:05:00'
+  - service: light.turn_off
+    entity_id: light.hall_entree
+  - service: light.turn_off
+    entity_id: light.lum_ext_avant

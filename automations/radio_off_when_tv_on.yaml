@@ -1,0 +1,13 @@
+---
+alias: 'Fernseh un radio aus '
+initial_state: true
+trigger:
+  platform: state
+  entity_id: remote.living
+condition:
+  condition: template
+  value_template: '{{ trigger.to_state.attributes.current_activity == "Watch TV"
+    }}'
+action:
+  - service: media_player.turn_off
+    entity_id: media_player.chromecastkeller

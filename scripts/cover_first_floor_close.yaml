@@ -1,0 +1,16 @@
+---
+close1st:
+  alias: close1st
+  sequence:
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.cuisine
+        position: 22
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.buero
+        posistion: 22
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.living
+        position: 45

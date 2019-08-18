@@ -1,0 +1,7 @@
+---
+aufhi:
+  alias: aufhi
+  sequence:
+    - service: cover.open_cover
+      entity_id: cover.cuisine
+

@@ -1,0 +1,26 @@
+---
+id: light sam off morning
+alias: light sam off morning
+initial_state: true
+trigger:
+  - platform: time
+    at: 08:00:00
+  - platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 9
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+action:
+  - service: light.turn_off
+    entity_id: light.lumiere_sam
+  - service: light.turn_off
+    entity_id: light.spots_cuisine_ilot

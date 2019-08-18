@@ -1,0 +1,13 @@
+---
+id: Hass Startup Notification
+alias: Hass Startup Notification
+initial_state: true
+hide_entity: true
+trigger:
+  - event: start
+    platform: homeassistant
+action:
+  - data:
+      message: Hass restarted
+      title: Restart Hassio
+    service: notify.ios_iphoneadonno

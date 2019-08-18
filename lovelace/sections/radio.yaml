@@ -1,3 +1,11 @@
+# ---
+# type: custom:banner-card
+# heading: "Radio"
+# entities:
+#   - switch.rdoliving
+#   - input_number.volume_radio_living
+#   - switch.rdochparents
+#   - input_number.volume_radio_parents
 ---
 entities:
   - switch.rdoliving

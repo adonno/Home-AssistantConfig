@@ -1,0 +1,6 @@
+---
+open1st:
+  alias: open1st
+  sequence:
+    - service: cover.open_cover
+      entity_id: cover.1er_etage

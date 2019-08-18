@@ -1,0 +1,27 @@
+---
+erika_sleep:
+  alias: erika sleep
+  sequence:
+    - delay:  # supports milliseconds, seconds, minutes, hours, days
+        seconds: 3
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.lit_d
+          - light.lit_g
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.chac_enfant_route
+        position: 22
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.chac_enfant_arriere
+        position: 22
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.sdb_parents
+        position: 22
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.chac_parents
+        position: 10
