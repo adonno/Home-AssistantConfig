@@ -5,6 +5,7 @@
 *.db-shm
 *.db-wal
 *.pyc
+*.js
 
 # Directory (contents) ignores
 deps
@@ -14,6 +15,8 @@ tts
 notebooks
 www/inside
 www/community
+www/github
+
 custom_components
 /glances
 /node-red
@@ -46,6 +49,7 @@ core
 aircast.xml
 harmony_living.conf
 plex.conf
+www/compact-custom-header-editor.js
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
