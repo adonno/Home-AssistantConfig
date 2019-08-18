@@ -1,0 +1,13 @@
+---
+platform: nut
+name: UPS Name
+host: 192.168.1.201
+port: 3493
+alias: ups_name
+username: admin
+password: sdfh514dfsh65
+resources:
+  - ups.load
+  - ups.realpower.nominal
+  - input.voltage
+  - battery.runtime

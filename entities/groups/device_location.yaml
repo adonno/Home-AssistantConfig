@@ -1,0 +1,7 @@
+---
+Device_location:
+  name: Device Location
+  entities:
+    - device_tracker.ipaddeadonno
+    - device_tracker.iphone
+    - device_tracker.andreasapple_watch

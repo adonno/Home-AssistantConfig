@@ -1,0 +1,6 @@
+---
+platform: generic
+name: Technique
+framerate: 25
+still_image_url: !secret technique_still
+stream_source: !secret technique_stream

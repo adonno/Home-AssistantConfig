@@ -1,0 +1,170 @@
+---
+Overview1:
+  name: Overview
+  icon: mdi:eye
+  entities:
+    - group.cave_bis
+    - group.1etage_bis
+    - group.2etage_bis
+
+Cave:
+  name: cave
+  view: true
+  icon: mdi:numeric-0-box-multiple-outline
+  entities:
+    - group.rolladen_keller
+    - light.cave_couloir
+    - light.hall_entree
+    - light.garage
+    - light.reserve
+    - light.technique
+    - light.wc_cave
+    - light.lum_ext_avant
+    - light.lum_ext_arr
+    - light.spots_escalier_01_bis
+    - light.spots_escalier_01
+    - group.overview1
+    - group.residence_radio
+
+Cave_bis:
+  name: Cave
+
+  icon: mdi:numeric-0-box-multiple-outline
+  entities:
+    - group.rolladen_keller
+    - light.cave_couloir
+    - light.hall_entree
+    - light.garage
+    - light.reserve
+    - light.technique
+    - light.wc_cave
+    - light.lum_ext_avant
+    - light.lum_ext_arr
+
+1Etage:
+  name: 1Etage
+  view: true
+  icon: mdi:numeric-1-box-multiple-outline
+  entities:
+    - group.rolladen_premier
+    - group.light_living
+    - group.light_sam
+    - group.light_cuisine
+    - group.light_1er
+    - switch.prise_sol_ecalier
+    - automation.Light_center_1er_on
+    - automation.Light_center_1er_off
+    - group.overview1
+    - group.residence_radio
+
+1Etage_bis:
+  name: 1Etage
+  icon: mdi:numeric-1-box-multiple-outline
+  entities:
+    - group.rolladen_premier
+    - group.light_living
+    - group.light_sam
+    - group.light_cuisine
+    - group.light_1er
+    - switch.prise_sol_ecalier
+    - switch.Terrasse
+
+2Etage:
+  name: 2Etage
+  view: true
+  icon: mdi:numeric-2-box-multiple-outline
+  entities:
+    - group.rolladen_chambres
+    - group.chambre_parents
+    - group.sdb_parents
+    - group.chambre_enfant_avant
+    - group.chambre_enfant_arriere
+    - group.sdb_enfants
+    - group.overview1
+    - group.residence_radio
+    - light.spots_escalier_23
+    - light.couloir_2e
+
+2etage_bis:
+  name: 2Etage
+  icon: mdi:numeric-2-box-multiple-outline
+  entities:
+    - group.rolladen_chambres
+    - group.chambre_parents
+    - group.sdb_parents
+    - group.chambre_enfant_avant
+    - group.chambre_enfant_arriere
+    - group.sdb_enfants
+    - light.spots_escalier_23
+    - light.couloir_2e
+
+3Etage:
+  name: 3Etage
+  view: true
+  icon: mdi:numeric-3-box-multiple-outline
+  entities:
+    - light.spots_escalier_23
+    - light.escalier_lumieres_centrale
+    - light.combles
+
+Syno_infos:
+  name: Synology
+  view: true
+  icon: mdi:server
+  entities:
+    - group.disk_status
+    - group.Smart_status
+    - group.disk_Temperatures
+    - group.Syno_MISC
+    - group.CPU_info
+    - group.volume_info
+
+Network_devices:
+  name: Network Devices
+  view: true
+  icon: mdi:network
+  entities:
+    - group.Network_devices_router
+    - group.Network_devices_AP
+    - group.Network_devices_Tablets
+    - group.Network_devices_mobile
+    - group.Network_devices_PCs
+    - group.Network_devices_misc
+
+# default_view:
+welcome:
+  view: true
+  icon: mdi:home
+  entities:
+    - script.reboothouse
+    - input_boolean.quiet_mode
+    - group.phone
+    - sun.sun
+    - weather.dark_sky
+    - group.residence_radio
+    - group.Network_devices_mobile
+    - group.overview1
+    - automation.fermer_jalousies_au_soir
+    - automation.Open_Blinds_at_dawn
+    - automation.open_front_in_the_morning
+    - automation.open_back_in_the_afternoon
+    - group.rolladen_g
+
+Rolladen_g:
+  name: Rolladen
+  icon: mdi:window-open
+  entities:
+    - cover.cave
+    - cover.1er_etage
+    - cover.2ieme_etage
+    - cover.avant
+    - cover.arriere
+
+Rolladen:
+  view: true
+  name: Rolladen
+  icon: mdi:window-open
+  entities:
+    - group.rolladen_keller
+    - group.rolladen_premier
+    - group.rolladen_chambres

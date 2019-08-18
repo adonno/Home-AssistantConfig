@@ -1,0 +1,6 @@
+---
+platform: generic
+name: garagef
+framerate: 25
+still_image_url: !secret garage_front_still
+stream_source:  !secret garage_front_stream

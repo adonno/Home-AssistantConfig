@@ -1,0 +1,7 @@
+
+  #   platform: unifi
+  #   username: !secret unify_id
+  #   password: !secret unify_secret
+  #   site_id: !secret unify_siteid
+  #   detection_time: 240
+  #   verify_ssl: false

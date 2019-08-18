@@ -1,0 +1,11 @@
+---
+platform: fritzbox_callmonitor
+name: Phone
+username: !secret fritz_user
+password: !secret fritz_password
+phonebook: 0
+prefixes:
+  - '+49'
+  - '+4989'
+  - '089'
+  - '+352'

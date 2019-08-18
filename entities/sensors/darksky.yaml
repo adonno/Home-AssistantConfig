@@ -1,0 +1,11 @@
+---
+platform: darksky
+api_key: !secret dks_api_key
+monitored_conditions:
+  - summary
+  - icon
+  - nearest_storm_distance
+  - temperature
+  - cloud_cover
+  - humidity
+  - ozone

@@ -1,0 +1,4 @@
+---
+platform: fritz
+interval_seconds: 30
+# consider_home: 180

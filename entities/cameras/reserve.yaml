@@ -1,0 +1,6 @@
+---
+platform: generic
+name: Reserve
+framerate: 25
+still_image_url: !secret reserve_still
+stream_source: !secret reserve_stream

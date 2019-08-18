@@ -1,0 +1,6 @@
+---
+platform: generic
+name: Garage
+framerate: 25
+still_image_url: !secret garage_back_still
+stream_source: !secret garage_back_stream
