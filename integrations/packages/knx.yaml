@@ -1,7 +1,6 @@
 ---
 switch:
 
-
   - platform: knx
     name: day_night
     address: '4/2/16'
@@ -18,7 +17,6 @@ switch:
     name: Prise Arriere
     address: '1/5/2'
     state_address: '1/5/3'
-
 
     #############################
     ###  1etage
@@ -70,4 +68,3 @@ switch:
     #############################
     ###  3etage /Combles
     #############################
-

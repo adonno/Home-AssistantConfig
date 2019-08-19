@@ -5,7 +5,6 @@ sensor:
     state_address: '4/2/15'
     type: 'illuminance'
 
-
 # Example configuration.yaml entry
 binary_sensor:
   - platform: knx

@@ -19,4 +19,3 @@ views:
   - !include lovelace/views/power_usage.yaml
   - !include lovelace/views/rgbw_leds.yaml
   - !include lovelace/views/cameras.yaml
-  
