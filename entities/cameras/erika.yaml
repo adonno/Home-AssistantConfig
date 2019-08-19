@@ -3,4 +3,4 @@ platform: generic
 name: Erika
 framerate: 25
 still_image_url: !secret erika_still
-stream_source:  !secret erika_stream
+stream_source: !secret erika_stream

@@ -3,4 +3,4 @@ platform: generic
 name: Entree
 framerate: 25
 still_image_url: !secret entree_still
-stream_source:  !secret entree_stream
+stream_source: !secret entree_stream
