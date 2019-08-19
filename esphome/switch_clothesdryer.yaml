@@ -57,6 +57,6 @@ binary_sensor:
   - platform: template
     name: Seche Linge
     filters:
-      - delayed_off: 10s
+      - delayed_off: 100s
     lambda: |-
-      return id(${plug_name}_Wattage).state > 80;
+      return id(${plug_name}_Wattage).state > 8;

@@ -56,6 +56,6 @@ binary_sensor:
   - platform: template
     name: Lave Vaisaille
     filters:
-      - delayed_off: 10s
+      - delayed_off: 20s
     lambda: |-
-      return id(${plug_name}_Wattage).state > 4;
+      return id(${plug_name}_Wattage).state > 5;
