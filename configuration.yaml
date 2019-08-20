@@ -6,3 +6,6 @@ discovery:
   ignore:
     - plex_mediaserver
 knx:
+
+hacs:
+  token: !secret github_token
