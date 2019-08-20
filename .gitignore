@@ -17,7 +17,7 @@ www/inside
 www/community
 www/github
 
-custom_components
+#custom_components
 /glances
 /node-red
 .Trash-0
