@@ -1,0 +1,7 @@
+---
+washing_machine:
+  name: wahsing_machine_status
+  options:
+    - Running
+    - Idle
+    - Clean

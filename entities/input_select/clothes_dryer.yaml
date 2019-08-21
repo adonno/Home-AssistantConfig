@@ -1,0 +1,7 @@
+---
+clothes_dryer:
+  name: clothes_dryer_status
+  options:
+    - Running
+    - Idle
+    - Clean

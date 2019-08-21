@@ -1,0 +1,7 @@
+---
+postbox:
+  name: postbox_status
+  options:
+    - Mail-empty
+    - Mail
+    - Box

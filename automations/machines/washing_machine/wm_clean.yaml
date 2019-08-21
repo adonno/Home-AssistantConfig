@@ -1,0 +1,14 @@
+---
+trigger:
+  platform: state
+  entity_id: binary_sensor.lave_linge
+  to: 'off'
+condition:
+  condition: state
+  entity_id: binary_sensor.openclose_9
+  state: 'off'
+action:
+  service: input_select.select_option
+  data:
+    entity_id: input_select.washing_machine
+    option: 'Clean'

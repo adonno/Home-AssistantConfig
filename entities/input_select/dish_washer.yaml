@@ -1,0 +1,7 @@
+---
+dish_washer_status:
+  name: dish_washer_status
+  options:
+    - Running
+    - Idle
+    - Clean

@@ -1,0 +1,14 @@
+---
+trigger:
+  platform: state
+  entity_id: binary_sensor.seche_linge
+  to: 'off'
+condition:
+  condition: state
+  entity_id: binary_sensor.openclose_13
+  state: 'off'
+action:
+  service: input_select.select_option
+  data:
+    entity_id: input_select.clothes_dryer
+    option: 'Clean'
