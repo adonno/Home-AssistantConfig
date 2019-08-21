@@ -1,4 +1,6 @@
 ---
+alias: wm_clean
+hide_entity: true
 trigger:
   platform: state
   entity_id: binary_sensor.lave_linge

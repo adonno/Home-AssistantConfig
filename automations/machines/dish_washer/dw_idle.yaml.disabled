@@ -1,4 +1,6 @@
 ---
+hide_entity: true
+alias: dw_idle
 trigger:
   platform: state
   entity_id: binary_sensor.openclose_9

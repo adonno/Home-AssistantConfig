@@ -1,4 +1,6 @@
 ---
+alias: cd_idle
+hide_entity: true
 trigger:
   platform: state
   entity_id: binary_sensor.openclose_13

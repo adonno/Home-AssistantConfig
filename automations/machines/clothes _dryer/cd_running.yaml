@@ -1,4 +1,6 @@
 ---
+alias: cd_running
+hide_entity: true
 trigger:
   platform: state
   entity_id: binary_sensor.seche_linge
