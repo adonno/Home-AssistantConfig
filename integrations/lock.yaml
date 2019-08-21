@@ -1,2 +1,2 @@
 ---
-lock: !include_dir_list ../entities/lock
+lock: !include_dir_list ../entities/locks
