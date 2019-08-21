@@ -1,0 +1,93 @@
+---
+cards:
+  - type: custom:button-card
+    entity: input_select.washing_machine
+    show_state: false
+    show_icon: true
+    show_name: false
+    state:
+      - value: 'Clean'
+        icon: mdi:washing-machine
+        color: rgb(255, 0, 0)
+        styles:
+          icon:
+            - animation: blink 2s ease infinite
+      - value: 'Running'
+        icon: mdi:washing-machine
+        color: rgb(152,251,152)
+      - value: 'Idle'
+        icon: mdi:washing-machine
+        color: rgb(169,169,169)
+    tap_action:
+      action: more-info
+
+  - type: custom:button-card
+    entity: input_select.clothes_dryer
+    show_icon: true
+    show_name: false
+    state:
+      - value: 'Clean'
+        icon: mdi:tumble-dryer
+        color: rgb(255, 0, 0)
+        styles:
+          icon:
+            - animation: blink 2s ease infinite
+      - value: 'Running'
+        icon: mdi:tumble-dryer
+        color: rgb(152,251,152)
+      - value: 'Idle'
+        icon: mdi:tumble-dryer
+        color: rgb(169,169,169)
+    tap_action:
+      action: more-info
+  - type: custom:button-card
+    entity: input_select.dish_washer_status
+    show_icon: true
+    show_name: false
+    state:
+      - value: 'Clean'
+        icon: mdi:dishwasher
+        color: rgb(255, 0, 0)
+        styles:
+          icon:
+            - animation: blink 2s ease infinite
+      - value: 'Running'
+        icon: mdi:dishwasher
+        color: rgb(152,251,152)
+      - value: 'Idle'
+        icon: mdi:dishwasher
+        color: rgb(169,169,169)
+    tap_action:
+      action: more-info
+  - type: custom:button-card
+    entity: input_select.postbox
+    show_icon: true
+    show_name: false
+    state:
+      - value: 'Mail-empty'
+        icon: mdi:mailbox-outline
+        color: rgb(169,169,169)
+      - value: 'Mail'
+        icon: mdi:email-alert
+        color: rgb(255, 0, 0)
+      - value: 'Box'
+        icon: mdi:package-variant-closed
+        color: rgb(152,251,152)
+    tap_action:
+      action: more-info
+  - type: custom:button-card
+    entity: switch.switch_ventilation_relay
+    show_icon: true
+    show_name: false
+    state:
+      - value: 'on'
+        icon: mdi:fan
+        color: rgb(152,251,152)
+        spin: true
+      - value: 'off'
+        icon: mdi:fan-off
+        # color: rgb(152,251,152)
+    tap_action:
+      action: toggle
+
+type: horizontal-stack

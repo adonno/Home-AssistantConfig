@@ -8,26 +8,7 @@ cards:
     layout: horizontal
     cards:
       - cards:
-          - cards:
-              - entity: binary_sensor.lave_linge
-                image: /local/lave-linge.png
-                show_name: false
-                type: picture-entity
-              - entity: binary_sensor.seche_linge
-                image: /local/seche-linge.png
-                show_name: false
-                type: picture-entity
-              - entity: binary_sensor.lave_vaisaille
-                image: /local/lave-vaiselle.png
-                show_name: false
-                type: picture-entity
-              - entity: switch.switch_ventilation_relay
-                image: /local/ventilation.png
-                show_name: false
-                tap_action:
-                  action: toggle
-                type: picture-entity
-            type: horizontal-stack
+          - !include ../sections/machine_status.yaml
           - card:
               entities:
                 - entity: light.lit_d
