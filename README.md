@@ -10,11 +10,11 @@ view is mostly used on big 21" built-in tablets. But is also usable on mobile de
 entity and it is possible to control the state of that entity by tapping the icon.
 Please note that the scrennshots are only to give you an idea and maybe these aren't the most recent version
 
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/daymode.PNG" alt="Daymode" height="500px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Nightmode.PNG"
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page1D.PNG" alt="Daymode" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page1N.PNG"
 alt="Nightmode" height="500px"/>
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/page1.PNG" alt="Page1" height="500px" />
-<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Page2.png" alt="Page2" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Floor1D.PNG" alt="Page1" height="500px" />
+<img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/Floor1N.PNG" alt="Page2" height="500px" />
 <img src="https://github.com/adonno/Home-AssistantConfig/blob/master/docs/nas.PNG" alt="Nas" height="500px" />
 
 ## History
