@@ -5,12 +5,12 @@ trigger:
   platform: state
   entity_id: binary_sensor.lave_vaisaille
   to: 'off'
-# condition:
-#   condition: state
-#   entity_id: binary_sensor.openclose_9
-#   state: 'off'
+condition:
+  condition: state
+  entity_id: binary_sensor.openclose_14
+  state: 'on'
 action:
   service: input_select.select_option
   data:
     entity_id: input_select.dish_washer_status
-    option: 'Idle'
+    option: 'Clean'

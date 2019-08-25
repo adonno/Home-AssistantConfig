@@ -1,16 +1,16 @@
 ---
-alias: dw_running
 hide_entity: true
+alias: dw_idle
 trigger:
   platform: state
-  entity_id: binary_sensor.lave_vaisaille
-  to: 'on'
+  entity_id: binary_sensor.openclose_14
+  to: 'off'
 condition:
   condition: state
-  entity_id: binary_sensor.openclose_14
-  state: 'on'
+  entity_id: binary_sensor.lave_vaisaille
+  state: 'off'
 action:
   service: input_select.select_option
   data:
     entity_id: input_select.dish_washer_status
-    option: 'Running'
+    option: 'Idle'
