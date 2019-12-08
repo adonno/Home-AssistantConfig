@@ -45,6 +45,7 @@ www/github
 .spotify-token-cache
 .uuid
 core
+tts
 aircast.xml
 harmony_living.conf
 plex.conf
